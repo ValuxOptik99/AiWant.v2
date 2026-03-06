@@ -1,0 +1,131 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum UserRole {
+  ADMIN
+  CLIENT
+  PENDING
+}
+
+enum ProjectStatus {
+  DISCOVERY
+  IN_PROGRESS
+  REVIEW
+  COMPLETED
+  MAINTENANCE
+  PAUSED
+}
+
+enum DocumentType {
+  CONTRACT
+  ANNEX
+  INVOICE
+  REPORT
+  PROPOSAL
+  DESIGN
+  OTHER
+}
+
+enum InvoiceStatus {
+  PENDING
+  PAID
+  OVERDUE
+  CANCELLED
+}
+
+model User {
+  id            String         @id @default(cuid())
+  email         String         @unique
+  password      String
+  name          String
+  company       String?
+  phone         String?
+  role          UserRole       @default(PENDING)
+  avatar        String?
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+
+  projects      Project[]
+  notifications Notification[]
+}
+
+model Project {
+  id              String        @id @default(cuid())
+  name            String
+  description     String?
+  status          ProjectStatus @default(DISCOVERY)
+  domain          String?
+  startDate       DateTime?
+  endDate         DateTime?
+  totalValue      Float?
+  monthlyFee      Float?
+  gaPropertyId    String?
+  gaMeasurementId String?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  client       User          @relation(fields: [clientId], references: [id])
+  clientId     String
+  documents    Document[]
+  uptimeChecks UptimeCheck[]
+  milestones   Milestone[]
+}
+
+model Document {
+  id             String         @id @default(cuid())
+  name           String
+  type           DocumentType
+  fileUrl        String
+  fileSize       Int?
+  description    String?
+  invoiceNumber  String?
+  invoiceAmount  Float?
+  invoiceDueDate DateTime?
+  invoiceStatus  InvoiceStatus?
+  createdAt      DateTime       @default(now())
+
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  projectId String
+}
+
+model UptimeCheck {
+  id           String   @id @default(cuid())
+  status       String
+  responseTime Int?
+  checkedAt    DateTime @default(now())
+
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  projectId String
+
+  @@index([projectId, checkedAt])
+}
+
+model Milestone {
+  id          String    @id @default(cuid())
+  title       String
+  description String?
+  completed   Boolean   @default(false)
+  completedAt DateTime?
+  dueDate     DateTime?
+  order       Int       @default(0)
+
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  projectId String
+}
+
+model Notification {
+  id        String   @id @default(cuid())
+  title     String
+  message   String
+  read      Boolean  @default(false)
+  link      String?
+  createdAt DateTime @default(now())
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String
+}
