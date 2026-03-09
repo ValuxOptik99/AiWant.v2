@@ -17,6 +17,7 @@
     "@prisma/adapter-pg": "^7.4.2",
     "@prisma/client": "^7.4.2",
     "@types/pg": "^8.18.0",
+    "@vercel/analytics": "^1.6.1",
     "@vercel/blob": "^2.3.1",
     "bcryptjs": "^3.0.3",
     "framer-motion": "^12.35.0",
