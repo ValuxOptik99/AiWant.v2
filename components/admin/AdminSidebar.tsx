@@ -5,13 +5,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { signOut } from "next-auth/react";
-import { LayoutDashboard, Users, FolderKanban, Settings, LogOut, Menu, X, ChevronRight, ExternalLink, Shield } from "lucide-react";
+import { LayoutDashboard, Users, FolderKanban, Settings, LogOut, MessageSquare, Menu, X, ChevronRight, ExternalLink, Shield } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const NAV = [
   { label: "Dashboard", href: "/admin", icon: LayoutDashboard },
   { label: "Clienți", href: "/admin/clients", icon: Users },
   { label: "Proiecte", href: "/admin/projects", icon: FolderKanban },
+  { label: "Contacte", href: "/admin/contacts", icon: MessageSquare },
   { label: "Setări", href: "/admin/settings", icon: Settings },
 ];
 
