@@ -2,8 +2,9 @@ import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 import { UserRole } from "@prisma/client";
 import { formatDate } from "@/lib/portal-utils";
+import { CheckCircle, Clock } from "lucide-react";
 
-const ROLE_LABEL: Record<UserRole, string> = { ADMIN: "Admin", CLIENT: "Client", PENDING: "În așteptare" };
+const ROLE_LABEL: Record<UserRole, string> = { ADMIN: "Admin", CLIENT: "Client", PENDING: "In asteptare" };
 const ROLE_COLOR: Record<UserRole, string> = { ADMIN: "#3B82F6", CLIENT: "#10B981", PENDING: "#F59E0B" };
 
 type Props = { searchParams: Promise<{ role?: string; q?: string }> };
@@ -38,7 +39,7 @@ export default async function AdminClientsPage({ searchParams }: Props) {
         <table className="w-full text-sm">
           <thead>
             <tr style={{ borderBottom: "1px solid var(--color-border)", background: "var(--color-surface-warm)" }}>
-              {["Nume", "Email", "Firmă", "Rol", "Proiecte", "Înregistrat", "Acțiuni"].map((h) => (
+              {["Nume", "Email", "Firma", "Rol", "Onboarding", "Proiecte", "Inregistrat", "Actiuni"].map((h) => (
                 <th key={h} className="text-left px-5 py-3 font-semibold text-xs uppercase tracking-wide" style={{ color: "var(--color-text-secondary)" }}>{h}</th>
               ))}
             </tr>
@@ -53,6 +54,14 @@ export default async function AdminClientsPage({ searchParams }: Props) {
                   <span className="text-xs font-semibold px-2.5 py-1 rounded-full" style={{ background: ROLE_COLOR[u.role] + "18", color: ROLE_COLOR[u.role] }}>
                     {ROLE_LABEL[u.role]}
                   </span>
+                </td>
+                <td className="px-5 py-4">
+                  {u.role === "CLIENT" ? (
+                    <div className="flex items-center gap-1 text-xs" style={{ color: u.onboardingCompleted ? "#10B981" : "#F59E0B" }}>
+                      {u.onboardingCompleted ? <CheckCircle size={12} /> : <Clock size={12} />}
+                      {u.onboardingCompleted ? "Complet" : "Incomplet"}
+                    </div>
+                  ) : <span style={{ color: "var(--color-text-secondary)" }}>—</span>}
                 </td>
                 <td className="px-5 py-4 text-center" style={{ color: "var(--color-text-secondary)" }}>{u._count.projects}</td>
                 <td className="px-5 py-4" style={{ color: "var(--color-text-secondary)" }}>{formatDate(u.createdAt)}</td>

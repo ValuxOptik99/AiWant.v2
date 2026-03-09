@@ -28,7 +28,19 @@
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000)",
       "Bash(ls -la \"c:/dev/Web/aiwant.ro_v2/\"*.env* \"c:/dev/Web/aiwant.ro_v2/\".env*)",
       "Bash(npx prisma migrate dev --name init)",
-      "Bash(npx ts-node --compiler-options '{\"\"module\"\":\"\"CommonJS\"\"}' prisma/seed.ts)"
+      "Bash(npx ts-node --compiler-options '{\"\"module\"\":\"\"CommonJS\"\"}' prisma/seed.ts)",
+      "Bash(npm install @vercel/analytics)",
+      "Bash(npx prisma migrate dev --name add_contact_submissions)",
+      "Bash(sed -i 's/{ label: \"\"Setări\"\", href: \"\"\\\\/admin\\\\/settings\"\", icon: Settings },/{ label: \"\"Contacte\"\", href: \"\"\\\\/admin\\\\/contacts\"\", icon: MessageSquare },\\\\n  { label: \"\"Setări\"\", href: \"\"\\\\/admin\\\\/settings\"\", icon: Settings },/' components/admin/AdminSidebar.tsx)",
+      "Bash(sed -i 's/LayoutDashboard, Users, FolderKanban, Settings, LogOut/LayoutDashboard, Users, FolderKanban, Settings, LogOut, MessageSquare/' components/admin/AdminSidebar.tsx)",
+      "Bash(npx prisma migrate dev --name add_onboarding)",
+      "Bash(npm install canvas-confetti @types/canvas-confetti)",
+      "Bash(python3 -c \":*)",
+      "Bash(node -e \"const fs = require\\(''fs''\\); const c = fs.readFileSync\\(''c:/dev/Web/aiwant.ro_v2/app/admin/clients/[id]/page.tsx'',''utf8''\\); console.log\\(c.length, c.slice\\(0,50\\)\\)\")",
+      "Bash(npx tsx -e \":*)",
+      "Bash(node -e \"require\\(''fs''\\).writeFileSync\\(''tmp_write.js'', ''placeholder''\\)\")",
+      "Bash(node tmp_write.js)",
+      "Bash(rm tmp_write.js)"
     ]
   }
 }

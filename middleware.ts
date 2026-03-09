@@ -27,7 +27,10 @@ export default auth((req) => {
     }
   }
 
-  return NextResponse.next();
+  // Forward pathname as header so server layouts can read it
+  const response = NextResponse.next();
+  response.headers.set("x-pathname", pathname);
+  return response;
 });
 
 export const config = {

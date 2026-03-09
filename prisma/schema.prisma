@@ -39,19 +39,73 @@ enum InvoiceStatus {
 }
 
 model User {
-  id            String         @id @default(cuid())
-  email         String         @unique
-  password      String
-  name          String
-  company       String?
-  phone         String?
-  role          UserRole       @default(PENDING)
-  avatar        String?
-  createdAt     DateTime       @default(now())
-  updatedAt     DateTime       @updatedAt
+  id                   String         @id @default(cuid())
+  email                String         @unique
+  password             String
+  name                 String
+  company              String?
+  phone                String?
+  role                 UserRole       @default(PENDING)
+  avatar               String?
+  onboardingCompleted  Boolean        @default(false)
+  createdAt            DateTime       @default(now())
+  updatedAt            DateTime       @updatedAt
 
-  projects      Project[]
-  notifications Notification[]
+  projects        Project[]
+  notifications   Notification[]
+  clientProfile   ClientProfile?
+}
+
+model ClientProfile {
+  id                   String    @id @default(cuid())
+
+  // Step 1: Firma
+  companyName          String
+  companyCIF           String?
+  companyRegCom        String?
+  companyAddress       String?
+  companyCity          String?
+  companyCounty        String?
+  companyFoundedYear   Int?
+  industryDomain       String
+  companySize          String
+  companyDescription   String?
+
+  // Step 2: Prezența online
+  hasWebsite           Boolean   @default(false)
+  currentWebsiteUrl    String?
+  websitePlatform      String?
+  websiteSatisfaction  String?
+  hasSocialMedia       Boolean   @default(false)
+  socialFacebook       String?
+  socialInstagram      String?
+  socialTikTok         String?
+  socialLinkedIn       String?
+  socialOther          String?
+  usesTools            String[]
+  currentPainPoints    String?
+
+  // Step 3: Obiective
+  mainGoals            String[]
+  goalsDescription     String?
+  targetAudience       String?
+  targetAgeRange       String[]
+  targetLocation       String?
+  competitorUrls       String?
+  inspirationUrls      String?
+
+  // Step 4: Buget
+  budgetRange          String?
+  timeline             String?
+  preferredPayment     String?
+  monthlyBudgetHosting String?
+  additionalNotes      String?
+
+  completedAt          DateTime  @default(now())
+  updatedAt            DateTime  @updatedAt
+
+  user                 User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId               String    @unique
 }
 
 model Project {
