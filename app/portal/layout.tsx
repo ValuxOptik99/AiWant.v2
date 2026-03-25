@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import { headers } from "next/headers";
 import Sidebar from "@/components/portal/Sidebar";
+import Providers from "@/components/portal/Providers";
 
 export const metadata = { title: "Portal Client | AiWANT", robots: "noindex" };
 
@@ -34,15 +35,17 @@ export default async function PortalLayout({ children }: { children: React.React
   });
 
   return (
-    <div className="flex min-h-screen" style={{ background: "var(--color-surface)" }}>
-      <Sidebar
-        unreadCount={unreadCount}
-        userName={session.user.name ?? ""}
-        userEmail={session.user.email ?? ""}
-      />
-      <main className="flex-1 min-w-0 p-6 md:p-8">
-        {children}
-      </main>
-    </div>
+    <Providers>
+      <div className="flex min-h-screen" style={{ background: "var(--color-surface)" }}>
+        <Sidebar
+          unreadCount={unreadCount}
+          userName={session.user.name ?? ""}
+          userEmail={session.user.email ?? ""}
+        />
+        <main className="flex-1 min-w-0 p-6 md:p-8">
+          {children}
+        </main>
+      </div>
+    </Providers>
   );
 }
