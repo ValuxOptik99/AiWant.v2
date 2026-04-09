@@ -40,7 +40,8 @@
       "Bash(npx tsx -e \":*)",
       "Bash(node -e \"require\\(''fs''\\).writeFileSync\\(''tmp_write.js'', ''placeholder''\\)\")",
       "Bash(node tmp_write.js)",
-      "Bash(rm tmp_write.js)"
+      "Bash(rm tmp_write.js)",
+      "Bash(npm install:*)"
     ]
   }
 }

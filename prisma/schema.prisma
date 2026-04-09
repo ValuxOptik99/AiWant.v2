@@ -54,6 +54,26 @@ model User {
   projects        Project[]
   notifications   Notification[]
   clientProfile   ClientProfile?
+  blogPosts       BlogPost[]
+}
+
+model BlogPost {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  excerpt     String
+  content     String   @db.Text
+  description String
+  imageUrl    String?
+  category    String
+  published   Boolean  @default(false)
+  authorId    String
+  author      User     @relation(fields: [authorId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([slug])
+  @@index([published, createdAt])
 }
 
 model ClientProfile {
