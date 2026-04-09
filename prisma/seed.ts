@@ -260,6 +260,53 @@ async function main() {
   });
   console.log("Blog post seeded: roi-automatizare-procese");
 
+  // Blog post — Proprietate digitală vs social media
+  const proprietateContent = `
+<p>Ce se întâmplă dacă algoritmul se schimbă peste noapte și reach-ul tău organic cade cu 80%? Dacă contul este suspendat din greșeală — și echipa de suport a platformei nu răspunde în 3 săptămâni? Dacă platforma decide să îți limiteze accesul la datele clienților tăi?</p>
+<p>Acest articol explică de ce un website propriu nu este o cheltuială de marketing, ci o <strong>investiție în infrastructură critică și control operațional</strong> — fundația pe care construiești automatizarea, datele și creșterea businessului tău.</p>
+
+<h2>Cele 3 riscuri reale ale existenței doar pe Social Media</h2>
+<p><strong>Schimbarea algoritmului:</strong> Facebook, Instagram și LinkedIn modifică algoritmii de reach organic de mai multe ori pe an. O schimbare poate reduce vizibilitatea cu 60–80% fără nicio notificare prealabilă.</p>
+<p><strong>Suspendarea contului:</strong> Conturi cu ani de activitate și mii de urmăritori au fost suspendate din eroare. Recuperarea poate dura luni — timp în care businessul tău digital dispare complet.</p>
+<p><strong>Pierderea datelor clienților:</strong> Followerii tăi nu sunt ai tăi. Nu ai accesul la adresele lor de email, la comportamentul de achiziție sau la istoricul interacțiunilor. Platforma deține acele date, nu tu.</p>
+
+<h2>Social Media vs. Website propriu — față în față</h2>
+<p>Social Media = Chirie: regulile le stabilește platforma, nu dețidesailul de followeri, reach depinde de algoritm, integrări limitate, contul poate dispărea oricând.</p>
+<p>Website propriu = Proprietate: tu stabilești UX-ul și regulile, dețidesailul datelor clienților, vizibilitate prin SEO stabil, integrezi orice sistem, platforma ta nu dispare fără decizia ta.</p>
+<p>Un business solid are nevoie de o «acasă» digitală pe care nimeni nu o poate dărâma. Social media este excelentă ca amplificator — dar niciodată ca fundație.</p>
+
+<h2>Site-ul ca platformă de automatizare — nu doar vitrină</h2>
+<p>Platforma ta socială nu poate integra un CRM complex, un configurator de produse sau un dashboard de date în timp real. Un website propriu, construit corect, devine centrul de comandă al întregului tău ecosistem digital.</p>
+<p>Formulare inteligente conectate la CRM, calculatoare interactive de ROI, portale securizate pentru clienți, integrări API cu ecosistemul tău, analytics și date în timp real — toate acestea sunt posibile doar pe o platformă web proprie.</p>
+<p>Site-ul tău este «materia primă» pe care tehnologia și automatizarea o transformă în profit. Un site de prezentare este un cost. O platformă web custom este un activ care lucrează pentru tine 24/7.</p>
+
+<h2>Controlul datelor și scalabilitatea</h2>
+<p>Trăim în zorii erei post-cookie. <strong>First-party data</strong> — email-uri, comportament de navigare, preferințe de produs — colectate cu consimțământ pe platforma ta nu pot fi luate de nimeni. <strong>Third-party data</strong> de pe Facebook sau Google se reduc constant prin legislație (GDPR) și politici de browser.</p>
+<p>Un ecosistem digital funcțional este un lanț integrat: Email Marketing → Platforma ta web (hub central) → ERP / Stocuri → Plăți & Facturare. Fără o platformă web controlată, aceste conexiuni sunt imposibile sau extrem de costisitoare.</p>
+
+<hr>
+
+<p>Nu te mulțumi cu o prezență digitală fragilă construită pe terenul altcuiva. <strong>Proprietatea digitală nu este o opțiune de lux — este fundația oricărui business care vrea să crească controlat și sustenabil.</strong></p>
+`;
+
+  await prisma.blogPost.upsert({
+    where: { slug: "proprietate-digitala-vs-social-media" },
+    update: {},
+    create: {
+      title: "Ești proprietar sau chiriaș în lumea digitală?",
+      slug: "proprietate-digitala-vs-social-media",
+      excerpt:
+        "Multe companii moderne există doar pe Facebook sau Instagram. Par că au prezență digitală, dar de fapt închiriază spațiu pe terenul altcuiva. Descoperă de ce un website propriu este infrastructură critică, nu cheltuială de marketing.",
+      content: proprietateContent.trim(),
+      description:
+        "Diferența dintre a exista pe social media și a deține un hub digital propriu. De ce site-ul tău este infrastructură critică, nu cheltuială de marketing.",
+      category: "Strategie",
+      published: true,
+      authorId: admin.id,
+    },
+  });
+  console.log("Blog post seeded: proprietate-digitala-vs-social-media");
+
   console.log("Done!");
 }
 
