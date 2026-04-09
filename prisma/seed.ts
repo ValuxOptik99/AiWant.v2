@@ -166,6 +166,52 @@ async function main() {
   });
   console.log("Blog post seeded: taskuri-repetitive-automatizare");
 
+  // Blog post — SaaS vs. Custom
+  const saasContent = `
+<p>Întrebarea nu este «SaaS sau custom?». Întrebarea corectă este: <strong>la ce stadiu de creștere se află businessul tău și ce tip de software îl va duce mai departe?</strong></p>
+<p>Acest articol te ajută să înțelegi exact când un abonament lunar este o economie inteligentă — și când devine o barieră în calea scalării reale.</p>
+
+<h2>Soluțiile SaaS — «Călătoria cu Trenul»</h2>
+<p>Soluțiile SaaS (Software as a Service) sunt aplicații gata construite, accesibile prin abonament lunar. Salesforce, Trello, Monday, Notion — le cunoști. Sunt rapide de implementat, costă puțin la start și nu ai nevoie de o echipă tehnică internă.</p>
+<p><strong>Avantaje:</strong> Cost inițial mic, implementare instantanee, mentenanță inclusă, suport dedicat.</p>
+<p><strong>Dezavantaje:</strong> Rigiditate — tu te adaptezi software-ului, nu invers. Dependență de furnizor. Fragmentare — datele trăiesc în 10 aplicații care nu comunică. Costuri cumulate care depășesc rapid o soluție custom.</p>
+
+<h2>Software-ul Custom — «Construirea unei mașini de curse»</h2>
+<p>O platformă custom este dezvoltată de la zero, exclusiv pe fluxurile și procesele tale de lucru. Nu există funcționalități inutile, nu există limitări impuse de un furnizor terț. Fiecare modul rezolvă o problemă reală din businessul tău.</p>
+<p><strong>Avantaje:</strong> Eficiență maximă, scalabilitate controlată, integrabilitate nativă, avantaj competitiv unic.</p>
+<p><strong>Dezavantaje:</strong> Investiție inițială mai mare, timp de dezvoltare de săptămâni/luni, necesită un partener de încredere.</p>
+
+<h2>SaaS vs. Custom — față în față</h2>
+<p>Comparație pe 8 criterii esențiale: cost inițial, cost pe termen lung, timp de implementare, personalizare, scalabilitate, integrare cu alte sisteme, proprietatea datelor și avantaj competitiv. Pe termen lung, platforma custom câștigă la 6 din 8 criterii.</p>
+
+<h2>Când să treci la Custom? Cele 3 semnale de alarmă</h2>
+<p><strong>Semnalul 01 — Plătești prea multe abonamente care nu «vorbesc» între ele:</strong> Ai un CRM, un tool de project management, o platformă de facturare și un sistem de stocuri — toate separate. Angajații copiază manual date între ele.</p>
+<p><strong>Semnalul 02 — Angajații folosesc Excel-uri externe pentru a acoperi lipsurile:</strong> Dacă echipa ta a creat fișiere Excel sau Google Sheets pentru a «completa» ce nu face software-ul existent — acesta este cel mai clar semnal.</p>
+<p><strong>Semnalul 03 — Procesele tale unice sunt limitate de ce permite aplicația standard:</strong> Ceea ce te diferențiază pe piață nu poate fi replicat în niciun SaaS de pe piață. Asta înseamnă că software-ul îți limitează avantajul competitiv.</p>
+
+<hr>
+
+<p>SaaS este excelent pentru start și pentru nevoi standardizate. Software-ul Custom este motorul scalării reale — atunci când procesele tale au depășit ce oferă o soluție generică. <strong>Când crești suficient de mult pentru ca rigiditatea să coste mai mult decât investiția într-o platformă construită pe tine.</strong></p>
+`;
+
+  await prisma.blogPost.upsert({
+    where: { slug: "saas-vs-software-custom" },
+    update: {},
+    create: {
+      title: "Software SaaS vs. Platformă Custom: Care este alegerea care îți va scala business-ul?",
+      slug: "saas-vs-software-custom",
+      excerpt:
+        "Managerii sunt bombardați cu mii de aplicații SaaS ieftine — și se lovesc de un zid invizibil în momentul în care procesele lor devin prea complexe. Află când un abonament lunar devine o barieră în calea scalării și când e momentul să treci la custom.",
+      content: saasContent.trim(),
+      description:
+        "SaaS sau software custom? Descoperă când un abonament lunar devine o barieră în calea creșterii și când o platformă personalizată este investiția care îți scalează business-ul.",
+      category: "Strategie",
+      published: true,
+      authorId: admin.id,
+    },
+  });
+  console.log("Blog post seeded: saas-vs-software-custom");
+
   console.log("Done!");
 }
 
