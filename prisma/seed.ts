@@ -212,6 +212,54 @@ async function main() {
   });
   console.log("Blog post seeded: saas-vs-software-custom");
 
+  // Blog post — ROI automatizare
+  const roiContent = `
+<p>În acest articol descifrăm împreună cum să calculezi dacă un proiect de automatizare se plătește singur, în cât timp ajungi la punctul de rentabilitate și — la fel de important — ce valoare adăugată vine dincolo de economiile directe în bani.</p>
+<p>Nu ai nevoie de un departament de analiză financiară. Ai nevoie de trei cifre și de onestitate față de cum funcționează procesele tale acum.</p>
+
+<h2>Teoria Aisbergului — Costul Vizibil vs. Costul Invizibil</h2>
+<p>Când te gândești la costul unui proces manual, vezi vârful aisbergului. Salariul angajatului, licența unui software — acestea apar în buget. Dar masa uriașă sub apă este invizibilă, și este de obicei de câteva ori mai mare.</p>
+<p><strong>Deasupra apei (vizibil):</strong> Salariul angajatului care execută task-ul manual în fiecare zi. Costul licențelor software existente — tools parțial utilizate.</p>
+<p><strong>Sub apă (invizibil):</strong> Eroarea umană — o cifră greșită generează costuri de recuperare și penalități. Costul oportunității — expertul de vânzări care introduce date în CRM pierde apeluri valoroase. Context switching — refocalizarea după o întrerupere durează 23 de minute.</p>
+
+<h2>Cum calculezi ROI-ul unei automatizări în 3 pași simpli</h2>
+<p><strong>Pas 01 — Identifică procesul concret:</strong> Alege un singur flux de lucru repetitiv. Fii specific — nu «administrație», ci «procesarea comenzilor primite pe WhatsApp».</p>
+<p><strong>Pas 02 — Calculează costul actual: ore × cost orar:</strong> Numărul de ore pe săptămână înmulțit cu costul orar al angajatului (salariu brut ÷ ore lucrate/lună). Adaugă 30% pentru beneficii și overhead.</p>
+<p><strong>Pas 03 — Estimează reducerea după automatizare:</strong> O soluție custom bine implementată reduce un proces repetitiv cu 80–95%.</p>
+
+<h2>Mini Case Study: Procesarea comenzilor</h2>
+<p>Înainte: 10 ore/săptămână, 1.800 RON/lună, 21.600 RON/an. După automatizare: 30 minute/săptămână, 90 RON/lună, 1.080 RON/an. Diferența: −1.710 RON/lună, −20.520 RON/an.</p>
+<p><strong>Punctul de rentabilitate:</strong> O platformă custom cu investiție de 15.000 RON se amortizează în mai puțin de 9 luni și generează economii nete de peste 20.000 RON/an începând cu anul 2.</p>
+
+<h2>Dincolo de bani — ROI-ul Calitativ al Automatizării</h2>
+<p><strong>Scalabilitate fără angajări masive:</strong> Poți crește volumul de la 100 la 1.000 de comenzi fără să dublezi echipa administrativă.</p>
+<p><strong>Standardizarea calității:</strong> Software-ul nu obosește, nu uită și nu face greșeli de tastare la sfârșitul zilei.</p>
+<p><strong>Decizii bazate pe date reale:</strong> Automatizarea îți oferă date în timp real pe care un proces manual nu le poate genera niciodată la aceeași viteză.</p>
+<p><strong>Avantaj competitiv durabil:</strong> Procesele automatizate devin parte din ADN-ul operațional al companiei — greu de copiat, ușor de îmbunătățit iterativ.</p>
+
+<hr>
+
+<p>Automatizarea nu este un lux pentru companiile mari. Este o necesitate pentru orice business care vrea să rămână competitiv și profitabil. <strong>Dacă pierzi timp pe task-uri repetitive, pierzi bani — bani pe care nu îi vezi în nicio linie de buget, dar pe care îi simți în lipsa de creștere și în epuizarea echipei tale.</strong></p>
+`;
+
+  await prisma.blogPost.upsert({
+    where: { slug: "roi-automatizare-procese" },
+    update: {},
+    create: {
+      title: "Cât te costă, de fapt, să NU automatizezi? Calculul ascuns al ineficienței.",
+      slug: "roi-automatizare-procese",
+      excerpt:
+        "Procesele manuale par gratuite pentru că plătești deja salariul. Dar sunt cea mai scumpă metodă de operare. Descoperă cum să calculezi ROI-ul unui proiect de automatizare cu cifre reale și un calculator interactiv.",
+      content: roiContent.trim(),
+      description:
+        "Descoperă costurile invizibile ale proceselor manuale și cum să calculezi ROI-ul unui proiect de automatizare. Exemplu concret cu cifre reale.",
+      category: "ROI & Eficiență",
+      published: true,
+      authorId: admin.id,
+    },
+  });
+  console.log("Blog post seeded: roi-automatizare-procese");
+
   console.log("Done!");
 }
 
