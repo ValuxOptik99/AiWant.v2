@@ -5,6 +5,7 @@ export const NAV_LINKS = [
   { label: "Portofoliu", href: "#portofoliu" },
   { label: "Prețuri", href: "#preturi" },
   { label: "Despre noi", href: "#despre" },
+  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "#contact" },
 ];
 

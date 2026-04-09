@@ -109,20 +109,34 @@ export default function Navbar() {
               {/* Desktop nav */}
               <div className="hidden md:flex items-center gap-1">
                 {NAV_LINKS.map((link) => {
+                  const isPageLink = link.href.startsWith("/");
                   const id = link.href.replace("#", "");
                   const isActive = activeSection === id;
+                  const textColor = isActive
+                    ? "var(--color-gold)"
+                    : scrolled
+                    ? "var(--color-text-primary)"
+                    : "var(--color-text-on-dark)";
+
+                  if (isPageLink) {
+                    return (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        className="relative px-4 py-2 text-sm font-medium transition-colors duration-200 focus-visible:outline-none rounded-lg"
+                        style={{ color: textColor }}
+                      >
+                        {link.label}
+                      </Link>
+                    );
+                  }
+
                   return (
                     <button
                       key={link.href}
                       onClick={() => handleNavClick(link.href)}
                       className="relative px-4 py-2 text-sm font-medium transition-colors duration-200 focus-visible:outline-none rounded-lg"
-                      style={{
-                        color: isActive
-                          ? "var(--color-gold)"
-                          : scrolled
-                          ? "var(--color-text-primary)"
-                          : "var(--color-text-on-dark)",
-                      }}
+                      style={{ color: textColor }}
                     >
                       {link.label}
                       {isActive && (
@@ -187,17 +201,40 @@ export default function Navbar() {
           >
             <nav className="flex flex-col gap-2 mt-4">
               {NAV_LINKS.map((link, i) => {
+                const isPageLink = link.href.startsWith("/");
                 const id = link.href.replace("#", "");
                 const isActive = activeSection === id;
+                const style = {
+                  color: isActive ? "var(--color-gold)" : "var(--color-text-on-dark)",
+                  background: isActive ? "rgba(212,168,67,0.08)" : "transparent",
+                };
+
+                if (isPageLink) {
+                  return (
+                    <motion.div
+                      key={link.href}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: i * 0.06 }}
+                    >
+                      <Link
+                        href={link.href}
+                        onClick={() => setMobileOpen(false)}
+                        className="block px-4 py-3 rounded-lg text-base font-medium transition-colors duration-200"
+                        style={{ color: "var(--color-text-on-dark)" }}
+                      >
+                        {link.label}
+                      </Link>
+                    </motion.div>
+                  );
+                }
+
                 return (
                   <motion.button
                     key={link.href}
                     onClick={() => handleNavClick(link.href)}
                     className="text-left px-4 py-3 rounded-lg text-base font-medium transition-colors duration-200"
-                    style={{
-                      color: isActive ? "var(--color-gold)" : "var(--color-text-on-dark)",
-                      background: isActive ? "rgba(212,168,67,0.08)" : "transparent",
-                    }}
+                    style={style}
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.06 }}
