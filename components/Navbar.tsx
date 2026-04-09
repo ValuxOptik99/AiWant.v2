@@ -3,6 +3,7 @@
 import { useEffect, useState, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, User } from "lucide-react";
 import { NAV_LINKS } from "@/lib/constants";
@@ -12,6 +13,9 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const pathname = usePathname();
+  const router = useRouter();
+  const isHome = pathname === "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -43,14 +47,22 @@ export default function Navbar() {
   const handleNavClick = useCallback(
     (href: string) => {
       setMobileOpen(false);
-      scrollToSection(href);
+      if (!isHome) {
+        router.push(`/${href}`);
+      } else {
+        scrollToSection(href);
+      }
     },
-    []
+    [isHome, router]
   );
 
   const handleCTA = () => {
     setMobileOpen(false);
-    scrollToSection("#contact");
+    if (!isHome) {
+      router.push("/#contact");
+    } else {
+      scrollToSection("#contact");
+    }
   };
 
   return (
