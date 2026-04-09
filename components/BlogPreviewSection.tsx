@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Rss } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import BlogPreviewTabs, { type SerializedPost } from "./BlogPreviewTabs";
+import SpotlightBackground from "./SpotlightBackground";
 
 function stripHtml(html: string): string {
   return html.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
@@ -49,17 +50,18 @@ export default async function BlogPreviewSection() {
   return (
     <section
       id="blog"
-      className="relative py-24 overflow-hidden"
+      className="relative"
       style={{ background: "var(--color-midnight)" }}
     >
-      {/* Dot grid background */}
-      <div className="absolute inset-0 bg-dot-grid opacity-10 pointer-events-none" />
-
       {/* Gold top separator */}
       <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 h-px w-48"
+        className="absolute top-0 left-1/2 -translate-x-1/2 h-px w-48 z-10"
         style={{ background: "linear-gradient(90deg, transparent, var(--color-gold), transparent)" }}
       />
+
+      <SpotlightBackground className="py-24">
+        {/* Dot grid on top of spotlights */}
+        <div className="absolute inset-0 bg-dot-grid opacity-10 pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -110,6 +112,7 @@ export default async function BlogPreviewSection() {
         {/* Tabs + cards */}
         <BlogPreviewTabs posts={serialized} categories={categories} />
       </div>
+      </SpotlightBackground>
     </section>
   );
 }

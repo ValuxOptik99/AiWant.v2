@@ -153,3 +153,55 @@ h1, h2, h3, h4, h5, h6 {
   background: rgba(212, 168, 67, 0.3);
   color: var(--color-text-on-dark);
 }
+
+/* === SPOTLIGHT BACKGROUND === */
+.spotlight-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.spotlight-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.spotlight {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  will-change: transform;
+}
+
+/* Gold warm — anchored top-left quadrant */
+.spotlight-left {
+  width: 640px;
+  height: 640px;
+  top: 10%;
+  left: 5%;
+  background: radial-gradient(circle, rgba(212, 168, 67, 0.18) 0%, transparent 70%);
+}
+
+/* Navy blue — anchored center */
+.spotlight-mid {
+  width: 520px;
+  height: 520px;
+  top: 30%;
+  left: 40%;
+  background: radial-gradient(circle, rgba(35, 75, 114, 0.22) 0%, transparent 70%);
+}
+
+/* Gold-dark — anchored right */
+.spotlight-right {
+  width: 700px;
+  height: 700px;
+  top: 50%;
+  right: -5%;
+  background: radial-gradient(circle, rgba(184, 145, 46, 0.14) 0%, transparent 70%);
+}
+
+.spotlight-content {
+  position: relative;
+  z-index: 1;
+}
