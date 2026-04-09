@@ -60,10 +60,11 @@
 /* === GLOBAL BASE STYLES === */
 html {
   scroll-behavior: smooth;
+  background: var(--color-midnight);
 }
 
 body {
-  background: var(--color-surface);
+  background: var(--color-midnight);
   color: var(--color-text-primary);
   font-family: var(--font-body), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
