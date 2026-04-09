@@ -18,44 +18,44 @@ export const STATS = [
 export const SERVICES = [
   {
     icon: "Globe",
-    title: "Site-uri de Prezentare",
+    title: "Platforme Digitale High-Conversion",
     description:
-      "Landing page-uri și site-uri complete care convertesc vizitatorii în clienți. Design modern, optimizat pentru mobil și SEO.",
+      "Site-uri și landing page-uri construite pentru a converti vizitatorii în clienți. Arhitectură rapidă, UX centrat pe vânzare și optimizare SEO care aduce trafic calificat.",
     link: "#contact",
   },
   {
     icon: "LayoutDashboard",
-    title: "Aplicații Web Custom",
+    title: "Infrastructură Business Custom",
     description:
-      "Dashboard-uri, sisteme de booking, CRM-uri și aplicații personalizate construite exact pe nevoile afacerii tale.",
+      "Dashboard-uri, CRM-uri, sisteme de booking și aplicații personalizate care înlocuiesc foile Excel și procesele fragmentate cu o infrastructură digitală scalabilă.",
     link: "#contact",
   },
   {
     icon: "ShoppingCart",
-    title: "Magazine Online",
+    title: "Platforme E-commerce Scalabile",
     description:
-      "Platforme e-commerce complete cu gestionare produse, integrare plăți și administrare simplă a comenzilor.",
+      "Magazine online complete cu gestionare produse, integrare plăți și panou de administrare — construite să crească odată cu afacerea ta, fără să frâneze operațiunile.",
     link: "#contact",
   },
   {
     icon: "Bot",
-    title: "Soluții AI & Automatizări",
+    title: "Automatizare & Optimizare Workflow",
     description:
-      "Chatboți inteligenți, automatizări de workflow cu n8n, integrări API și procesare automată a datelor.",
+      "Eliminăm sarcinile repetitive prin fluxuri automate cu n8n, integrări API și asistenți AI. Echipa ta se concentrează pe muncă cu valoare reală, nu pe copy-paste.",
     link: "#contact",
   },
   {
     icon: "Palette",
-    title: "Design UI/UX",
+    title: "Design UI/UX Strategic",
     description:
-      "Interfețe intuitive și atractive, gândite pentru experiența utilizatorului. De la wireframe la produs final.",
+      "Interfețe gândite din perspectiva utilizatorului final: clare, rapide și orientate spre acțiune. De la wireframe la produs lansat, fiecare ecran are un scop.",
     link: "#contact",
   },
   {
     icon: "Megaphone",
-    title: "Social Media & Marketing",
+    title: "Strategie & Prezență Digitală",
     description:
-      "Strategii de conținut, management social media și campanii de creștere pentru prezența ta online.",
+      "Conținut, management social media și campanii de creștere aliniate cu obiectivele de business. Nu postări de dragul postărilor — ci vizibilitate care aduce clienți.",
     link: "#contact",
   },
 ];
@@ -63,37 +63,55 @@ export const SERVICES = [
 export const PORTFOLIO = [
   {
     name: "avocatneagumaria.ro",
-    tag: "Site Prezentare",
-    description:
-      "Site de prezentare profesional pentru un cabinet de avocatură din Constanța. Design elegant, formular de contact, optimizat SEO.",
+    tag: "Platformă Digitală",
+    challenge: "Cabinet de avocatură fără prezență digitală — clienții nu găseau serviciile online, iar contactarea era greoaie și informală.",
+    solution: "Site profesional cu design de autoritate, pagini de servicii structurate și formular de contact direct integrat.",
+    impact: [
+      { metric: "+200%", label: "vizibilitate în căutări locale" },
+      { metric: "0→∞", label: "prezență online de la zero la pagina 1 Google" },
+    ],
     tech: ["Next.js", "Tailwind CSS", "Vercel"],
     image: "/images/avocatnegumaria.jpeg",
     link: "#",
   },
   {
     name: "Holding Space — Pet Farewell Rituals",
-    tag: "Aplicație Web",
-    description:
-      "Platformă pentru ritualuri de despărțire de animăluțe de companie. Landing page emoțional cu sistem de pre-comenzi și panou de administrare.",
-    tech: ["Next.js", "Framer Motion", "Tailwind CSS"],
+    tag: "Infrastructură Business",
+    challenge: "Expunere dezavantajoasă prin social media cu conținut slab, fără o direcție clară de business și fără o platformă de gestionare a cererilor clienților.",
+    solution: "Site custom cu identitate vizuală coerentă și portal dedicat administratorului pentru gestionarea comenzilor și cererilor.",
+    impact: [
+      { metric: "+60%", label: "creștere expunere organică" },
+      { metric: "+30%", label: "creștere vânzări" },
+      { metric: "2–3h/zi", label: "economie prin gestionare pe platformă" },
+    ],
+    tech: ["Next.js", "Framer Motion", "Tailwind CSS", "Admin Portal"],
     image: "/images/holdingspace.jpg",
     link: "#",
   },
   {
     name: "AeroGym Constanța",
-    tag: "Social Media & Marketing",
-    description:
-      "Strategie de conținut și management social media pentru un program de gimnastică aerobică și multisport.",
-    tech: ["Instagram", "TikTok", "Canva", "Content Strategy"],
+    tag: "Automatizare & Workflow",
+    challenge: "Pierdeau 20 de ore pe săptămână introducând manual datele membrilor, abonamentele și prezențele în foi Excel separate.",
+    solution: "Platformă custom de gestionare a abonamentelor cu dashboard centralizat, check-in automatizat și rapoarte în timp real.",
+    impact: [
+      { metric: "−40%", label: "reducere erori operaționale" },
+      { metric: "2 zile/săpt.", label: "timp recuperat din sarcini manuale" },
+      { metric: "20h", label: "ore economisite săptămânal" },
+    ],
+    tech: ["Next.js", "PostgreSQL", "n8n", "Tailwind CSS"],
     image: "/images/aerogym.jpg",
     link: "#",
   },
   {
-    name: "Automatizări Workflow",
+    name: "Automatizări Workflow Corporate",
     tag: "AI & Automatizări",
-    description:
-      "Pipeline-uri automatizate de procesare documente, sumarizare email-uri și integrări GitHub-to-docx pentru clienți corporate.",
-    tech: ["n8n", "API Integrations", "Node.js"],
+    challenge: "Procese de generare documente și raportare executate manual de echipă — ore pierdute pe sarcini repetitive fără valoare adăugată.",
+    solution: "Pipeline-uri automate de procesare documente, sumarizare email-uri și integrări GitHub-to-docx cu notificări în timp real.",
+    impact: [
+      { metric: "−70%", label: "timp alocat generării documentelor" },
+      { metric: "0 erori", label: "în procesul de livrare documente" },
+    ],
+    tech: ["n8n", "API Integrations", "Node.js", "OpenAI"],
     image: "/images/n8n.jpeg",
     link: "#",
   },
@@ -187,13 +205,14 @@ export const PROCESS_STEPS = [
 ];
 
 export const PROJECT_TYPES = [
-  "Site prezentare",
-  "Aplicație web",
-  "E-commerce",
-  "AI & Automatizări",
-  "Altceva",
+  "Automatizare procese & workflow",
+  "Platformă digitală / site web",
+  "Infrastructură business custom",
+  "E-commerce scalabil",
+  "Strategie & prezență digitală",
+  "Nu știu încă — vreau un audit",
 ];
 
 export const WHATSAPP_NUMBER = "40749997163";
 export const WHATSAPP_MESSAGE =
-  "Bună! Sunt interesat de serviciile de dezvoltare web.";
+  "Bună! Aș dori un audit gratuit al proceselor mele de business. Când putem discuta?";

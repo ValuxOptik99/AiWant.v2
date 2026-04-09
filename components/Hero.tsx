@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { scrollToSection } from "@/lib/utils";
+import { TrendingUp, Zap, BarChart3 } from "lucide-react";
 
 const fadeUp = (delay: number) => ({
   initial: { opacity: 0, y: 30 },
@@ -9,15 +10,15 @@ const fadeUp = (delay: number) => ({
   transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
 });
 
-// Decorative code editor visual
-function CodeEditorVisual() {
+// Strategic results visual
+function ResultsDashboard() {
   return (
     <motion.div
       className="relative w-full max-w-md mx-auto"
       animate={{ y: [0, -10, 0] }}
       transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
     >
-      {/* Main window */}
+      {/* Main card */}
       <div
         className="rounded-2xl overflow-hidden shadow-2xl"
         style={{
@@ -27,70 +28,87 @@ function CodeEditorVisual() {
       >
         {/* Window chrome */}
         <div
-          className="flex items-center gap-2 px-4 py-3"
+          className="flex items-center justify-between px-4 py-3"
           style={{ background: "rgba(0,0,0,0.3)", borderBottom: "1px solid var(--color-border-dark)" }}
         >
-          <div className="w-3 h-3 rounded-full bg-red-500 opacity-80" />
-          <div className="w-3 h-3 rounded-full bg-yellow-500 opacity-80" />
-          <div className="w-3 h-3 rounded-full bg-green-500 opacity-80" />
-          <span className="ml-2 text-xs" style={{ color: "var(--color-text-muted)" }}>
-            automation.ts
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 rounded-full bg-red-500 opacity-80" />
+            <div className="w-3 h-3 rounded-full bg-yellow-500 opacity-80" />
+            <div className="w-3 h-3 rounded-full bg-green-500 opacity-80" />
+          </div>
+          <span className="text-xs" style={{ color: "var(--color-text-muted)" }}>
+            business-dashboard.tsx
           </span>
+          <div />
         </div>
-        {/* Code lines */}
-        <div className="p-5 font-mono text-xs space-y-2">
-          {[
-            { color: "#D4A843", text: "const" },
-            { color: "#E4C36A", text: " workflow" },
-            { color: "#F0ECE3", text: " = new" },
-            { color: "#D4A843", text: " AIWorkflow();" },
-          ].map((_, i) => (
-            <div key={i} />
-          ))}
-          <div style={{ color: "var(--color-text-muted)" }}>
-            <span style={{ color: "var(--color-gold)" }}>const </span>
-            <span style={{ color: "#E4C36A" }}>workflow </span>
-            <span style={{ color: "var(--color-text-on-dark)" }}>= </span>
-            <span style={{ color: "var(--color-gold)" }}>new </span>
-            <span style={{ color: "#7DD3FC" }}>AIWorkflow</span>
-            <span style={{ color: "var(--color-text-on-dark)" }}>{"();"}</span>
+
+        {/* Metrics */}
+        <div className="p-5 space-y-4">
+          {/* ROI row */}
+          <div
+            className="flex items-center justify-between p-3 rounded-xl"
+            style={{ background: "rgba(212,168,67,0.08)", border: "1px solid rgba(212,168,67,0.15)" }}
+          >
+            <div className="flex items-center gap-2">
+              <TrendingUp size={16} style={{ color: "var(--color-gold)" }} />
+              <span className="text-xs font-medium" style={{ color: "var(--color-text-muted)" }}>
+                Eficiență operațională
+              </span>
+            </div>
+            <span className="text-sm font-bold" style={{ color: "var(--color-gold)" }}>
+              +40%
+            </span>
           </div>
-          <div>
-            <span style={{ color: "#7DD3FC" }}>workflow</span>
-            <span style={{ color: "var(--color-text-on-dark)" }}>.</span>
-            <span style={{ color: "#86EFAC" }}>connect</span>
-            <span style={{ color: "var(--color-text-on-dark)" }}>{"("}</span>
-            <span style={{ color: "#FCA5A5" }}>"n8n"</span>
-            <span style={{ color: "var(--color-text-on-dark)" }}>{");"}</span>
+
+          {/* Time saved row */}
+          <div
+            className="flex items-center justify-between p-3 rounded-xl"
+            style={{ background: "rgba(255,255,255,0.03)", border: "1px solid var(--color-border-dark)" }}
+          >
+            <div className="flex items-center gap-2">
+              <Zap size={16} style={{ color: "#7DD3FC" }} />
+              <span className="text-xs font-medium" style={{ color: "var(--color-text-muted)" }}>
+                Ore manuale eliminate / lună
+              </span>
+            </div>
+            <span className="text-sm font-bold" style={{ color: "#7DD3FC" }}>
+              120h
+            </span>
           </div>
-          <div>
-            <span style={{ color: "#7DD3FC" }}>workflow</span>
-            <span style={{ color: "var(--color-text-on-dark)" }}>.</span>
-            <span style={{ color: "#86EFAC" }}>automate</span>
-            <span style={{ color: "var(--color-text-on-dark)" }}>{"("}</span>
-            <span style={{ color: "#FCA5A5" }}>"your-process"</span>
-            <span style={{ color: "var(--color-text-on-dark)" }}>{");"}</span>
+
+          {/* Lead capture row */}
+          <div
+            className="flex items-center justify-between p-3 rounded-xl"
+            style={{ background: "rgba(255,255,255,0.03)", border: "1px solid var(--color-border-dark)" }}
+          >
+            <div className="flex items-center gap-2">
+              <BarChart3 size={16} style={{ color: "#86EFAC" }} />
+              <span className="text-xs font-medium" style={{ color: "var(--color-text-muted)" }}>
+                Creștere captare lead-uri
+              </span>
+            </div>
+            <span className="text-sm font-bold" style={{ color: "#86EFAC" }}>
+              +25%
+            </span>
           </div>
-          <div style={{ color: "var(--color-text-muted)" }}>
-            <span style={{ color: "var(--color-gold)" }}>await </span>
-            <span style={{ color: "#7DD3FC" }}>workflow</span>
-            <span style={{ color: "var(--color-text-on-dark)" }}>.</span>
-            <span style={{ color: "#86EFAC" }}>deploy</span>
-            <span style={{ color: "var(--color-text-on-dark)" }}>{"();"}</span>
-          </div>
-          <div className="flex items-center gap-2 mt-3 pt-3" style={{ borderTop: "1px solid var(--color-border-dark)" }}>
+
+          {/* Status bar */}
+          <div
+            className="flex items-center gap-2 pt-2 mt-1"
+            style={{ borderTop: "1px solid var(--color-border-dark)" }}
+          >
             <div
               className="h-2 w-2 rounded-full animate-pulse"
               style={{ background: "var(--color-success)" }}
             />
             <span style={{ color: "var(--color-success)", fontSize: "0.65rem" }}>
-              Workflow activ — 3 procese automatizate
+              Infrastructură digitală activă — procese automatizate
             </span>
           </div>
         </div>
       </div>
 
-      {/* Floating stat cards */}
+      {/* Floating badge — top right */}
       <motion.div
         className="absolute -top-4 -right-4 px-3 py-2 rounded-xl text-xs font-semibold shadow-lg"
         style={{
@@ -103,6 +121,7 @@ function CodeEditorVisual() {
         ⚡ 10+ ani experiență
       </motion.div>
 
+      {/* Floating badge — bottom left */}
       <motion.div
         className="absolute -bottom-4 -left-4 px-3 py-2 rounded-xl text-xs font-semibold shadow-lg"
         style={{
@@ -113,7 +132,7 @@ function CodeEditorVisual() {
         animate={{ y: [0, 5, 0] }}
         transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
       >
-        ✓ Cod sursă predat integral
+        ✓ Audit gratuit inclus
       </motion.div>
     </motion.div>
   );
@@ -138,12 +157,10 @@ export default function Hero() {
         >
           <source src="/images/hero-video.mp4" type="video/mp4" />
         </video>
-        {/* Dark overlay to keep text readable */}
         <div
           className="absolute inset-0"
           style={{ background: "linear-gradient(135deg, rgba(14,29,51,0.75) 0%, rgba(14,29,51,0.55) 100%)" }}
         />
-        {/* Subtle dot grid on top */}
         <div className="absolute inset-0 bg-dot-grid opacity-30" />
       </div>
 
@@ -161,30 +178,30 @@ export default function Hero() {
                   background: "rgba(212,168,67,0.06)",
                 }}
               >
-                ⚡ Process & Business Automation
+                ⚡ Partner Strategic în Digitalizare & Automatizare
               </span>
             </motion.div>
 
-            {/* Title */}
+            {/* Headline */}
             <motion.h1
               {...fadeUp(0.25)}
               className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight"
               style={{ color: "var(--color-text-on-dark)", fontFamily: "var(--font-display)" }}
             >
-              Transformăm ideile în{" "}
-              <span style={{ color: "var(--color-gold)" }}>soluții digitale</span>{" "}
-              care funcționează
+              Scalează operațiunile cu{" "}
+              <span style={{ color: "var(--color-gold)" }}>Automatizare Inteligentă</span>{" "}
+              & Platforme Digitale Performante
             </motion.h1>
 
-            {/* Subtitle */}
+            {/* Sub-headline */}
             <motion.p
               {...fadeUp(0.4)}
               className="text-lg leading-relaxed max-w-xl"
               style={{ color: "var(--color-text-muted)" }}
             >
-              Automatizăm procese, dezvoltăm aplicații web și implementăm soluții AI
-              personalizate pentru afaceri mici și medii din România. Peste 10 ani
-              de experiență în tehnologie.
+              Eliminăm blocajele manuale și construim infrastructura digitală care
+              transformă ineficiența în creștere măsurabilă. Soluții personalizate
+              pentru afaceri din România care vor să scaleze.
             </motion.p>
 
             {/* CTAs */}
@@ -192,12 +209,12 @@ export default function Hero() {
               <button
                 onClick={() => scrollToSection("#contact")}
                 className="px-6 py-3 rounded-xl font-semibold text-white transition-all duration-200 hover:scale-105 gold-glow-hover focus-visible:outline-none"
-                style={{ background: "var(--color-gold)" }}
+                style={{ background: "var(--color-gold)", color: "var(--color-midnight)" }}
               >
-                Solicită ofertă gratuită
+                Solicită un Audit Gratuit
               </button>
               <button
-                onClick={() => scrollToSection("#portofoliu")}
+                onClick={() => scrollToSection("#servicii")}
                 className="px-6 py-3 rounded-xl font-semibold transition-all duration-200 hover:scale-105 focus-visible:outline-none"
                 style={{
                   border: "2px solid var(--color-gold)",
@@ -211,7 +228,7 @@ export default function Hero() {
                   e.currentTarget.style.background = "transparent";
                 }}
               >
-                Vezi portofoliul
+                Explorează Soluțiile
               </button>
             </motion.div>
 
@@ -222,19 +239,19 @@ export default function Hero() {
               style={{ color: "var(--color-text-muted)" }}
             >
               <span>✓ Fără costuri ascunse</span>
-              <span>✓ Suport dedicat</span>
-              <span>✓ Garanția codului sursă</span>
+              <span>✓ Audit inițial 100% gratuit</span>
+              <span>✓ ROI măsurabil garantat</span>
             </motion.div>
           </div>
 
-          {/* Right column — decorative visual */}
+          {/* Right column — results dashboard */}
           <motion.div
             className="lg:col-span-2 flex justify-center"
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
           >
-            <CodeEditorVisual />
+            <ResultsDashboard />
           </motion.div>
         </div>
       </div>

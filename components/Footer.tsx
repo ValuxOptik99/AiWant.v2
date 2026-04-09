@@ -50,7 +50,7 @@ export default function Footer() {
                     letterSpacing: "0.12em",
                   }}
                 >
-                  PROCESS & BUSINESS AUTOMATION
+                  STRATEGIC DIGITAL PARTNER
                 </div>
               </div>
             </div>

@@ -97,19 +97,34 @@ export default function ServicesSection() {
   return (
     <section id="servicii" style={{ background: "var(--color-surface)" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+        <ScrollReveal className="text-center mb-6">
+          <span
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium mb-6"
+            style={{
+              border: "1px solid var(--color-border-warm)",
+              color: "var(--color-gold)",
+              background: "rgba(212,168,67,0.06)",
+            }}
+          >
+            Soluțiile noastre
+          </span>
+        </ScrollReveal>
+
         <ScrollReveal className="text-center mb-16">
           <h2
             className="text-3xl sm:text-4xl font-bold mb-4"
             style={{ color: "var(--color-text-primary)", fontFamily: "var(--font-display)" }}
           >
-            Ce putem face pentru afacerea ta
+            Infrastructura digitală care{" "}
+            <span style={{ color: "var(--color-gold)" }}>scalează afacerea ta</span>
           </h2>
           <p
             className="text-lg max-w-2xl mx-auto"
             style={{ color: "var(--color-text-secondary)" }}
           >
-            De la site-uri de prezentare la aplicații complexe — construim soluții
-            digitale complete.
+            Nu vindem tehnologie — construim sisteme digitale care reduc costurile
+            operaționale, elimină erorile și eliberează echipa ta pentru muncă cu
+            valoare reală.
           </p>
         </ScrollReveal>
 
