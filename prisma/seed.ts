@@ -307,6 +307,26 @@ async function main() {
   });
   console.log("Blog post seeded: proprietate-digitala-vs-social-media");
 
+  const roadmapContent = `Ghid pas-cu-pas pentru implementarea automatizărilor în compania ta — de la audit și prioritizare până la scalare și ROI continuu.`;
+
+  await prisma.blogPost.upsert({
+    where: { slug: "roadmap-implementare-automatizare" },
+    update: {},
+    create: {
+      title: "Roadmap implementare automatizare: ghid pas-cu-pas",
+      slug: "roadmap-implementare-automatizare",
+      excerpt:
+        "Cum treci de la \"vrem să automatizăm\" la un sistem care rulează, produce ROI măsurabil și se extinde singur? Cei mai mulți se blochează în Pasul 1. Ghidul acesta te duce până la Pasul 4.",
+      content: roadmapContent.trim(),
+      description:
+        "Ghid complet în 4 pași pentru implementarea automatizărilor: audit procese, pilotare, scalare și optimizare continuă cu ROI măsurabil.",
+      category: "Ghid",
+      published: true,
+      authorId: admin.id,
+    },
+  });
+  console.log("Blog post seeded: roadmap-implementare-automatizare");
+
   console.log("Done!");
 }
 
