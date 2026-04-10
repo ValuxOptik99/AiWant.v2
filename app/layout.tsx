@@ -41,6 +41,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ro" className={`${sora.variable} ${dmSans.variable}`}>
+      <head>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-RGB8SS3R8X"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-RGB8SS3R8X');
+            `,
+          }}
+        />
+      </head>
       <body className="antialiased">
         {children}
         <Analytics />
