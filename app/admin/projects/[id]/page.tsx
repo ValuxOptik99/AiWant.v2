@@ -102,9 +102,16 @@ export default async function AdminProjectDetailPage({ params }: Props) {
                 <span className="text-[#8A9BB5]">Valoare totală</span>
                 <span className="text-white">{project.totalValue ? `€${project.totalValue.toLocaleString()}` : "—"}</span>
               </div>
-              <div className="flex justify-between">
+              <div className="flex justify-between items-baseline">
                 <span className="text-[#8A9BB5]">Abonament lunar</span>
-                <span className="text-white">{project.monthlyFee ? `€${project.monthlyFee}/lună` : "—"}</span>
+                <span className="text-right">
+                  <span className="text-white">{project.monthlyFee ? `€${project.monthlyFee}/lună` : "—"}</span>
+                  {project.monthlyFee && project.totalValue && project.totalValue > 0 && (
+                    <span className="block text-xs text-[#8A9BB5]">
+                      ({((project.monthlyFee / project.totalValue) * 100).toFixed(1).replace(".", ",")}% din valoarea proiectului)
+                    </span>
+                  )}
+                </span>
               </div>
             </div>
           </div>

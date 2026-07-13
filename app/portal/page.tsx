@@ -2,14 +2,15 @@ import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { redirect } from "next/navigation";
 import Link from "next/link";
-import { FolderKanban, FileText, Receipt, Activity, ArrowRight } from "lucide-react";
+import { FolderKanban, FileText, Receipt, Activity, ArrowRight, Circle, AlertTriangle } from "lucide-react";
 import { PROJECT_STATUS_LABEL, PROJECT_STATUS_COLOR } from "@/lib/portal-utils";
 
 export default async function PortalDashboard() {
   const session = await auth();
   if (!session) redirect("/auth/login");
 
-  const [projects, documents, notifications] = await Promise.all([
+  const [user, projects, documents, notifications] = await Promise.all([
+    prisma.user.findUnique({ where: { id: session.user.id } }),
     prisma.project.findMany({
       where: { clientId: session.user.id },
       include: { documents: true, milestones: true },
@@ -24,11 +25,25 @@ export default async function PortalDashboard() {
       take: 5,
     }),
   ]);
+  if (!user) redirect("/auth/login");
+
+  // TODO Stage 2.1: add avatar upload to SettingsForm, then re-enable an avatar check here
+  const profileChecks = [
+    { done: true, label: "Cont creat" },
+    { done: user.onboardingCompleted, label: "Profil firmă completat", href: "/portal/onboarding" },
+    { done: !!user.phone, label: "Telefon adăugat", href: "/portal/settings" },
+    { done: !!user.company, label: "Firmă adăugată", href: "/portal/settings" },
+    { done: documents.length > 0, label: "Primul document primit" },
+  ];
+  const profileDoneCount = profileChecks.filter((c) => c.done).length;
+  const profileStrengthPct = Math.round((profileDoneCount / profileChecks.length) * 100);
+  const incompleteChecks = profileChecks.filter((c) => !c.done).slice(0, 3);
 
   const unpaidInvoices = documents.filter(
     (d) => d.type === "INVOICE" && d.invoiceStatus !== "PAID"
   );
   const unpaidTotal = unpaidInvoices.reduce((s, d) => s + (d.invoiceAmount ?? 0), 0);
+  const overdueInvoicesCount = documents.filter((d) => d.type === "INVOICE" && d.invoiceStatus === "OVERDUE").length;
   const activeProjects = projects.filter((p) => ["DISCOVERY", "IN_PROGRESS", "REVIEW", "MAINTENANCE"].includes(p.status));
 
   const today = new Date().toLocaleDateString("ro-RO", { weekday: "long", year: "numeric", month: "long", day: "numeric" });
@@ -42,6 +57,19 @@ export default async function PortalDashboard() {
         </h1>
         <p className="text-sm capitalize" style={{ color: "var(--color-text-secondary)" }}>{today}</p>
       </div>
+
+      {/* Overdue strip */}
+      {overdueInvoicesCount > 0 && (
+        <Link
+          href="/portal/invoices"
+          className="flex items-center gap-2.5 p-4 rounded-xl text-sm font-medium transition-colors duration-150 hover:opacity-90"
+          style={{ background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.35)", color: "#EF4444" }}
+        >
+          <AlertTriangle size={16} className="flex-shrink-0" />
+          <span className="flex-1">Ai facturi restante — serviciile pot fi suspendate conform contractului. Vezi facturile</span>
+          <ArrowRight size={14} className="flex-shrink-0" />
+        </Link>
+      )}
 
       {/* Stats cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
@@ -64,6 +92,43 @@ export default async function PortalDashboard() {
           );
         })}
       </div>
+
+      {/* Profile strength */}
+      {profileStrengthPct < 100 && (
+        <div className="rounded-xl p-6" style={{ background: "#fff", border: "1px solid var(--color-border-warm)" }}>
+          <div className="flex items-center justify-between mb-3">
+            <h2 className="font-bold" style={{ color: "var(--color-text-primary)", fontFamily: "var(--font-display)" }}>Puterea profilului tău</h2>
+            <span className="text-lg font-bold" style={{ color: "var(--color-gold)", fontFamily: "var(--font-display)" }}>{profileStrengthPct}%</span>
+          </div>
+          <div className="h-1.5 w-full rounded-full overflow-hidden mb-4" style={{ background: "var(--color-border)" }}>
+            <div
+              className="h-full rounded-full transition-all duration-300"
+              style={{ width: `${profileStrengthPct}%`, background: "var(--color-gold)" }}
+            />
+          </div>
+          <div className="space-y-2">
+            {incompleteChecks.map((item) =>
+              item.href ? (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="flex items-center gap-2.5 p-2.5 rounded-lg transition-colors duration-150 hover:opacity-80"
+                  style={{ background: "var(--color-surface-warm)" }}
+                >
+                  <Circle size={14} style={{ color: "var(--color-gold)" }} />
+                  <span className="text-sm flex-1" style={{ color: "var(--color-text-primary)" }}>{item.label}</span>
+                  <ArrowRight size={14} style={{ color: "var(--color-text-secondary)" }} />
+                </Link>
+              ) : (
+                <div key={item.label} className="flex items-center gap-2.5 p-2.5 rounded-lg" style={{ background: "var(--color-surface-warm)" }}>
+                  <Circle size={14} style={{ color: "var(--color-gold)" }} />
+                  <span className="text-sm flex-1" style={{ color: "var(--color-text-primary)" }}>{item.label}</span>
+                </div>
+              )
+            )}
+          </div>
+        </div>
+      )}
 
       {/* Unread notifications */}
       {notifications.length > 0 && (

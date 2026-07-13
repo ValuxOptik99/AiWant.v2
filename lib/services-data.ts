@@ -164,8 +164,8 @@ export const SERVICES_DATA: ServiceData[] = [
     pricingFrom: "de la 250 EUR",
     pricingFromRON: "~1.250 RON",
     pricingExtra: [
-      { label: "Landing page simplu", price: "de la 250 EUR (~1.250 RON)" },
       { label: "Site complet 5-10 pagini", price: "de la 350 EUR (~1.750 RON)" },
+      { label: "Landing page simplu", price: "de la 250 EUR (~1.250 RON)" },
     ],
     pricingFactors: [
       "Număr de pagini",
@@ -187,7 +187,7 @@ export const SERVICES_DATA: ServiceData[] = [
       {
         question: "Ce se întâmplă cu hosting-ul?",
         answer:
-          "Oferim hosting și administrare de la 15 EUR/lună, incluzând backup-uri, SSL, monitorizare și suport tehnic.",
+          "Oferim hosting și administrare de la 15 EUR/lună — mai puțin de 2% din valoarea proiectului tău, incluzând backup-uri, SSL, monitorizare și suport tehnic.",
       },
       {
         question: "Primesc codul sursă?",
@@ -334,8 +334,8 @@ export const SERVICES_DATA: ServiceData[] = [
     pricingFrom: "de la 800 EUR",
     pricingFromRON: "~4.000 RON",
     pricingExtra: [
-      { label: "Dashboard simplu", price: "de la 800 EUR (~4.000 RON)" },
       { label: "CRM / sistem de booking complex", price: "1.500 – 3.000 EUR" },
+      { label: "Dashboard simplu", price: "de la 800 EUR (~4.000 RON)" },
     ],
     pricingFactors: [
       "Complexitate funcționalități",
@@ -487,11 +487,11 @@ export const SERVICES_DATA: ServiceData[] = [
     pricingFrom: "de la 800 EUR",
     pricingFromRON: "~4.000 RON",
     pricingExtra: [
-      { label: "Magazin basic", price: "de la 800 EUR (~4.000 RON)" },
       {
         label: "Magazin avansat (variante, integrări)",
         price: "1.500 – 3.000 EUR",
       },
+      { label: "Magazin basic", price: "de la 800 EUR (~4.000 RON)" },
     ],
     pricingFactors: [
       "Număr de produse",
@@ -660,9 +660,9 @@ export const SERVICES_DATA: ServiceData[] = [
     pricingFrom: "de la 100 EUR",
     pricingFromRON: "~500 RON",
     pricingExtra: [
-      { label: "Integrare API simplă", price: "de la 100 EUR (~500 RON)" },
-      { label: "Workflow-uri complexe", price: "300 – 800 EUR" },
       { label: "Soluții AI complete", price: "500 – 1.500 EUR" },
+      { label: "Workflow-uri complexe", price: "300 – 800 EUR" },
+      { label: "Integrare API simplă", price: "de la 100 EUR (~500 RON)" },
     ],
     pricingFactors: [
       "Număr de sisteme conectate",

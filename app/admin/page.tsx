@@ -1,14 +1,22 @@
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
-import { Users, FolderKanban, Clock, Receipt, CheckCircle, XCircle } from "lucide-react";
+import { Users, FolderKanban, Clock, Receipt, CheckCircle, XCircle, AlertTriangle } from "lucide-react";
+
+const DAY_MS = 24 * 60 * 60 * 1000;
 
 export default async function AdminDashboard() {
-  const [totalClients, pending, activeProjects, overdueInvoices] = await Promise.all([
+  const [totalClients, pending, activeProjects, overdueInvoicesList] = await Promise.all([
     prisma.user.count({ where: { role: "CLIENT" } }),
     prisma.user.findMany({ where: { role: "PENDING" }, orderBy: { createdAt: "desc" } }),
     prisma.project.count({ where: { status: { in: ["IN_PROGRESS", "REVIEW", "DISCOVERY"] } } }),
-    prisma.document.count({ where: { type: "INVOICE", invoiceStatus: "OVERDUE" } }),
+    prisma.document.findMany({
+      where: { type: "INVOICE", invoiceStatus: "OVERDUE" },
+      include: { project: { include: { client: true } } },
+      orderBy: { invoiceDueDate: "asc" },
+    }),
   ]);
+  const overdueInvoices = overdueInvoicesList.length;
+  const now = new Date();
 
   return (
     <div className="max-w-5xl space-y-8">
@@ -34,6 +42,42 @@ export default async function AdminDashboard() {
           );
         })}
       </div>
+
+      {/* Overdue invoices worklist */}
+      {overdueInvoices > 0 && (
+        <div className="rounded-xl p-6" style={{ background: "#fff", border: "1px solid var(--color-border-warm)" }}>
+          <h2 className="font-bold mb-4 flex items-center gap-2" style={{ color: "var(--color-text-primary)", fontFamily: "var(--font-display)" }}>
+            <AlertTriangle size={18} style={{ color: "#EF4444" }} />
+            Facturi restante ({overdueInvoices})
+          </h2>
+          <div className="space-y-3">
+            {overdueInvoicesList.map((inv) => {
+              const daysOverdue = inv.invoiceDueDate ? Math.max(1, Math.floor((now.getTime() - inv.invoiceDueDate.getTime()) / DAY_MS)) : 0;
+              return (
+                <Link
+                  key={inv.id}
+                  href={`/admin/projects/${inv.project.id}`}
+                  className="flex items-center justify-between gap-4 p-4 rounded-xl transition-shadow hover:shadow-md"
+                  style={{ background: "rgba(239,68,68,0.06)", border: "1px solid rgba(239,68,68,0.2)" }}
+                >
+                  <div>
+                    <p className="font-medium text-sm" style={{ color: "var(--color-text-primary)" }}>
+                      {inv.project.client.name}{inv.project.client.company ? ` · ${inv.project.client.company}` : ""}
+                    </p>
+                    <p className="text-xs mt-0.5" style={{ color: "var(--color-text-secondary)" }}>
+                      {inv.project.name} — {inv.invoiceNumber ?? inv.name}
+                    </p>
+                  </div>
+                  <div className="text-right flex-shrink-0">
+                    <p className="text-sm font-bold" style={{ color: "#EF4444" }}>{inv.invoiceAmount ?? 0} EUR</p>
+                    <p className="text-xs mt-0.5" style={{ color: "#EF4444" }}>{daysOverdue} {daysOverdue === 1 ? "zi" : "zile"} întârziere</p>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      )}
 
       {/* Pending approvals */}
       {pending.length > 0 && (

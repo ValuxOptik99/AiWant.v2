@@ -6,7 +6,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Building2, Globe, Target, Calculator, CheckCircle,
-  ChevronRight, ChevronLeft, Check, Star, AlertCircle,
+  ChevronRight, ChevronLeft, Check, Star, AlertCircle, Sparkles, X, UserCheck,
 } from "lucide-react";
 import confetti from "canvas-confetti";
 
@@ -75,17 +75,17 @@ const ROMANIAN_COUNTIES = [
 
 const INDUSTRY_DOMAINS = [
   "Servicii profesionale (avocatură, contabilitate, consultanță)",
-  "Sănătate (medici, clinici, farmacii)",
   "Retail / Comerț",
   "HoReCa (restaurante, hoteluri, cafenele)",
+  "Sănătate (medici, clinici, farmacii)",
   "Fitness / Sport / Wellness",
-  "Educație / Training",
+  "Artă / Cultură / Evenimente",
   "Construcții / Imobiliare",
+  "Educație / Training",
+  "Frumusețe / Cosmetică",
   "IT & Tehnologie",
   "Producție / Manufacturare",
   "Transport / Logistică",
-  "Frumusețe / Cosmetică",
-  "Artă / Cultură / Evenimente",
   "Altele",
 ];
 
@@ -181,21 +181,26 @@ function clearDraft() {
 
 const defaultS1 = (): Step1 => ({
   companyName: "", companyCIF: "", companyRegCom: "", companyAddress: "",
-  companyCity: "", companyCounty: "", companyFoundedYear: "",
-  industryDomain: "", industryOther: "", companySize: "", companyDescription: "",
+  companyCity: "", companyCounty: "Constanța", companyFoundedYear: "",
+  industryDomain: "", industryOther: "", companySize: "solo", companyDescription: "",
 });
 const defaultS2 = (): Step2 => ({
   hasWebsite: false, currentWebsiteUrl: "", websitePlatform: "", websiteSatisfaction: "",
-  hasSocialMedia: false, socialFacebook: "", socialInstagram: "", socialTikTok: "",
-  socialLinkedIn: "", socialOther: "", usesTools: [], usesToolsOther: "", currentPainPoints: "",
+  hasSocialMedia: true, socialFacebook: "", socialInstagram: "", socialTikTok: "",
+  socialLinkedIn: "", socialOther: "", usesTools: ["Google Business Profile"], usesToolsOther: "", currentPainPoints: "",
 });
 const defaultS3 = (): Step3 => ({
-  mainGoals: [], goalsDescription: "", targetAudience: "", targetAgeRange: [],
-  targetLocation: "", competitorUrls: "", inspirationUrls: "",
+  mainGoals: ["site-nou"], goalsDescription: "", targetAudience: "", targetAgeRange: [AGE_RANGES[1], AGE_RANGES[2]],
+  targetLocation: "local", competitorUrls: "", inspirationUrls: "",
 });
 const defaultS4 = (): Step4 => ({
-  budgetRange: "", timeline: "", preferredPayment: "", monthlyBudgetHosting: "", additionalNotes: "",
+  budgetRange: "500-1000", timeline: "1-2-luni", preferredPayment: PAYMENT_OPTIONS[1], monthlyBudgetHosting: HOSTING_OPTIONS[1], additionalNotes: "",
 });
+
+const DEFAULTS_S1 = defaultS1();
+const DEFAULTS_S2 = defaultS2();
+const DEFAULTS_S3 = defaultS3();
+const DEFAULTS_S4 = defaultS4();
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
 
@@ -484,8 +489,32 @@ function CardSelector({ options, value, onChange, required, label }: {
 
 function Step1Form({ data, setData, errors }: { data: Step1; setData: (d: Step1) => void; errors: Record<string, string> }) {
   const set = (key: keyof Step1) => (v: string) => setData({ ...data, [key]: v });
+  const [showIntro, setShowIntro] = useState(true);
   return (
     <div className="space-y-5">
+      <AnimatePresence>
+        {showIntro && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="overflow-hidden"
+          >
+            <div
+              className="flex items-start gap-3 rounded-xl p-3 text-sm"
+              style={{ background: "rgba(212,168,67,0.08)", border: "1px solid rgba(212,168,67,0.25)" }}
+            >
+              <Sparkles size={16} className="flex-shrink-0 mt-0.5" style={{ color: "var(--color-gold)" }} />
+              <p className="flex-1" style={{ color: "var(--color-text-primary)" }}>
+                Am pre-completat răspunsurile cele mai frecvente — ajustează ce nu se potrivește.
+              </p>
+              <button type="button" onClick={() => setShowIntro(false)} className="flex-shrink-0" style={{ color: "var(--color-text-secondary)" }}>
+                <X size={16} />
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <Input label="Numele firmei" value={data.companyName} onChange={set("companyName")} placeholder="Ex: ABC SRL" required className="sm:col-span-2" />
         <Input label="CUI/CIF" value={data.companyCIF} onChange={set("companyCIF")} placeholder="Ex: RO12345678" helper="Codul unic de înregistrare fiscală" />
@@ -606,12 +635,17 @@ function Step2Form({ data, setData }: { data: Step2; setData: (d: Step2) => void
         )}
       </AnimatePresence>
 
-      <MultiCheckbox
-        label="Ce unelte digitale folosești acum?"
-        options={DIGITAL_TOOLS}
-        selected={data.usesTools}
-        onChange={set("usesTools") as (v: string[]) => void}
-      />
+      <div>
+        <MultiCheckbox
+          label="Ce unelte digitale folosești acum?"
+          options={DIGITAL_TOOLS}
+          selected={data.usesTools}
+          onChange={set("usesTools") as (v: string[]) => void}
+        />
+        <p className="text-xs mt-1.5" style={{ color: "var(--color-text-secondary)" }}>
+          Majoritatea firmelor au unul — verifică pe Google
+        </p>
+      </div>
       {data.usesTools.includes("Altele") && (
         <Input label="Care anume?" value={data.usesToolsOther} onChange={set("usesToolsOther") as (v: string) => void} placeholder="Descrie unealta..." />
       )}
@@ -908,6 +942,7 @@ function Step5Review({ s1, s2, s3, s4, goToStep, confirmed, setConfirmed, submit
 // ─── Main Wizard ──────────────────────────────────────────────────────────────
 
 const STEPS = [
+  { label: "Cont creat", icon: UserCheck, short: "Cont", virtual: true },
   { label: "Firma ta", icon: Building2, short: "Firma" },
   { label: "Online", icon: Globe, short: "Online" },
   { label: "Obiective", icon: Target, short: "Obiective" },
@@ -993,6 +1028,24 @@ export default function OnboardingPage() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const computeDefaultsKept = (): string[] => {
+    const arraysEqual = (a: string[], b: string[]) =>
+      a.length === b.length && [...a].sort().join("|") === [...b].sort().join("|");
+    const kept: string[] = [];
+    if (s1.companyCounty === DEFAULTS_S1.companyCounty) kept.push("companyCounty");
+    if (s1.companySize === DEFAULTS_S1.companySize) kept.push("companySize");
+    if (s2.hasSocialMedia === DEFAULTS_S2.hasSocialMedia) kept.push("hasSocialMedia");
+    if (arraysEqual(s2.usesTools, DEFAULTS_S2.usesTools)) kept.push("usesTools");
+    if (arraysEqual(s3.mainGoals, DEFAULTS_S3.mainGoals)) kept.push("mainGoals");
+    if (arraysEqual(s3.targetAgeRange, DEFAULTS_S3.targetAgeRange)) kept.push("targetAgeRange");
+    if (s3.targetLocation === DEFAULTS_S3.targetLocation) kept.push("targetLocation");
+    if (s4.budgetRange === DEFAULTS_S4.budgetRange) kept.push("budgetRange");
+    if (s4.timeline === DEFAULTS_S4.timeline) kept.push("timeline");
+    if (s4.preferredPayment === DEFAULTS_S4.preferredPayment) kept.push("preferredPayment");
+    if (s4.monthlyBudgetHosting === DEFAULTS_S4.monthlyBudgetHosting) kept.push("monthlyBudgetHosting");
+    return kept;
+  };
+
   const handleSubmit = async () => {
     setSubmitting(true);
     try {
@@ -1000,6 +1053,7 @@ export default function OnboardingPage() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          defaultsKept: computeDefaultsKept(),
           companyName: s1.companyName.trim(),
           companyCIF: s1.companyCIF.trim() || undefined,
           companyRegCom: s1.companyRegCom.trim() || undefined,
@@ -1101,7 +1155,8 @@ export default function OnboardingPage() {
     );
   }
 
-  const StepIcon = STEPS[step].icon;
+  const StepIcon = STEPS[step + 1].icon;
+  const progressPct = Math.round(((step + 1) / STEPS.length) * 100);
 
   return (
     <div className="min-h-screen py-8 px-4" style={{ background: "linear-gradient(135deg, var(--color-surface) 0%, #fff 60%)" }}>
@@ -1117,11 +1172,25 @@ export default function OnboardingPage() {
           </p>
         </div>
 
+        {/* Progress percentage */}
+        <div className="flex items-center justify-end mb-1.5 px-2">
+          <span className="text-xs font-semibold" style={{ color: "var(--color-gold)" }}>{progressPct}% complet</span>
+        </div>
+        <div className="h-[3px] w-full rounded-full overflow-hidden mb-6" style={{ background: "var(--color-border)" }}>
+          <motion.div
+            className="h-full rounded-full"
+            style={{ background: "var(--color-gold)" }}
+            initial={false}
+            animate={{ width: `${progressPct}%` }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+          />
+        </div>
+
         {/* Progress Steps */}
         <div className="relative flex items-center justify-between mb-8 px-2">
           {STEPS.map((s, i) => {
-            const completed = i < step;
-            const active = i === step;
+            const completed = i === 0 || i - 1 < step;
+            const active = i - 1 === step;
             const Icon = s.icon;
             return (
               <div key={i} className="flex flex-col items-center relative z-10" style={{ flex: 1 }}>
@@ -1145,7 +1214,7 @@ export default function OnboardingPage() {
                     style={{
                       width: "calc(100% - 36px)",
                       marginLeft: "18px",
-                      background: i < step ? "#10B981" : "var(--color-border)",
+                      background: i === 0 || i - 1 < step ? "#10B981" : "var(--color-border)",
                     }}
                   />
                 )}
@@ -1177,6 +1246,16 @@ export default function OnboardingPage() {
                   {step === 3 && "Să ne asigurăm că suntem pe aceeași pagină"}
                   {step === 4 && "Verifică informațiile înainte de a trimite"}
                 </p>
+                {step === 3 && (
+                  <p className="text-xs mt-1 font-medium" style={{ color: "var(--color-gold)" }}>
+                    Mai ai un singur pas după acesta 💪
+                  </p>
+                )}
+                {step === 4 && (
+                  <p className="text-xs mt-1 font-medium" style={{ color: "var(--color-gold)" }}>
+                    Ultimul pas — aproape gata!
+                  </p>
+                )}
               </div>
             </div>
           </div>

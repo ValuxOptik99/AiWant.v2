@@ -2,8 +2,27 @@ import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { redirect } from "next/navigation";
 import Link from "next/link";
-import { Download } from "lucide-react";
+import { Download, AlertTriangle } from "lucide-react";
 import { INVOICE_STATUS_LABEL, INVOICE_STATUS_COLOR, formatDate } from "@/lib/portal-utils";
+import { WHATSAPP_NUMBER } from "@/lib/constants";
+import { buildWhatsAppUrl } from "@/lib/utils";
+
+const DAY_MS = 24 * 60 * 60 * 1000;
+const ziLabel = (n: number) => (n === 1 ? "zi" : "zile");
+
+function dueDateContext(invoiceStatus: string | null, invoiceDueDate: Date | null, now: Date) {
+  if (!invoiceDueDate) return null;
+  const diffDays = Math.ceil((invoiceDueDate.getTime() - now.getTime()) / DAY_MS);
+  if (invoiceStatus === "OVERDUE") {
+    const overdueDays = Math.max(1, -diffDays);
+    return { text: `depășită cu ${overdueDays} ${ziLabel(overdueDays)}`, color: "#EF4444", bold: true };
+  }
+  if (invoiceStatus === "PENDING") {
+    if (diffDays <= 0) return { text: "scadentă azi", color: "#F59E0B", bold: true };
+    if (diffDays <= 5) return { text: `în ${diffDays} ${ziLabel(diffDays)}`, color: "#F59E0B", bold: false };
+  }
+  return null;
+}
 
 export default async function InvoicesPage() {
   const session = await auth();
@@ -17,11 +36,49 @@ export default async function InvoicesPage() {
 
   const total = invoices.reduce((s, i) => s + (i.invoiceAmount ?? 0), 0);
   const paid = invoices.filter((i) => i.invoiceStatus === "PAID").reduce((s, i) => s + (i.invoiceAmount ?? 0), 0);
-  const overdue = invoices.filter((i) => i.invoiceStatus === "OVERDUE").reduce((s, i) => s + (i.invoiceAmount ?? 0), 0);
+  const overdueInvoices = invoices.filter((i) => i.invoiceStatus === "OVERDUE");
+  const overdue = overdueInvoices.reduce((s, i) => s + (i.invoiceAmount ?? 0), 0);
+  const now = new Date();
 
   return (
     <div className="max-w-5xl space-y-6">
       <h1 className="text-2xl font-bold" style={{ color: "var(--color-text-primary)", fontFamily: "var(--font-display)" }}>Facturi</h1>
+
+      {/* Overdue alert */}
+      {overdueInvoices.length > 0 && (
+        <div className="rounded-xl p-5" style={{ background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.35)" }}>
+          <div className="flex items-start gap-3">
+            <AlertTriangle size={20} className="flex-shrink-0 mt-0.5" style={{ color: "#EF4444" }} />
+            <div className="flex-1">
+              <p className="font-semibold" style={{ color: "#EF4444" }}>
+                Ai {overdueInvoices.length === 1 ? "o factură restantă" : `${overdueInvoices.length} facturi restante`} — serviciile tale sunt în risc
+              </p>
+              <p className="text-sm mt-1" style={{ color: "var(--color-text-secondary)" }}>
+                Conform contractului, neplata la scadență poate duce la suspendarea serviciilor active (hosting, mentenanță, aplicație). Total restant: {overdue.toFixed(0)} EUR.
+              </p>
+              <ul className="text-sm mt-3 space-y-1">
+                {overdueInvoices.slice(0, 3).map((inv) => (
+                  <li key={inv.id} style={{ color: "var(--color-text-primary)" }}>
+                    <span className="font-medium">{inv.invoiceNumber ?? inv.name}</span> — {inv.invoiceAmount ?? 0} EUR, scadentă {formatDate(inv.invoiceDueDate)}
+                  </li>
+                ))}
+                {overdueInvoices.length > 3 && (
+                  <li style={{ color: "var(--color-text-secondary)" }}>și încă {overdueInvoices.length - 3}...</li>
+                )}
+              </ul>
+              <a
+                href={buildWhatsAppUrl(WHATSAPP_NUMBER, `Bună! Vreau să discut despre facturile restante (${overdue.toFixed(0)} EUR).`)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 mt-4 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all hover:opacity-90"
+                style={{ background: "var(--color-gold)", color: "#fff" }}
+              >
+                Contactează-mă pentru plată
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Summary */}
       <div className="grid grid-cols-3 gap-4">
@@ -52,7 +109,9 @@ export default async function InvoicesPage() {
               </tr>
             </thead>
             <tbody>
-              {invoices.map((inv) => (
+              {invoices.map((inv) => {
+                const context = dueDateContext(inv.invoiceStatus, inv.invoiceDueDate, now);
+                return (
                 <tr key={inv.id} style={{ borderBottom: "1px solid var(--color-border)" }} className="hover:bg-[var(--color-surface-warm)] transition-colors">
                   <td className="px-5 py-4 font-medium" style={{ color: "var(--color-text-primary)" }}>{inv.invoiceNumber ?? inv.name}</td>
                   <td className="px-5 py-4">
@@ -61,6 +120,9 @@ export default async function InvoicesPage() {
                   <td className="px-5 py-4 font-semibold" style={{ color: "var(--color-text-primary)" }}>{inv.invoiceAmount ? `${inv.invoiceAmount} EUR` : "—"}</td>
                   <td className="px-5 py-4 whitespace-nowrap" style={{ color: inv.invoiceStatus === "OVERDUE" ? "#EF4444" : "var(--color-text-secondary)" }}>
                     {formatDate(inv.invoiceDueDate)}
+                    {context && (
+                      <p className="text-xs mt-0.5" style={{ color: context.color, fontWeight: context.bold ? 600 : 400 }}>{context.text}</p>
+                    )}
                   </td>
                   <td className="px-5 py-4">
                     {inv.invoiceStatus && (
@@ -75,7 +137,8 @@ export default async function InvoicesPage() {
                     </a>
                   </td>
                 </tr>
-              ))}
+                );
+              })}
             </tbody>
           </table>
         </div>

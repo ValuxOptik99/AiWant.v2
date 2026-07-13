@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Plus, Loader2, Check, Trash2, GripVertical } from "lucide-react";
+import { Plus, Loader2, Check, Trash2, GripVertical, Lightbulb } from "lucide-react";
 
 type Milestone = {
   id: string;
@@ -62,6 +62,14 @@ export default function MilestonesManager({ projectId, initialMilestones }: { pr
 
   return (
     <div className="space-y-4">
+      {milestones.length === 0 && (
+        <div className="flex items-start gap-3 p-4 rounded-2xl text-sm" style={{ background: "rgba(212,168,67,0.08)", border: "1px solid rgba(212,168,67,0.25)", color: "#D4A843" }}>
+          <Lightbulb size={16} className="flex-shrink-0 mt-0.5" />
+          <p>
+            Sfat: adaugă prima etapă ca fiind deja finalizată (ex: «Contract semnat» sau «Discuție inițială»). Clienții care văd progres de la început rămân mai implicați.
+          </p>
+        </div>
+      )}
       <div className="space-y-3">
         {milestones.map((ms, i) => (
           <div

@@ -30,8 +30,8 @@ export default function NewProjectForm({ clients }: { clients: Client[] }) {
     status: "DISCOVERY",
     domain: "",
     totalValue: "",
-    monthlyFee: "",
-    startDate: "",
+    monthlyFee: "20",
+    startDate: new Date().toISOString().slice(0, 10),
     gaPropertyId: "",
     gaMeasurementId: "",
   });
@@ -115,6 +115,10 @@ export default function NewProjectForm({ clients }: { clients: Client[] }) {
         <div>
           <label className={labelClass}>Abonament lunar (€)</label>
           <input type="number" className={inputClass} style={inputStyle} value={form.monthlyFee} onChange={(e) => set("monthlyFee", e.target.value)} placeholder="200" />
+        </div>
+
+        <div className="sm:col-span-2 p-3 rounded-xl text-xs" style={{ background: "rgba(212,168,67,0.08)", border: "1px solid rgba(212,168,67,0.25)", color: "#D4A843" }}>
+          Sfat ofertare: prezintă întâi valoarea totală a proiectului, apoi costul lunar de hosting ca procent (ex: «doar 1,5% din investiție»). Prima cifră văzută devine etalonul.
         </div>
       </div>
 

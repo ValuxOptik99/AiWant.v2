@@ -42,6 +42,8 @@ const schema = z.object({
   preferredPayment: z.string().optional(),
   monthlyBudgetHosting: z.string().optional(),
   additionalNotes: z.string().optional(),
+  // Smart defaults tracking
+  defaultsKept: z.array(z.string()).optional().default([]),
 });
 
 export async function POST(request: NextRequest) {

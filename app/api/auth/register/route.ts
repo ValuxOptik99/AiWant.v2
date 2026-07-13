@@ -4,12 +4,22 @@ import bcrypt from "bcryptjs";
 import { z } from "zod";
 import { notifyAdminNewRegistration } from "@/lib/notifications";
 
+const configSummarySchema = z.object({
+  projectName: z.string(),
+  service: z.string(),
+  features: z.array(z.string()),
+  estimateLow: z.number(),
+  estimateHigh: z.number(),
+  timeline: z.string(),
+});
+
 const schema = z.object({
   name: z.string().min(2),
   email: z.string().email(),
   password: z.string().min(8),
   company: z.string().optional(),
   phone: z.string().optional(),
+  configSummary: configSummarySchema.optional(),
 });
 
 export async function POST(req: Request) {
@@ -32,10 +42,11 @@ export async function POST(req: Request) {
         company: data.company || null,
         phone: data.phone || null,
         role: "PENDING",
+        registrationConfig: data.configSummary ?? undefined,
       },
     });
 
-    await notifyAdminNewRegistration(user.name, user.email);
+    await notifyAdminNewRegistration(user.name, user.email, data.configSummary);
 
     return NextResponse.json({ success: true }, { status: 201 });
   } catch (err) {

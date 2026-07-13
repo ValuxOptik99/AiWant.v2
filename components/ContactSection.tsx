@@ -19,7 +19,7 @@ const INITIAL_FORM: FormData = {
   name: "",
   email: "",
   phone: "",
-  projectType: "",
+  projectType: "Platformă digitală / site web",
   message: "",
 };
 
@@ -241,12 +241,15 @@ export default function ContactSection() {
                     </option>
                   ))}
                 </select>
+                <p className="mt-1 text-xs" style={{ color: "var(--color-text-muted)" }}>
+                  Poți schimba oricând — alegem împreună soluția potrivită.
+                </p>
               </div>
 
               {/* Message */}
               <div>
                 <textarea
-                  placeholder="Mesaj *"
+                  placeholder="Ex: Am o firmă de [domeniu] și aș avea nevoie de [site nou / magazin online / automatizare]. Bugetul estimat: [suma]. *"
                   value={form.message}
                   onChange={(e) => setForm((p) => ({ ...p, message: e.target.value }))}
                   rows={5}

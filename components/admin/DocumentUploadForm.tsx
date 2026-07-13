@@ -24,6 +24,8 @@ const inputClass = "w-full px-3 py-2.5 rounded-xl text-sm outline-none focus:rin
 const inputStyle = { background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "white" };
 const labelClass = "block text-xs font-semibold text-[#8A9BB5] uppercase tracking-wider mb-1";
 
+const defaultDueDate = () => new Date(Date.now() + 15 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+
 export default function DocumentUploadForm({ projectId }: { projectId: string }) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
@@ -34,7 +36,7 @@ export default function DocumentUploadForm({ projectId }: { projectId: string })
     description: "",
     invoiceNumber: "",
     invoiceAmount: "",
-    invoiceDueDate: "",
+    invoiceDueDate: defaultDueDate(),
     invoiceStatus: "PENDING",
   });
 
@@ -62,7 +64,7 @@ export default function DocumentUploadForm({ projectId }: { projectId: string })
     await fetch("/api/admin/documents/upload", { method: "POST", body: data });
     setLoading(false);
     setFile(null);
-    setForm({ name: "", type: "CONTRACT", description: "", invoiceNumber: "", invoiceAmount: "", invoiceDueDate: "", invoiceStatus: "PENDING" });
+    setForm({ name: "", type: "CONTRACT", description: "", invoiceNumber: "", invoiceAmount: "", invoiceDueDate: defaultDueDate(), invoiceStatus: "PENDING" });
     router.refresh();
   };
 

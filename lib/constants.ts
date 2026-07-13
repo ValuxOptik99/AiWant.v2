@@ -120,24 +120,11 @@ export const PORTFOLIO = [
 
 export const PRICING = [
   {
-    icon: "Globe",
-    title: "Site Prezentare",
-    price: "de la 250 EUR",
-    subtitle: "(~1.250 RON)",
-    featured: false,
-    features: [
-      "Landing page sau site complet (1-10 pagini)",
-      "Design modern, responsive",
-      "Optimizare SEO de bază",
-      "Formular de contact",
-      "Certificat SSL inclus",
-    ],
-  },
-  {
     icon: "LayoutDashboard",
     title: "Aplicație Web",
     price: "de la 800 EUR",
     subtitle: "(~4.000 RON)",
+    monthlyFrom: "sau de la ~67 EUR/lună",
     featured: true,
     badge: "Cel mai popular",
     features: [
@@ -153,6 +140,7 @@ export const PRICING = [
     title: "E-commerce",
     price: "de la 800 EUR",
     subtitle: "(~4.000 RON)",
+    monthlyFrom: "sau de la ~67 EUR/lună",
     featured: false,
     features: [
       "Magazin online complet",
@@ -160,6 +148,21 @@ export const PRICING = [
       "Integrare procesor plăți",
       "Design personalizat",
       "Panou de administrare",
+    ],
+  },
+  {
+    icon: "Globe",
+    title: "Site Prezentare",
+    price: "de la 250 EUR",
+    subtitle: "(~1.250 RON)",
+    monthlyFrom: "sau de la ~21 EUR/lună",
+    featured: false,
+    features: [
+      "Landing page sau site complet (1-10 pagini)",
+      "Design modern, responsive",
+      "Optimizare SEO de bază",
+      "Formular de contact",
+      "Certificat SSL inclus",
     ],
   },
   {

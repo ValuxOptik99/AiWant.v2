@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import SocialProofBar from "@/components/SocialProofBar";
 import PainPoints from "@/components/PainPoints";
+import AuditSection from "@/components/AuditSection";
 import ServicesSection from "@/components/ServicesSection";
 import PortfolioSection from "@/components/PortfolioSection";
 import PricingSection from "@/components/PricingSection";
@@ -22,6 +23,7 @@ export default function Home() {
         <Hero />
         <SocialProofBar />
         <PainPoints />
+        <AuditSection />
         <ServicesSection />
         <PortfolioSection />
         <PricingSection />

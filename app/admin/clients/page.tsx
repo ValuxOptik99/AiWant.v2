@@ -47,7 +47,20 @@ export default async function AdminClientsPage({ searchParams }: Props) {
           <tbody>
             {clients.map((u) => (
               <tr key={u.id} style={{ borderBottom: "1px solid var(--color-border)" }} className="hover:bg-[var(--color-surface-warm)] transition-colors">
-                <td className="px-5 py-4 font-medium" style={{ color: "var(--color-text-primary)" }}>{u.name}</td>
+                <td className="px-5 py-4 font-medium" style={{ color: "var(--color-text-primary)" }}>
+                  {u.name}
+                  {u.registrationConfig && (() => {
+                    const cfg = u.registrationConfig as { projectName?: string; estimateLow?: number; estimateHigh?: number };
+                    return (
+                      <span
+                        className="block mt-1 text-xs font-semibold px-2 py-0.5 rounded-full w-fit"
+                        style={{ background: "rgba(212,168,67,0.12)", color: "var(--color-gold)" }}
+                      >
+                        Configurație: {cfg.projectName} · {cfg.estimateLow?.toLocaleString("ro-RO")}–{cfg.estimateHigh?.toLocaleString("ro-RO")} EUR
+                      </span>
+                    );
+                  })()}
+                </td>
                 <td className="px-5 py-4" style={{ color: "var(--color-text-secondary)" }}>{u.email}</td>
                 <td className="px-5 py-4" style={{ color: "var(--color-text-secondary)" }}>{u.company ?? "—"}</td>
                 <td className="px-5 py-4">

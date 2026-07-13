@@ -315,7 +315,7 @@ export default function Hero() {
             {/* CTAs */}
             <motion.div {...fadeUp(0.5)} className="flex flex-wrap gap-3">
               <button
-                onClick={() => scrollToSection("#contact")}
+                onClick={() => scrollToSection("#audit")}
                 className="px-7 py-3.5 rounded-xl font-bold transition-all duration-200 hover:scale-105 gold-glow-hover focus-visible:outline-none"
                 style={{ background: "var(--color-gold)", color: "var(--color-midnight)" }}
               >

@@ -2,7 +2,8 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Check, Globe, LayoutDashboard, ShoppingCart, Bot, type LucideIcon } from "lucide-react";
+import { Check, Globe, LayoutDashboard, ShoppingCart, Bot, ArrowRight, CalendarClock, type LucideIcon } from "lucide-react";
+import Link from "next/link";
 import { PRICING } from "@/lib/constants";
 import { scrollToSection } from "@/lib/utils";
 import ScrollReveal from "./ScrollReveal";
@@ -79,6 +80,12 @@ function PricingCard({
           <div className="text-sm mt-0.5" style={{ color: "var(--color-text-secondary)" }}>
             {tier.subtitle}
           </div>
+          {tier.monthlyFrom && (
+            <div className="flex items-center gap-1.5 text-xs mt-2" style={{ color: "var(--color-navy)" }}>
+              <CalendarClock size={12} />
+              {tier.monthlyFrom} — plata în rate pe 12 luni
+            </div>
+          )}
         </div>
 
         {/* Features */}
@@ -162,8 +169,21 @@ export default function PricingSection() {
             <p className="text-sm" style={{ color: "var(--color-text-secondary)" }}>
               Hosting & administrare de la{" "}
               <strong style={{ color: "var(--color-navy)" }}>15 EUR/lună</strong> —
-              detalii în oferta personalizată
+              sub 2% din investiția ta, ca totul să funcționeze impecabil, non-stop
             </p>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal delay={0.35}>
+          <div className="mt-8 flex justify-center">
+            <Link
+              href="/configurator"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-200 hover:scale-105"
+              style={{ border: "2px solid var(--color-gold)", color: "var(--color-gold)", background: "transparent" }}
+            >
+              Nu ești sigur ce ți se potrivește? Configurează-ți proiectul în 2 minute
+              <ArrowRight size={16} />
+            </Link>
           </div>
         </ScrollReveal>
       </div>

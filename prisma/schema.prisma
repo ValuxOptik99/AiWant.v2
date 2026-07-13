@@ -48,6 +48,7 @@ model User {
   role                 UserRole       @default(PENDING)
   avatar               String?
   onboardingCompleted  Boolean        @default(false)
+  registrationConfig   Json?
   createdAt            DateTime       @default(now())
   updatedAt            DateTime       @updatedAt
 
@@ -120,6 +121,8 @@ model ClientProfile {
   preferredPayment     String?
   monthlyBudgetHosting String?
   additionalNotes      String?
+
+  defaultsKept         String[]
 
   completedAt          DateTime  @default(now())
   updatedAt            DateTime  @updatedAt
@@ -212,4 +215,21 @@ model Notification {
 
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId String
+}
+
+model AuditLead {
+  id               String   @id @default(cuid())
+  url              String
+  performanceScore Int?
+  lcp              Float?
+  cls              Float?
+  inp              Int?
+  topIssues        Json?
+  ipHash           String?
+  // Contact info — null until the visitor converts:
+  name             String?
+  email            String?
+  phone            String?
+  converted        Boolean  @default(false)
+  createdAt        DateTime @default(now())
 }
