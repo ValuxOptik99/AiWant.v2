@@ -19,7 +19,7 @@ export default function AboutSection() {
             <div
               className="relative rounded-2xl overflow-hidden"
               style={{
-                aspectRatio: "4/5",
+                aspectRatio: "1622 / 2151",
                 background: "var(--color-surface-warm)",
                 border: "1px solid var(--color-border-warm)",
               }}
