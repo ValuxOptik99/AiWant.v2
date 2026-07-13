@@ -1,11 +1,12 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { scrollToSection } from "@/lib/utils";
 
 const QUICK_LINKS = [
   { label: "Servicii", href: "#servicii" },
-  { label: "Portofoliu", href: "#portofoliu" },
+  { label: "Portofoliu", href: "/portofoliu" },
   { label: "Prețuri", href: "#preturi" },
   { label: "Contact", href: "#contact" },
 ];
@@ -126,19 +127,35 @@ export default function Footer() {
             <ul className="space-y-2">
               {QUICK_LINKS.map((link) => (
                 <li key={link.href}>
-                  <button
-                    onClick={() => scrollToSection(link.href)}
-                    className="text-sm transition-colors duration-200 text-left"
-                    style={{ color: "var(--color-text-muted)" }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.color = "var(--color-gold)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.color = "var(--color-text-muted)";
-                    }}
-                  >
-                    {link.label}
-                  </button>
+                  {link.href.startsWith("/") ? (
+                    <Link
+                      href={link.href}
+                      className="text-sm transition-colors duration-200 text-left inline-block"
+                      style={{ color: "var(--color-text-muted)" }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.color = "var(--color-gold)";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.color = "var(--color-text-muted)";
+                      }}
+                    >
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <button
+                      onClick={() => scrollToSection(link.href)}
+                      className="text-sm transition-colors duration-200 text-left"
+                      style={{ color: "var(--color-text-muted)" }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.color = "var(--color-gold)";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.color = "var(--color-text-muted)";
+                      }}
+                    >
+                      {link.label}
+                    </button>
+                  )}
                 </li>
               ))}
             </ul>

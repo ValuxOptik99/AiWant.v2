@@ -2,7 +2,7 @@
 
 export const NAV_LINKS = [
   { label: "Servicii", href: "#servicii" },
-  { label: "Portofoliu", href: "#portofoliu" },
+  { label: "Portofoliu", href: "/portofoliu" },
   { label: "Prețuri", href: "#preturi" },
   { label: "Despre noi", href: "#despre" },
   { label: "Blog", href: "/blog" },
@@ -62,6 +62,22 @@ export const SERVICES = [
 ];
 
 export const PORTFOLIO = [
+  {
+    name: "DANI Cadastru",
+    tag: "Platformă Digitală",
+    challenge:
+      "Birou de cadastru și topografie din Mangalia fără prezență online — clienții găseau concurența pe Google, iar cererile de ofertă veneau exclusiv telefonic, greu de gestionat.",
+    solution:
+      "Platformă completă cu pagini de servicii dedicate (cadastru, intabulare, topografie), hub de întrebări frecvente, blog, pagini SEO locale per localitate, secțiune de recenzii Google și panou de administrare pentru conținut.",
+    impact: [
+      { metric: "Pagina 1", label: "Google pentru căutări locale de cadastru" },
+      { metric: "24/7", label: "preluare cereri prin formular și WhatsApp" },
+      { metric: "100%", label: "gestionare conținut fără intervenție tehnică" },
+    ],
+    tech: ["Next.js", "Tailwind CSS", "Prisma", "PostgreSQL", "Admin Panel"],
+    image: "/images/danicadastru.jpg",
+    link: "https://danicadastru.ro",
+  },
   {
     name: "avocatneagumaria.ro",
     tag: "Platformă Digitală",
