@@ -150,7 +150,7 @@ async function main() {
 
   await prisma.blogPost.upsert({
     where: { slug: "taskuri-repetitive-automatizare" },
-    update: {},
+    update: { imageUrl: "/images/task.jpg" },
     create: {
       title: "5 Task-uri Repetitive care îți «fură» Profitul și Cum să le Elimini prin Automatizare",
       slug: "taskuri-repetitive-automatizare",
@@ -162,6 +162,7 @@ async function main() {
       category: "Automatizare",
       published: true,
       authorId: admin.id,
+      imageUrl: "/images/task.jpg",
     },
   });
   console.log("Blog post seeded: taskuri-repetitive-automatizare");
@@ -196,7 +197,7 @@ async function main() {
 
   await prisma.blogPost.upsert({
     where: { slug: "saas-vs-software-custom" },
-    update: {},
+    update: { imageUrl: "/images/saas.jpg" },
     create: {
       title: "Software SaaS vs. Platformă Custom: Care este alegerea care îți va scala business-ul?",
       slug: "saas-vs-software-custom",
@@ -208,6 +209,7 @@ async function main() {
       category: "Strategie",
       published: true,
       authorId: admin.id,
+      imageUrl: "/images/saas.jpg",
     },
   });
   console.log("Blog post seeded: saas-vs-software-custom");
@@ -244,7 +246,7 @@ async function main() {
 
   await prisma.blogPost.upsert({
     where: { slug: "roi-automatizare-procese" },
-    update: {},
+    update: { imageUrl: "/images/costa.jpg" },
     create: {
       title: "Cât te costă, de fapt, să NU automatizezi? Calculul ascuns al ineficienței.",
       slug: "roi-automatizare-procese",
@@ -256,6 +258,7 @@ async function main() {
       category: "ROI & Eficiență",
       published: true,
       authorId: admin.id,
+      imageUrl: "/images/costa.jpg",
     },
   });
   console.log("Blog post seeded: roi-automatizare-procese");
@@ -291,7 +294,7 @@ async function main() {
 
   await prisma.blogPost.upsert({
     where: { slug: "proprietate-digitala-vs-social-media" },
-    update: {},
+    update: { imageUrl: "/images/chirie.jpg" },
     create: {
       title: "Ești proprietar sau chiriaș în lumea digitală?",
       slug: "proprietate-digitala-vs-social-media",
@@ -303,6 +306,7 @@ async function main() {
       category: "Strategie",
       published: true,
       authorId: admin.id,
+      imageUrl: "/images/chirie.jpg",
     },
   });
   console.log("Blog post seeded: proprietate-digitala-vs-social-media");
@@ -311,7 +315,7 @@ async function main() {
 
   await prisma.blogPost.upsert({
     where: { slug: "roadmap-implementare-automatizare" },
-    update: {},
+    update: { imageUrl: "/images/roadmap.jpg" },
     create: {
       title: "Roadmap implementare automatizare: ghid pas-cu-pas",
       slug: "roadmap-implementare-automatizare",
@@ -323,6 +327,7 @@ async function main() {
       category: "Ghid",
       published: true,
       authorId: admin.id,
+      imageUrl: "/images/roadmap.jpg",
     },
   });
   console.log("Blog post seeded: roadmap-implementare-automatizare");
