@@ -79,6 +79,22 @@ export const PORTFOLIO = [
     link: "https://danicadastru.ro",
   },
   {
+    name: "Vila Miruna — mirunavalentin.ro",
+    tag: "Platformă Digitală",
+    challenge:
+      "Vilă de vacanță din Jupiter, pe litoral, dependentă de platformele de booking cu comisioane mari — fără site propriu, fără vizibilitate directă în căutări și fără canal de rezervare fără intermediari.",
+    solution:
+      "Site de prezentare cu arhitectură SEO dedicată sejururilor pe litoral, blog bilingv (RO/EN) cu ghiduri de vacanță, hartă interactivă Google Maps cu atracțiile din zonă și canal direct de rezervare prin WhatsApp.",
+    impact: [
+      { metric: "0%", label: "comision pe rezervările directe" },
+      { metric: "RO+EN", label: "vizibilitate pentru turiști români și străini" },
+      { metric: "Pagina 1", label: "Google pentru căutări de cazare în Jupiter" },
+    ],
+    tech: ["Next.js", "Tailwind CSS", "MDX", "Google Maps API"],
+    image: "/images/mirunavalentin.jpg",
+    link: "https://mirunavalentin.ro",
+  },
+  {
     name: "avocatneagumaria.ro",
     tag: "Platformă Digitală",
     challenge: "Cabinet de avocatură fără prezență digitală — clienții nu găseau serviciile online, iar contactarea era greoaie și informală.",
