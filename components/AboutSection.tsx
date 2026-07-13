@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import ScrollReveal from "./ScrollReveal";
 
 const DIFFERENTIATORS = [
@@ -16,28 +17,20 @@ export default function AboutSection() {
           {/* Left — photo placeholder */}
           <ScrollReveal className="lg:col-span-2" direction="right">
             <div
-              className="relative rounded-2xl overflow-hidden flex items-center justify-center bg-dot-grid-light"
+              className="relative rounded-2xl overflow-hidden"
               style={{
                 aspectRatio: "4/5",
                 background: "var(--color-surface-warm)",
                 border: "1px solid var(--color-border-warm)",
               }}
             >
-              <div className="text-center p-8">
-                <div
-                  className="w-20 h-20 rounded-full mx-auto mb-4 flex items-center justify-center text-3xl"
-                  style={{
-                    background: "rgba(212,168,67,0.1)",
-                    border: "2px solid var(--color-gold)",
-                  }}
-                >
-                  👨‍💻
-                </div>
-                <p className="text-sm" style={{ color: "var(--color-text-secondary)" }}>
-                  {/* TODO: Replace with real founder photo */}
-                  Foto Vlad Gheorghe
-                </p>
-              </div>
+              <Image
+                src="/images/vlad.jpg"
+                alt="Vlad Gheorghe, fondator AiWANT"
+                fill
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                className="object-cover"
+              />
 
               {/* Accent corner */}
               <div
