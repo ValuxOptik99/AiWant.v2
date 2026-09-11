@@ -5,9 +5,10 @@ import BlogGrid from "@/components/blog/BlogGrid";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Blog — AiWANT | Automatizare, AI & Business Digital",
+  title: "Blog — Automatizare, AI & Business Digital",
   description:
     "Articole practice despre automatizare, AI, digitalizare și strategii de creștere pentru afaceri din România.",
+  alternates: { canonical: "/blog" },
   openGraph: {
     title: "Blog — AiWANT",
     description: "Resurse și insights despre digitalizare și automatizare pentru antreprenori.",

@@ -6,7 +6,7 @@ import { ArrowLeft, AlertTriangle, Zap } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "5 Task-uri Repetitive care îți «fură» Profitul | Automatizare Business | AiWANT",
+  title: "5 Task-uri Repetitive care îți «fură» Profitul | Automatizare Business",
   description:
     "Descoperi care sunt cele 5 taskuri repetitive care îți consumă profitul invizibil și cum o platformă custom de la Aiwant le elimină prin automatizare.",
   keywords:
@@ -16,10 +16,10 @@ export const metadata: Metadata = {
     description:
       "Costul de oportunitate al muncii manuale este invizibil — până îl calculezi. Descoperă cum să elimini cei mai mari consumatori de timp din businessul tău.",
     type: "article",
-    url: "https://aiwant.ro/blog/taskuri-repetitive-automatizare",
+    url: "/blog/taskuri-repetitive-automatizare",
   },
   alternates: {
-    canonical: "https://aiwant.ro/blog/taskuri-repetitive-automatizare",
+    canonical: "/blog/taskuri-repetitive-automatizare",
   },
 };
 

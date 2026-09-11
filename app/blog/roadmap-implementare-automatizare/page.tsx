@@ -6,7 +6,7 @@ import { ArrowLeft, CheckCircle2 } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "De la Haos la Eficiență: Planul în 4 Pași pentru Automatizare | AiWANT",
+  title: "De la Haos la Eficiență: Planul în 4 Pași pentru Automatizare",
   description:
     "Roadmap complet de implementare a automatizării în business: audit, arhitectură, pilot și scalare. Treci de la procese manuale la un sistem inteligent fără a întrerupe operațiunile actuale.",
   keywords:
@@ -16,10 +16,10 @@ export const metadata: Metadata = {
     description:
       "Teama de a rupe procesele care funcționează deja este reală. Dar există un roadmap structurat care minimizează riscul și maximizează câștigurile imediate.",
     type: "article",
-    url: "https://aiwant.ro/blog/roadmap-implementare-automatizare",
+    url: "/blog/roadmap-implementare-automatizare",
   },
   alternates: {
-    canonical: "https://aiwant.ro/blog/roadmap-implementare-automatizare",
+    canonical: "/blog/roadmap-implementare-automatizare",
   },
 };
 

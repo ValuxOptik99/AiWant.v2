@@ -19,10 +19,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: service.seoTitle,
     description: service.seoDescription,
+    alternates: { canonical: `/servicii/${service.slug}` },
     openGraph: {
       title: service.seoTitle,
       description: service.seoDescription,
-      url: `https://aiwant.ro/servicii/${service.slug}`,
+      url: `/servicii/${service.slug}`,
       siteName: "AiWANT",
       locale: "ro_RO",
       type: "website",

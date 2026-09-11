@@ -53,7 +53,7 @@ export const SERVICES_DATA: ServiceData[] = [
     title: "Site-uri de Prezentare",
     subtitle:
       "Prima impresie contează. Un site de prezentare profesional este cartea ta de vizită digitală — disponibilă 24/7, pe orice dispozitiv, în toată lumea.",
-    seoTitle: "Site-uri de Prezentare Profesionale | AiWANT",
+    seoTitle: "Site-uri de Prezentare Profesionale",
     seoDescription:
       "Site-uri de prezentare moderne, responsive, optimizate SEO. Construit cu Next.js pentru viteză maximă. Design personalizat, fără template-uri generice.",
     problems: [
@@ -209,7 +209,7 @@ export const SERVICES_DATA: ServiceData[] = [
     title: "Aplicații Web Custom",
     subtitle:
       "Când afacerea ta are nevoie de mai mult decât un site simplu — dashboard-uri, sisteme de booking, CRM-uri sau orice aplicație construită exact pe nevoile tale.",
-    seoTitle: "Aplicații Web Custom: Dashboard, CRM, Booking | AiWANT",
+    seoTitle: "Aplicații Web Custom: Dashboard, CRM, Booking",
     seoDescription:
       "Aplicații web custom: dashboard-uri, CRM-uri, sisteme de booking. Next.js, PostgreSQL, TypeScript. Construite exact pe nevoile afacerii tale.",
     problems: [
@@ -379,7 +379,7 @@ export const SERVICES_DATA: ServiceData[] = [
     title: "Magazine Online",
     subtitle:
       "Un magazin online profesional care vinde non-stop. De la catalogul de produse la procesarea plăților — totul integrat și ușor de administrat.",
-    seoTitle: "Magazine Online Profesionale | AiWANT",
+    seoTitle: "Magazine Online Profesionale",
     seoDescription:
       "Magazine online cu catalog produse, integrare plăți (Stripe, Netopia), gestionare comenzi și stocuri. Design personalizat, fără comisioane pe vânzări.",
     problems: [
@@ -535,7 +535,7 @@ export const SERVICES_DATA: ServiceData[] = [
     title: "Soluții AI & Automatizări",
     subtitle:
       "Elimină munca repetitivă din afacerea ta. Automatizăm procesele, integrăm sisteme și implementăm inteligență artificială acolo unde contează.",
-    seoTitle: "Soluții AI & Automatizări cu n8n | AiWANT",
+    seoTitle: "Soluții AI & Automatizări cu n8n",
     seoDescription:
       "Automatizări n8n, chatboți AI, integrări API, procesare automată documente. Workflow-uri care rulează 24/7, fără intervenție manuală.",
     problems: [
@@ -706,7 +706,7 @@ export const SERVICES_DATA: ServiceData[] = [
     title: "Design UI/UX",
     subtitle:
       "Un design bun nu e doar frumos — e intuitiv, rapid și face utilizatorul să revină. Creăm interfețe pe care oamenii le înțeleg din prima.",
-    seoTitle: "Design UI/UX Profesional | AiWANT",
+    seoTitle: "Design UI/UX Profesional",
     seoDescription:
       "Design UI/UX: wireframes, prototipuri interactive, design system complet. Interfețe testate pentru uzabilitate și optimizate pentru conversii.",
     problems: [
@@ -864,7 +864,7 @@ export const SERVICES_DATA: ServiceData[] = [
     title: "Social Media & Marketing",
     subtitle:
       "Nu e suficient să ai un site bun dacă nimeni nu știe de tine. Construim prezența ta online și aducem clienți prin conținut strategic.",
-    seoTitle: "Social Media & Marketing Digital | AiWANT",
+    seoTitle: "Social Media & Marketing Digital",
     seoDescription:
       "Management social media, strategie de conținut, creștere organică. Instagram, TikTok, Facebook, LinkedIn. Rapoarte lunare cu metrici clare.",
     problems: [

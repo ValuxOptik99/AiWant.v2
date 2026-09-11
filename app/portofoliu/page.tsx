@@ -6,9 +6,10 @@ import PortfolioGrid from "@/components/portfolio/PortfolioGrid";
 import { PORTFOLIO } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Portofoliu — Proiecte Web & Automatizări | aiwant.ro",
+  title: "Portofoliu — Proiecte Web & Automatizări",
   description:
-    "Proiecte livrate de aiwant.ro: platforme digitale, automatizări și infrastructură business pentru firme din România. Studii de caz cu rezultate concrete.",
+    "Proiecte livrate de AiWANT: platforme digitale, automatizări și infrastructură business pentru firme din România. Studii de caz cu rezultate concrete.",
+  alternates: { canonical: "/portofoliu" },
 };
 
 export default function PortofoliuPage() {

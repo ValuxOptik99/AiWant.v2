@@ -1,5 +1,7 @@
 // All static content, service data, portfolio data, and pricing data
 
+export const SITE_URL = "https://aiwant.ro";
+
 export const NAV_LINKS = [
   { label: "Servicii", href: "#servicii" },
   { label: "Portofoliu", href: "/portofoliu" },

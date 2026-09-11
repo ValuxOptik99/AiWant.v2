@@ -7,7 +7,7 @@ import { ArrowLeft, TrendingDown, TrendingUp, BarChart3, CheckCircle2 } from "lu
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Cât te costă să NU automatizezi? Calculul ascuns al ineficienței | AiWANT",
+  title: "Cât te costă să NU automatizezi? Calculul ascuns al ineficienței",
   description:
     "Descoperă costurile invizibile ale proceselor manuale și cum să calculezi ROI-ul unui proiect de automatizare. Exemplu concret cu cifre reale.",
   keywords:
@@ -17,10 +17,10 @@ export const metadata: Metadata = {
     description:
       "Procesele manuale par gratuite pentru că plătești deja salariul. Dar sunt cea mai scumpă metodă de operare. Află cum să calculezi punctul de rentabilitate al automatizării.",
     type: "article",
-    url: "https://aiwant.ro/blog/roi-automatizare-procese",
+    url: "/blog/roi-automatizare-procese",
   },
   alternates: {
-    canonical: "https://aiwant.ro/blog/roi-automatizare-procese",
+    canonical: "/blog/roi-automatizare-procese",
   },
 };
 

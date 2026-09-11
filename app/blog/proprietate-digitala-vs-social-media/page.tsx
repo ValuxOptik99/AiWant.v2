@@ -6,7 +6,7 @@ import { ArrowLeft, AlertTriangle, CheckCircle2, XCircle } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Ești proprietar sau chiriaș în lumea digitală? | AiWANT",
+  title: "Ești proprietar sau chiriaș în lumea digitală?",
   description:
     "Diferența dintre a exista pe social media și a deține un hub digital propriu. De ce site-ul tău este infrastructură critică, nu cheltuială de marketing.",
   keywords:
@@ -16,10 +16,10 @@ export const metadata: Metadata = {
     description:
       "Multe companii există doar pe Facebook sau Instagram. Dar ce se întâmplă când algoritmul se schimbă sau contul este suspendat? Descoperă de ce ai nevoie de un hub digital propriu.",
     type: "article",
-    url: "https://aiwant.ro/blog/proprietate-digitala-vs-social-media",
+    url: "/blog/proprietate-digitala-vs-social-media",
   },
   alternates: {
-    canonical: "https://aiwant.ro/blog/proprietate-digitala-vs-social-media",
+    canonical: "/blog/proprietate-digitala-vs-social-media",
   },
 };
 

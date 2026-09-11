@@ -6,7 +6,7 @@ import { ArrowLeft, CheckCircle2, XCircle, AlertTriangle, TrendingUp, Train, Car
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Software SaaS vs. Platformă Custom: Care îți Scalează Business-ul? | AiWANT",
+  title: "Software SaaS vs. Platformă Custom: Care îți Scalează Business-ul?",
   description:
     "SaaS sau software custom? Descoperă când un abonament lunar devine o barieră în calea creșterii și când o platformă personalizată este investiția care îți scalează business-ul.",
   keywords:
@@ -16,10 +16,10 @@ export const metadata: Metadata = {
     description:
       "Managerii sunt bombardați cu mii de aplicații SaaS ieftine, dar se lovesc de un zid când procesele devin prea complexe. Află când e momentul să treci la custom.",
     type: "article",
-    url: "https://aiwant.ro/blog/saas-vs-software-custom",
+    url: "/blog/saas-vs-software-custom",
   },
   alternates: {
-    canonical: "https://aiwant.ro/blog/saas-vs-software-custom",
+    canonical: "/blog/saas-vs-software-custom",
   },
 };
 

@@ -33,8 +33,9 @@ export async function generateMetadata({
   const post = await prisma.blogPost.findUnique({ where: { slug } });
   if (!post) return {};
   return {
-    title: `${post.title} — AiWANT Blog`,
+    title: post.title,
     description: post.description,
+    alternates: { canonical: `/blog/${post.slug}` },
     openGraph: {
       title: post.title,
       description: post.description,

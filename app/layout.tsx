@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Sora, DM_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { SITE_URL, WHATSAPP_NUMBER } from "@/lib/constants";
 import "./globals.css";
 
 const sora = Sora({
@@ -18,20 +19,66 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "aiwant.ro — Dezvoltare Web & Soluții AI | Constanța",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "Automatizare Procese & Aplicații Web pentru Firme | AiWANT",
+    template: "%s | AiWANT",
+  },
   description:
-    "Dezvoltăm site-uri, aplicații web, magazine online și soluții AI pentru afaceri din România. Peste 30 de ani de experiență. Solicită ofertă gratuită.",
-  keywords:
-    "dezvoltare web, aplicații web, soluții AI, site prezentare, magazin online, Constanța, România, Next.js, React",
+    "Automatizăm procese repetitive și construim aplicații web custom pentru firme din România. Partener strategic în digitalizare — cod sursă predat integral.",
   openGraph: {
-    title: "aiwant.ro — Dezvoltare Web & Soluții AI",
+    title: "Automatizare Procese & Aplicații Web pentru Firme | AiWANT",
     description:
-      "Soluții digitale pentru afaceri ambițioase. Dezvoltare web, AI, automatizări.",
-    url: "https://aiwant.ro",
-    siteName: "aiwant.ro",
+      "Automatizăm procese repetitive și construim aplicații web custom pentru firme din România. Partener strategic în digitalizare — cod sursă predat integral.",
+    url: "/",
+    siteName: "AiWANT",
     locale: "ro_RO",
     type: "website",
   },
+};
+
+const ORGANIZATION_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
+      name: "AiWANT",
+      legalName: "Vendor Comp SRL",
+      url: SITE_URL,
+      logo: `${SITE_URL}/images/logo.png`,
+      email: "aiwant.automation@gmail.com",
+      telephone: `+${WHATSAPP_NUMBER}`,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Constanța",
+        addressCountry: "RO",
+      },
+      // Not verified this session — confirm these accounts exist before relying on them.
+      sameAs: [
+        "https://www.linkedin.com/company/aiwant",
+        "https://github.com/aiwant-ro",
+        "https://www.instagram.com/aiwant.ro",
+        "https://www.tiktok.com/@aiwant.ro",
+      ],
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": `${SITE_URL}/#service`,
+      name: "AiWANT",
+      url: SITE_URL,
+      image: `${SITE_URL}/images/logo.png`,
+      telephone: `+${WHATSAPP_NUMBER}`,
+      email: "aiwant.automation@gmail.com",
+      areaServed: "RO",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Constanța",
+        addressCountry: "RO",
+      },
+      parentOrganization: { "@id": `${SITE_URL}/#organization` },
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -42,6 +89,10 @@ export default function RootLayout({
   return (
     <html lang="ro" className={`${sora.variable} ${dmSans.variable}`}>
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(ORGANIZATION_JSON_LD) }}
+        />
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-RGB8SS3R8X"

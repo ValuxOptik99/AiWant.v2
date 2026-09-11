@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { scrollToSection } from "@/lib/utils";
+import { SERVICES_DATA } from "@/lib/services-data";
 
 const QUICK_LINKS = [
   { label: "Servicii", href: "#servicii" },
@@ -10,6 +11,11 @@ const QUICK_LINKS = [
   { label: "Prețuri", href: "#preturi" },
   { label: "Contact", href: "#contact" },
 ];
+
+const SERVICE_LINKS = SERVICES_DATA.map((service) => ({
+  label: service.title,
+  href: `/servicii/${service.slug}`,
+}));
 
 const LEGAL_LINKS = [
   { label: "Termeni și condiții", href: "#" },
@@ -22,7 +28,7 @@ export default function Footer() {
     <footer style={{ background: "var(--color-footer)" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
         {/* Top grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b" style={{ borderColor: "var(--color-border-dark)" }}>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-10 border-b" style={{ borderColor: "var(--color-border-dark)" }}>
           {/* Column 1 — brand */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
@@ -161,7 +167,36 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 3 — legal */}
+          {/* Column 3 — services */}
+          <div>
+            <h4
+              className="font-semibold text-sm mb-4 uppercase tracking-wide"
+              style={{ color: "var(--color-text-on-dark)" }}
+            >
+              Servicii
+            </h4>
+            <ul className="space-y-2">
+              {SERVICE_LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm transition-colors duration-200 text-left inline-block"
+                    style={{ color: "var(--color-text-muted)" }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.color = "var(--color-gold)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.color = "var(--color-text-muted)";
+                    }}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 4 — legal */}
           <div>
             <h4
               className="font-semibold text-sm mb-4 uppercase tracking-wide"
