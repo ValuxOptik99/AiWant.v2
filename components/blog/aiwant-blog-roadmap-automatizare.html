@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>De la Haos la Eficiență: Planul în 4 Pași pentru Automatizarea Business-ului | Aiwant.ro</title>
+  <meta name="description" content="Roadmap complet de implementare a automatizării în business: audit, arhitectură, pilot și scalare. Treci de la procese manuale la un sistem inteligent fără a întrerupe operațiunile actuale." />
+  <meta name="keywords" content="implementare automatizare business, proces transformare digitală, pași automatizare fluxuri de lucru, integrare tehnologie în companie, roadmap automatizare" />
+  <meta property="og:title" content="De la Haos la Eficiență: Planul în 4 Pași pentru Automatizare | Aiwant.ro" />
+  <meta property="og:description" content="Teama de a rupe procesele care funcționează deja este reală. Dar există un roadmap structurat care minimizează riscul și maximizează câștigurile imediate." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://aiwant.ro/blog/roadmap-implementare-automatizare" />
+  <link rel="canonical" href="https://aiwant.ro/blog/roadmap-implementare-automatizare" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #D4A843;
+      --gold-light: #F0C96A;
+      --gold-dim: #9E7A2A;
+      --gold-bg: rgba(212,168,67,0.07);
+      --gold-border: rgba(212,168,67,0.22);
+      --navy: #234B72;
+      --navy-dark: #152D45;
+      --navy-light: #3A6A9E;
+      --bg: #0D1117;
+      --bg-surface: #131A23;
+      --bg-card: #18222F;
+      --bg-card-hover: #1E2C3D;
+      --text-primary: #F0EDE8;
+      --text-secondary: #A8B4C0;
+      --text-muted: #6B7A88;
+      --border: rgba(255,255,255,0.07);
+      --border-em: rgba(255,255,255,0.12);
+      --green-bg: rgba(29,158,117,0.08);
+      --green-border: rgba(29,158,117,0.3);
+      --green-text: #5DCAA5;
+      --green-label: #1D9E75;
+      --red-bg: rgba(226,75,74,0.08);
+      --red-border: rgba(226,75,74,0.3);
+      --red-text: #F09595;
+      --red-label: #E24B4A;
+      --amber-bg: rgba(186,117,23,0.09);
+      --amber-border: rgba(239,159,39,0.3);
+      --amber-text: #FAC775;
+      --amber-label: #EF9F27;
+      --blue-bg: rgba(55,138,221,0.08);
+      --blue-border: rgba(55,138,221,0.28);
+      --blue-text: #85B7EB;
+      --blue-label: #378ADD;
+
+      /* Step colors */
+      --s1: #D4A843;
+      --s2: #378ADD;
+      --s3: #1D9E75;
+      --s4: #9F77DD;
+      --s1-bg: rgba(212,168,67,0.08);
+      --s2-bg: rgba(55,138,221,0.08);
+      --s3-bg: rgba(29,158,117,0.08);
+      --s4-bg: rgba(159,119,221,0.08);
+      --s1-border: rgba(212,168,67,0.25);
+      --s2-border: rgba(55,138,221,0.25);
+      --s3-border: rgba(29,158,117,0.25);
+      --s4-border: rgba(159,119,221,0.25);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-primary);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px; line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(13,17,23,0.9);
+      backdrop-filter: blur(14px);
+      border-bottom: 0.5px solid var(--border);
+      padding: 0 2rem; height: 56px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.05rem; color: var(--gold); text-decoration: none; letter-spacing: 0.04em; }
+    .nav-cta { font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: #0D1117; background: var(--gold); border-radius: 4px; padding: 7px 16px; text-decoration: none; transition: background 0.15s, transform 0.1s; }
+    .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    /* ── LAYOUT ── */
+    .page-wrap { max-width: 780px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+
+    /* ── BADGE ── */
+    .article-badge { display: inline-flex; align-items: center; gap: 6px; font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(212,168,67,0.3); border-radius: 3px; padding: 4px 12px; margin-bottom: 1.5rem; animation: fadeUp 0.5s ease both; }
+    .article-badge::before { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+
+    h1 { font-family: 'Syne', sans-serif; font-size: clamp(1.85rem, 5vw, 2.85rem); font-weight: 800; line-height: 1.15; letter-spacing: -0.025em; color: var(--text-primary); margin-bottom: 1.5rem; animation: fadeUp 0.55s 0.05s ease both; }
+    h1 em { font-style: normal; color: var(--gold); }
+
+    .article-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1.25rem; font-size: 13px; color: var(--text-muted); margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 0.5px solid var(--border); animation: fadeUp 0.55s 0.1s ease both; }
+    .article-meta strong { color: var(--text-secondary); font-weight: 500; }
+    .meta-sep { color: var(--border-em); }
+
+    /* ── INTRO ── */
+    .intro-hook { background: var(--bg-surface); border: 0.5px solid var(--border-em); border-left: 3px solid var(--gold); border-radius: 0 10px 10px 0; padding: 1.5rem 1.75rem; margin-bottom: 1.75rem; font-size: 15px; line-height: 1.7; color: var(--text-secondary); font-style: italic; animation: fadeUp 0.6s 0.15s ease both; }
+    .intro-hook strong { color: var(--gold-light); font-style: normal; font-weight: 500; }
+
+    .intro-body { font-size: 15.5px; color: var(--text-secondary); margin-bottom: 2rem; animation: fadeUp 0.6s 0.2s ease both; }
+    .intro-body p { margin-bottom: 1rem; }
+    .intro-body p:last-child { margin-bottom: 0; }
+
+    /* ── DIVIDER ── */
+    .divider { border: none; border-top: 0.5px solid var(--border); margin: 2.75rem 0; }
+
+    /* ── ROADMAP OVERVIEW ── */
+    .roadmap-overview {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 0; margin: 2rem 0;
+      background: var(--bg-card); border: 0.5px solid var(--border);
+      border-radius: 14px; overflow: hidden;
+    }
+    @media (max-width: 600px) { .roadmap-overview { grid-template-columns: repeat(2, 1fr); } }
+
+    .rm-step {
+      padding: 1.1rem 1rem; text-align: center;
+      border-right: 0.5px solid var(--border);
+      cursor: pointer; transition: background 0.15s;
+      text-decoration: none;
+    }
+    .rm-step:last-child { border-right: none; }
+    @media (max-width: 600px) {
+      .rm-step:nth-child(2) { border-right: none; }
+      .rm-step:nth-child(1),
+      .rm-step:nth-child(2) { border-bottom: 0.5px solid var(--border); }
+    }
+    .rm-step:hover { background: var(--bg-card-hover); }
+
+    .rm-step-num {
+      display: inline-block;
+      font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 800;
+      letter-spacing: 0.1em; padding: 3px 10px; border-radius: 20px;
+      margin-bottom: 8px;
+    }
+    .s1 { background: var(--s1-bg); color: var(--s1); border: 1px solid var(--s1-border); }
+    .s2 { background: var(--s2-bg); color: var(--s2); border: 1px solid var(--s2-border); }
+    .s3 { background: var(--s3-bg); color: var(--s3); border: 1px solid var(--s3-border); }
+    .s4 { background: var(--s4-bg); color: var(--s4); border: 1px solid var(--s4-border); }
+
+    .rm-step-label { font-family: 'Syne', sans-serif; font-size: 11.5px; font-weight: 700; color: var(--text-primary); line-height: 1.3; display: block; }
+    .rm-step-sub { font-size: 11px; color: var(--text-muted); display: block; margin-top: 3px; }
+
+    /* ── SECTION BLOCKS ── */
+    .section-block { margin-bottom: 2.75rem; animation: fadeUp 0.55s ease both; }
+    .section-eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 1rem; }
+    .section-num-label { font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 700; color: var(--text-muted); letter-spacing: 0.08em; }
+
+    .step-header {
+      display: flex; align-items: center; gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+    .step-badge {
+      font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 800;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 5px 14px; border-radius: 20px; flex-shrink: 0;
+    }
+
+    h2.section-title { font-family: 'Syne', sans-serif; font-size: clamp(1.2rem, 3vw, 1.5rem); font-weight: 800; color: var(--text-primary); line-height: 1.25; letter-spacing: -0.015em; }
+    .section-intro { font-size: 15px; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.72; }
+
+    /* ── STEP SECTION ACCENT ── */
+    .step-section { padding-left: 1.25rem; border-left: 2px solid var(--border-em); }
+    .step-section.accent-s1 { border-left-color: var(--s1); }
+    .step-section.accent-s2 { border-left-color: var(--s2); }
+    .step-section.accent-s3 { border-left-color: var(--s3); }
+    .step-section.accent-s4 { border-left-color: var(--s4); }
+
+    /* ── FRUIT CRITERIA ── */
+    .criteria-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.875rem; margin: 1.25rem 0; }
+    @media (max-width: 560px) { .criteria-grid { grid-template-columns: 1fr; } }
+
+    .criteria-card { background: var(--bg-card); border: 0.5px solid var(--border); border-radius: 12px; padding: 1.1rem 1.25rem; transition: background 0.15s, border-color 0.15s; }
+    .criteria-card:hover { background: var(--bg-card-hover); border-color: var(--border-em); }
+
+    .criteria-num { font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; display: block; }
+    .criteria-title { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700; color: var(--text-primary); margin-bottom: 5px; }
+    .criteria-body { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+
+    .pilot-box { background: var(--gold-bg); border: 0.5px solid var(--gold-border); border-radius: 10px; padding: 1.1rem 1.4rem; margin-top: 1.25rem; font-size: 14px; color: var(--text-secondary); line-height: 1.65; }
+    .pilot-box strong { color: var(--gold); font-weight: 500; }
+
+    /* ── AS-IS / TO-BE ── */
+    .flow-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 0.875rem; margin: 1.25rem 0; }
+    @media (max-width: 540px) { .flow-compare { grid-template-columns: 1fr; } }
+
+    .flow-col { background: var(--bg-card); border: 0.5px solid var(--border); border-radius: 12px; overflow: hidden; }
+    .flow-col-header { padding: 0.75rem 1.1rem; border-bottom: 0.5px solid var(--border); font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+    .flow-as-is .flow-col-header { color: var(--red-text); background: var(--red-bg); }
+    .flow-to-be .flow-col-header  { color: var(--green-text); background: var(--green-bg); }
+    .flow-col-body { padding: 1rem 1.1rem; display: flex; flex-direction: column; gap: 6px; }
+
+    .flow-step-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+    .flow-step-item .fi { width: 20px; height: 20px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; }
+    .fi-manual { background: var(--red-bg); color: var(--red-text); border: 1px solid var(--red-border); }
+    .fi-auto   { background: var(--green-bg); color: var(--green-text); border: 1px solid var(--green-border); }
+
+    .flow-arrow { text-align: center; color: var(--text-muted); font-size: 11px; padding: 3px 0; }
+
+    /* ── TOOL DECISION ── */
+    .tool-decision { display: grid; grid-template-columns: 1fr 1fr; gap: 0.875rem; margin: 1.25rem 0; }
+    @media (max-width: 540px) { .tool-decision { grid-template-columns: 1fr; } }
+
+    .tool-card { background: var(--bg-card); border: 0.5px solid var(--border); border-radius: 12px; padding: 1.1rem 1.25rem; }
+    .tool-card-label { font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.65rem; padding-bottom: 0.6rem; border-bottom: 0.5px solid var(--border); }
+    .tool-card-title { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px; }
+    .tool-card-body { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+    .label-saas { color: var(--amber-label); }
+    .label-custom { color: var(--green-label); }
+
+    /* ── SANDBOX CHECKLIST ── */
+    .sandbox-list { display: flex; flex-direction: column; gap: 0.75rem; margin: 1.25rem 0; }
+    .sandbox-item { display: flex; align-items: flex-start; gap: 0.875rem; background: var(--bg-card); border: 0.5px solid var(--border); border-radius: 10px; padding: 0.9rem 1.15rem; transition: background 0.15s, border-color 0.15s; }
+    .sandbox-item:hover { background: var(--bg-card-hover); border-color: var(--border-em); }
+    .sandbox-check { width: 20px; height: 20px; border-radius: 5px; background: var(--s3-bg); border: 1px solid var(--s3-border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+    .sandbox-check svg { width: 11px; height: 11px; }
+    .sandbox-text { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+    .sandbox-text strong { display: block; font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700; color: var(--text-primary); margin-bottom: 2px; }
+
+    /* ── FLYWHEEL ── */
+    .flywheel-steps { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.875rem; margin: 1.25rem 0; }
+    @media (max-width: 540px) { .flywheel-steps { grid-template-columns: 1fr; } }
+
+    .flywheel-card { background: var(--bg-card); border: 0.5px solid var(--border); border-radius: 12px; padding: 1.1rem 1.25rem; transition: background 0.15s, border-color 0.15s; }
+    .flywheel-card:hover { background: var(--bg-card-hover); border-color: var(--border-em); }
+    .flywheel-card-icon { font-size: 1.3rem; margin-bottom: 0.6rem; line-height: 1; }
+    .flywheel-card-title { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700; color: var(--text-primary); margin-bottom: 5px; line-height: 1.3; }
+    .flywheel-card-body { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+
+    .roi-monitor { background: var(--navy-dark); border: 0.5px solid rgba(35,75,114,0.5); border-radius: 12px; padding: 1.25rem 1.4rem; margin-top: 1.25rem; }
+    .roi-monitor-label { font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.875rem; }
+    .roi-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }
+    @media (max-width: 480px) { .roi-metrics { grid-template-columns: 1fr; } }
+    .roi-metric { text-align: center; }
+    .roi-metric-val { font-family: 'Syne', sans-serif; font-size: 1.35rem; font-weight: 800; color: var(--green-text); display: block; }
+    .roi-metric-label { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 2px; }
+
+    /* ── SERIES NAV ── */
+    .series-nav { background: var(--bg-surface); border: 0.5px solid var(--border-em); border-radius: 14px; padding: 1.4rem 1.5rem; margin: 2.5rem 0; }
+    .series-nav-label { font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1rem; }
+    .series-links { display: flex; flex-direction: column; gap: 0.5rem; }
+    .series-link { display: flex; align-items: center; gap: 10px; font-size: 13.5px; color: var(--text-secondary); text-decoration: none; padding: 7px 0; border-bottom: 0.5px solid var(--border); transition: color 0.15s; }
+    .series-link:last-child { border-bottom: none; }
+    .series-link:hover { color: var(--gold); }
+    .series-link-num { font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 700; color: var(--text-muted); background: var(--bg-card); border: 0.5px solid var(--border-em); border-radius: 3px; padding: 2px 8px; flex-shrink: 0; }
+    .series-link.active { color: var(--gold); }
+    .series-link.active .series-link-num { background: var(--gold-bg); border-color: var(--gold-border); color: var(--gold); }
+
+    /* ── HIGHLIGHT BOX ── */
+    .highlight-box { background: var(--gold-bg); border: 0.5px solid var(--gold-border); border-radius: 12px; padding: 1.5rem 1.75rem; margin: 2.5rem 0; font-size: 15px; line-height: 1.75; color: var(--text-secondary); }
+    .highlight-box strong { display: block; font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--gold); margin-bottom: 0.5rem; }
+
+    /* ── CTA ── */
+    .cta-block { background: var(--navy-dark); border: 0.5px solid rgba(35,75,114,0.55); border-radius: 16px; padding: 2.25rem 2.25rem 2.5rem; position: relative; overflow: hidden; margin-top: 2rem; }
+    .cta-block::before { content: ''; position: absolute; top: -60px; right: -60px; width: 260px; height: 260px; border-radius: 50%; background: radial-gradient(circle, rgba(212,168,67,0.14) 0%, transparent 65%); pointer-events: none; }
+    .cta-block::after { content: ''; position: absolute; bottom: -70px; left: -40px; width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(circle, rgba(35,75,114,0.5) 0%, transparent 65%); pointer-events: none; }
+    .cta-block h2 { font-family: 'Syne', sans-serif; font-size: 1.4rem; font-weight: 800; color: #fff; margin-bottom: 0.75rem; line-height: 1.3; position: relative; z-index: 1; }
+    .cta-block p { font-size: 15px; color: rgba(255,255,255,0.62); line-height: 1.7; margin-bottom: 1.5rem; max-width: 520px; position: relative; z-index: 1; }
+    .cta-block p strong { color: var(--gold-light); font-weight: 500; }
+    .cta-btn { display: inline-block; background: var(--gold); color: #0D1117; font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; padding: 13px 28px; border-radius: 6px; transition: background 0.15s, transform 0.1s; position: relative; z-index: 1; }
+    .cta-btn:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+    /* ── SEO TAGS ── */
+    .seo-section { margin-top: 3rem; padding-top: 1.5rem; border-top: 0.5px solid var(--border); }
+    .seo-label { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.75rem; }
+    .seo-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .seo-tag { font-size: 12px; color: var(--text-muted); background: var(--bg-surface); border: 0.5px solid var(--border-em); border-radius: 4px; padding: 4px 10px; text-decoration: none; transition: border-color 0.15s, color 0.15s; }
+    .seo-tag:hover { border-color: rgba(212,168,67,0.3); color: var(--gold); }
+
+    /* ── FOOTER ── */
+    footer { text-align: center; padding: 2rem 1.5rem; border-top: 0.5px solid var(--border); font-size: 13px; color: var(--text-muted); }
+    footer a { color: var(--gold); text-decoration: none; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .section-block:nth-child(1) { animation-delay: 0.05s; }
+    .section-block:nth-child(2) { animation-delay: 0.1s; }
+    .section-block:nth-child(3) { animation-delay: 0.15s; }
+    .section-block:nth-child(4) { animation-delay: 0.2s; }
+
+    @media (max-width: 640px) {
+      .page-wrap { padding: 2rem 1.25rem 4rem; }
+      .cta-block { padding: 1.75rem 1.5rem 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="https://aiwant.ro" class="nav-logo">AIWANT</a>
+    <a href="https://aiwant.ro/contact" class="nav-cta">Audit Gratuit →</a>
+  </nav>
+
+  <main class="page-wrap">
+
+    <span class="article-badge">Ghid · Roadmap Implementare</span>
+
+    <h1>De la Haos la Eficiență: Planul în <em>4 Pași</em> pentru a Automatiza Business-ul Tău</h1>
+
+    <div class="article-meta">
+      <span>de <strong>Vlad Venditti</strong> · aiwant.ro</span>
+      <span class="meta-sep">·</span>
+      <span>Timp de citire: ~9 min</span>
+      <span class="meta-sep">·</span>
+      <span>Roadmap automatizare business</span>
+    </div>
+
+    <blockquote class="intro-hook">
+      Toată lumea vorbește despre AI și Automatizare — dar implementarea poate părea o operațiune chirurgicală riscantă. <strong>Teama de a „rupe" ceea ce funcționează deja, teama de rezistența echipei și lipsa unui punct de start clar</strong> sunt motivele reale pentru care businessuri care știu că au nevoie de schimbare amână luni sau ani de zile.
+    </blockquote>
+
+    <div class="intro-body">
+      <p>Vestea bună: nu trebuie să schimbi totul deodată. Nu trebuie să întrerupi operațiunile și nu trebuie să faci un pariu uriaș cu banii companiei. Există un drum structurat, pas cu pas, care minimizează riscurile și generează câștiguri vizibile de la primul sprint.</p>
+      <p>Acesta este roadmap-ul pe care îl folosim la Aiwant cu fiecare client — de la primul audit de procese până la scalarea completă a ecosistemului digital.</p>
+    </div>
+
+    <!-- ROADMAP OVERVIEW -->
+    <div class="roadmap-overview">
+      <a href="#pas1" class="rm-step">
+        <span class="rm-step-num s1">Pas 01</span>
+        <span class="rm-step-label">Audit</span>
+        <span class="rm-step-sub">Low-hanging fruit</span>
+      </a>
+      <a href="#pas2" class="rm-step">
+        <span class="rm-step-num s2">Pas 02</span>
+        <span class="rm-step-label">Arhitectură</span>
+        <span class="rm-step-sub">Blueprint</span>
+      </a>
+      <a href="#pas3" class="rm-step">
+        <span class="rm-step-num s3">Pas 03</span>
+        <span class="rm-step-label">Pilot</span>
+        <span class="rm-step-sub">Sandbox phase</span>
+      </a>
+      <a href="#pas4" class="rm-step">
+        <span class="rm-step-num s4">Pas 04</span>
+        <span class="rm-step-label">Scalare</span>
+        <span class="rm-step-sub">Flywheel effect</span>
+      </a>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- STEP 1: AUDIT -->
+    <div class="section-block" id="pas1">
+      <div class="section-eyebrow">
+        <span class="section-num-label">Secțiunea 01</span>
+        <span class="rm-step-num s1" style="font-size:10px; padding: 2px 9px;">Pas 01</span>
+      </div>
+
+      <div class="step-section accent-s1">
+        <h2 class="section-title">Auditul și Identificarea „Low-Hanging Fruit"</h2>
+        <p class="section-intro" style="margin-top: 0.75rem;">Prima greșeală pe care o fac companiile care se apucă de automatizare este să vrea să schimbe totul deodată. Aceasta este rețeta pentru haos, costuri mari și echipe demotivate. Corect este să începi mic, să câștig rapid și să construiești încredere internă.</p>
+
+        <p style="font-size: 15px; color: var(--text-secondary); margin-bottom: 1.25rem; line-height: 1.72;">Auditul nu este un proces complicat. Este un exercițiu de onestitate: care sunt procesele care se repetă zilnic, care implică transferul de date între sisteme și unde o eroare costă cel mai mult?</p>
+
+        <div class="criteria-grid">
+          <div class="criteria-card">
+            <span class="criteria-num">Criteriu 01</span>
+            <div class="criteria-title">Repetitive și fără logică complexă</div>
+            <div class="criteria-body">Task-ul se face la fel, de fiecare dată, fără decizii creative. Introducerea datelor, trimiterea confirmărilor, generarea rapoartelor standard.</div>
+          </div>
+          <div class="criteria-card">
+            <span class="criteria-num">Criteriu 02</span>
+            <div class="criteria-title">Digital — datele există deja</div>
+            <div class="criteria-body">Nu automatizezi procese care pornesc de la hârtie. Alegi fluxuri unde informațiile sunt deja în sisteme digitale: email, formulare, baze de date.</div>
+          </div>
+          <div class="criteria-card">
+            <span class="criteria-num">Criteriu 03</span>
+            <div class="criteria-title">Impact mare dacă apare eroarea</div>
+            <div class="criteria-body">Unde o greșeală umană costă mai mult decât automatizarea în sine. Facturare incorectă, date de livrare greșite, contracte cu termene expirate.</div>
+          </div>
+        </div>
+
+        <div class="pilot-box">
+          <strong>Obiectivul Pasului 1:</strong> Alege un singur proces pilot cu risc mic, dar vizibilitate mare în organizație. Nu cel mai complex flux — ci cel care va genera cel mai rapid un „wow" vizibil pentru echipă și management. Succesul primului pilot finanțează și justifică pasul următor.
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- STEP 2: ARCHITECTURE -->
+    <div class="section-block" id="pas2">
+      <div class="section-eyebrow">
+        <span class="section-num-label">Secțiunea 02</span>
+        <span class="rm-step-num s2" style="font-size:10px; padding: 2px 9px;">Pas 02</span>
+      </div>
+
+      <div class="step-section accent-s2">
+        <h2 class="section-title">Proiectarea Arhitecturii — The Blueprint</h2>
+        <p class="section-intro" style="margin-top: 0.75rem;">Înainte de orice cod sau configurare, avem nevoie de logică clară. Cel mai frecvent eșec în proiectele de automatizare nu este tehnic — este lipsa unei hărți clare a ceea ce vrei să construiești. Definim două stări ale procesului ales.</p>
+
+        <div class="flow-compare">
+          <div class="flow-col flow-as-is">
+            <div class="flow-col-header">As-Is — cum este acum</div>
+            <div class="flow-col-body">
+              <div class="flow-step-item"><span class="fi fi-manual">M</span>Comanda primită pe WhatsApp / email</div>
+              <div class="flow-arrow">↓</div>
+              <div class="flow-step-item"><span class="fi fi-manual">M</span>Copiată manual în Excel / ERP</div>
+              <div class="flow-arrow">↓</div>
+              <div class="flow-step-item"><span class="fi fi-manual">M</span>Email de confirmare trimis manual</div>
+              <div class="flow-arrow">↓</div>
+              <div class="flow-step-item"><span class="fi fi-manual">M</span>Factură creată și trimisă manual</div>
+              <div class="flow-arrow">↓</div>
+              <div class="flow-step-item"><span class="fi fi-manual">M</span>Follow-up plată verificat manual</div>
+            </div>
+          </div>
+          <div class="flow-col flow-to-be">
+            <div class="flow-col-header">To-Be — după automatizare</div>
+            <div class="flow-col-body">
+              <div class="flow-step-item"><span class="fi fi-auto">A</span>Comanda capturată automat din orice canal</div>
+              <div class="flow-arrow">↓</div>
+              <div class="flow-step-item"><span class="fi fi-auto">A</span>Înregistrată instant în ERP + CRM</div>
+              <div class="flow-arrow">↓</div>
+              <div class="flow-step-item"><span class="fi fi-auto">A</span>Confirmare trimisă automat în secunde</div>
+              <div class="flow-arrow">↓</div>
+              <div class="flow-step-item"><span class="fi fi-auto">A</span>Factură generată și trimisă automat</div>
+              <div class="flow-arrow">↓</div>
+              <div class="flow-step-item"><span class="fi fi-auto">A</span>Reminder plată trimis la scadență</div>
+            </div>
+          </div>
+        </div>
+
+        <p style="font-size: 15px; color: var(--text-secondary); margin: 1.25rem 0; line-height: 1.72;">Cu harta clară, urmează decizia de tool. Aceasta nu este o decizie arbitrară — se bazează pe complexitatea procesului, pe nevoile de integrare și pe planul de scalare.</p>
+
+        <div class="tool-decision">
+          <div class="tool-card">
+            <div class="tool-card-label label-saas">Când alegi SaaS</div>
+            <div class="tool-card-title">Procese standard, volum mic</div>
+            <div class="tool-card-body">Procesul este comun industriei, integrările necesare sunt disponibile nativ și nu ai nevoie de logică de business complexă sau proprietară. Start rapid, cost inițial minim.</div>
+          </div>
+          <div class="tool-card">
+            <div class="tool-card-label label-custom">Când alegi Custom</div>
+            <div class="tool-card-title">Procese unice, scalare planificată</div>
+            <div class="tool-card-body">Procesul te diferențiază pe piață, ai nevoie de integrări specifice sau fluxul tău de lucru nu se potrivește în niciun template standard. Investiție mai mare, control total.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- STEP 3: PILOT -->
+    <div class="section-block" id="pas3">
+      <div class="section-eyebrow">
+        <span class="section-num-label">Secțiunea 03</span>
+        <span class="rm-step-num s3" style="font-size:10px; padding: 2px 9px;">Pas 03</span>
+      </div>
+
+      <div class="step-section accent-s3">
+        <h2 class="section-title">Implementarea Pilot și Testarea — The Sandbox Phase</h2>
+        <p class="section-intro" style="margin-top: 0.75rem;">Niciodată nu lansezi o automatizare direct în producție fără testare. Indiferent cât de simplă pare soluția, comportamentul în condiții reale — cu date incomplete, volume mari sau utilizatori neobișnuiți cu interfața — este mereu diferit de comportamentul în teorie.</p>
+
+        <div class="sandbox-list">
+          <div class="sandbox-item">
+            <div class="sandbox-check">
+              <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 6L5 9L10 3" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="sandbox-text">
+              <strong>Implementare controlată pe un subset de date</strong>
+              Rulăm noua soluție în paralel cu procesul manual existent timp de 1–2 săptămâni. Comparăm output-urile și identificăm discrepanțele înainte ca acestea să afecteze clienți reali.
+            </div>
+          </div>
+          <div class="sandbox-item">
+            <div class="sandbox-check">
+              <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 6L5 9L10 3" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="sandbox-text">
+              <strong>Stress testing — ce se întâmplă la volume mari?</strong>
+              Testăm comportamentul sistemului cu date incomplete, formate neobișnuite și volume de 10× față de media zilnică. Un sistem care cedează la 200 de comenzi pe zi este mai periculos decât niciun sistem.
+            </div>
+          </div>
+          <div class="sandbox-item">
+            <div class="sandbox-check">
+              <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 6L5 9L10 3" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="sandbox-text">
+              <strong>Feedback loop cu utilizatorii finali</strong>
+              Angajații care vor folosi zilnic sistemul sunt implicați în faza de testare. Sunt cei care vor identifica fricțiunile pe care niciun developer nu le vede din afară — și implicarea lor timpurie elimină rezistența la adoptare.
+            </div>
+          </div>
+          <div class="sandbox-item">
+            <div class="sandbox-check">
+              <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 6L5 9L10 3" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="sandbox-text">
+              <strong>Plan de rollback definit înainte de lansare</strong>
+              Înainte de a pune sistemul în producție, știm exact cum revenim la procesul manual dacă ceva nu funcționează. Nu din pesimism — ci pentru că un plan de retragere clar este singura metodă de a lansa cu adevărat fără frică.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- STEP 4: SCALE -->
+    <div class="section-block" id="pas4">
+      <div class="section-eyebrow">
+        <span class="section-num-label">Secțiunea 04</span>
+        <span class="rm-step-num s4" style="font-size:10px; padding: 2px 9px;">Pas 04</span>
+      </div>
+
+      <div class="step-section accent-s4">
+        <h2 class="section-title">Scalarea și Optimizarea Continuă — The Flywheel Effect</h2>
+        <p class="section-intro" style="margin-top: 0.75rem;">Automatizarea nu este un proiect cu termen de finalizare. Este un volant care, odată pus în mișcare, se accelerează singur. Fiecare proces automatizat eliberează resurse care finanțează automatizarea următorului — și viteza de rotație crește cu fiecare ciclu.</p>
+
+        <div class="flywheel-steps">
+          <div class="flywheel-card">
+            <div class="flywheel-card-icon">🎯</div>
+            <div class="flywheel-card-title">Succes pilot → extindere departamentală</div>
+            <div class="flywheel-card-body">Primul pilot demonstrat intern devine argumentul cel mai puternic pentru extindere. Nu ai nevoie de prezentări PowerPoint — ai rezultate reale din propriul business.</div>
+          </div>
+          <div class="flywheel-card">
+            <div class="flywheel-card-icon">🔁</div>
+            <div class="flywheel-card-title">Iterație continuă pe logica de business</div>
+            <div class="flywheel-card-body">Procesele se schimbă odată cu businessul. O platformă custom bine arhitecturată poate fi modificată și extinsă fără a reconstrui de la zero — indiferent cum evoluează compania ta.</div>
+          </div>
+          <div class="flywheel-card">
+            <div class="flywheel-card-icon">📊</div>
+            <div class="flywheel-card-title">Monitorizarea ROI-ului real</div>
+            <div class="flywheel-card-body">Verificăm trimestrial dacă economiile estimate înainte de implementare s-au realizat. Dacă nu — identificăm blocajele și le rezolvăm. Dacă da — extindem modelul.</div>
+          </div>
+          <div class="flywheel-card">
+            <div class="flywheel-card-icon">🤖</div>
+            <div class="flywheel-card-title">Adăugarea straturilor AI</div>
+            <div class="flywheel-card-body">Odată ce infrastructura este stabilă și datele curg corect, poți adăuga straturi de inteligență artificială: predicție cerere, scoring lead-uri, detectarea anomaliilor în timp real.</div>
+          </div>
+        </div>
+
+        <div class="roi-monitor">
+          <div class="roi-monitor-label">Dashboard de monitorizare ROI — indicatori urmăriți trimestrial</div>
+          <div class="roi-metrics">
+            <div class="roi-metric">
+              <span class="roi-metric-val">Ore/săpt</span>
+              <span class="roi-metric-label">economii de timp per proces</span>
+            </div>
+            <div class="roi-metric">
+              <span class="roi-metric-val">% erori</span>
+              <span class="roi-metric-label">reducere față de baseline manual</span>
+            </div>
+            <div class="roi-metric">
+              <span class="roi-metric-val">Luni</span>
+              <span class="roi-metric-label">până la amortizarea investiției</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- SERIES NAV -->
+    <div class="series-nav">
+      <div class="series-nav-label">Seria completă — De la problemă la implementare</div>
+      <div class="series-links">
+        <a href="https://aiwant.ro/blog/taskuri-repetitive-automatizare" class="series-link">
+          <span class="series-link-num">Art. 1</span>
+          5 Task-uri Repetitive care îți „fură" profitul
+        </a>
+        <a href="https://aiwant.ro/blog/saas-vs-software-custom" class="series-link">
+          <span class="series-link-num">Art. 2</span>
+          Software SaaS vs. Platformă Custom — care scalează business-ul?
+        </a>
+        <a href="https://aiwant.ro/blog/roi-automatizare-procese" class="series-link">
+          <span class="series-link-num">Art. 3</span>
+          Cât te costă, de fapt, să NU automatizezi?
+        </a>
+        <a href="https://aiwant.ro/blog/proprietate-digitala-vs-social-media" class="series-link">
+          <span class="series-link-num">Art. 4</span>
+          Ești proprietar sau chiriaș în lumea digitală?
+        </a>
+        <a href="https://aiwant.ro/blog/roadmap-implementare-automatizare" class="series-link active">
+          <span class="series-link-num">Art. 5</span>
+          De la Haos la Eficiență: Planul în 4 pași ← ești aici
+        </a>
+      </div>
+    </div>
+
+    <div class="highlight-box">
+      <strong>Concluzie</strong>
+      Transformarea digitală nu este un salt în necunoscut — este o serie de pași mici, bine calculați, fiecare bazat pe succesul celui anterior. Cheia nu este să automatizezi totul, ci să știi de unde să începi, cum să testezi fără risc și cum să extinzi metodic. Roadmap-ul există. Lipsește doar decizia de a-l urma.
+    </div>
+
+    <div class="cta-block">
+      <h2>Gata să pornești primul tău sprint de automatizare?</h2>
+      <p>La Aiwant parcurgem împreună toți cei 4 pași: de la <strong>auditul proceselor tale actuale</strong> până la scalarea completă a ecosistemului digital. Fără haos, fără întreruperea operațiunilor, cu rezultate vizibile de la prima iterație.</p>
+      <a href="https://aiwant.ro/contact" class="cta-btn">Solicită auditul gratuit →</a>
+    </div>
+
+    <div class="seo-section">
+      <p class="seo-label">Tag-uri</p>
+      <div class="seo-tags">
+        <a href="#" class="seo-tag">implementare automatizare business</a>
+        <a href="#" class="seo-tag">proces transformare digitală</a>
+        <a href="#" class="seo-tag">pași automatizare fluxuri de lucru</a>
+        <a href="#" class="seo-tag">integrare tehnologie în companie</a>
+        <a href="#" class="seo-tag">roadmap automatizare</a>
+        <a href="#" class="seo-tag">platformă web personalizată</a>
+        <a href="#" class="seo-tag">aiwant.ro</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 <a href="https://aiwant.ro">aiwant.ro</a> · SC Vendor Comp SRL · Constanța, România</p>
+  </footer>
+
+</body>
+</html>

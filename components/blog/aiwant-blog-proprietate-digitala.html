@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ești proprietar sau chiriaș în lumea digitală? | Aiwant.ro</title>
+  <meta name="description" content="Diferența dintre a exista pe social media și a deține un hub digital propriu. De ce site-ul tău este infrastructură critică, nu cheltuială de marketing." />
+  <meta name="keywords" content="proprietate digitală business, infrastructură digitală companie, controlul datelor client, integrare software și website, platformă web pentru business" />
+  <meta property="og:title" content="Ești proprietar sau chiriaș în lumea digitală? | Aiwant.ro" />
+  <meta property="og:description" content="Multe companii există doar pe Facebook sau Instagram. Dar ce se întâmplă când algoritmul se schimbă sau contul este suspendat? Descoperă de ce ai nevoie de un hub digital propriu." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://aiwant.ro/blog/proprietate-digitala-vs-social-media" />
+  <link rel="canonical" href="https://aiwant.ro/blog/proprietate-digitala-vs-social-media" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #D4A843;
+      --gold-light: #F0C96A;
+      --gold-dim: #9E7A2A;
+      --gold-bg: rgba(212,168,67,0.07);
+      --gold-border: rgba(212,168,67,0.22);
+      --navy: #234B72;
+      --navy-dark: #152D45;
+      --navy-light: #3A6A9E;
+      --bg: #0D1117;
+      --bg-surface: #131A23;
+      --bg-card: #18222F;
+      --bg-card-hover: #1E2C3D;
+      --text-primary: #F0EDE8;
+      --text-secondary: #A8B4C0;
+      --text-muted: #6B7A88;
+      --border: rgba(255,255,255,0.07);
+      --border-em: rgba(255,255,255,0.12);
+      --green-bg: rgba(29,158,117,0.08);
+      --green-border: rgba(29,158,117,0.3);
+      --green-text: #5DCAA5;
+      --green-label: #1D9E75;
+      --red-bg: rgba(226,75,74,0.08);
+      --red-border: rgba(226,75,74,0.3);
+      --red-text: #F09595;
+      --red-label: #E24B4A;
+      --amber-bg: rgba(186,117,23,0.09);
+      --amber-border: rgba(239,159,39,0.3);
+      --amber-text: #FAC775;
+      --amber-label: #EF9F27;
+      --blue-bg: rgba(55,138,221,0.08);
+      --blue-border: rgba(55,138,221,0.28);
+      --blue-text: #85B7EB;
+      --blue-label: #378ADD;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-primary);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px; line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(13,17,23,0.9);
+      backdrop-filter: blur(14px);
+      border-bottom: 0.5px solid var(--border);
+      padding: 0 2rem; height: 56px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'Syne', sans-serif; font-weight: 800;
+      font-size: 1.05rem; color: var(--gold);
+      text-decoration: none; letter-spacing: 0.04em;
+    }
+    .nav-cta {
+      font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 700;
+      letter-spacing: 0.06em; color: #0D1117; background: var(--gold);
+      border-radius: 4px; padding: 7px 16px; text-decoration: none;
+      transition: background 0.15s, transform 0.1s;
+    }
+    .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    /* ── LAYOUT ── */
+    .page-wrap { max-width: 780px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+
+    /* ── BADGE ── */
+    .article-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gold); border: 1px solid rgba(212,168,67,0.3);
+      border-radius: 3px; padding: 4px 12px; margin-bottom: 1.5rem;
+      animation: fadeUp 0.5s ease both;
+    }
+    .article-badge::before {
+      content: ''; display: inline-block;
+      width: 6px; height: 6px; border-radius: 50%; background: var(--gold);
+    }
+
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.85rem, 5vw, 2.85rem);
+      font-weight: 800; line-height: 1.15;
+      letter-spacing: -0.025em; color: var(--text-primary);
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.55s 0.05s ease both;
+    }
+    h1 em { font-style: normal; color: var(--gold); }
+
+    .article-meta {
+      display: flex; flex-wrap: wrap; align-items: center;
+      gap: 0.5rem 1.25rem; font-size: 13px; color: var(--text-muted);
+      margin-bottom: 2.5rem; padding-bottom: 2rem;
+      border-bottom: 0.5px solid var(--border);
+      animation: fadeUp 0.55s 0.1s ease both;
+    }
+    .article-meta strong { color: var(--text-secondary); font-weight: 500; }
+    .meta-sep { color: var(--border-em); }
+
+    /* ── INTRO ── */
+    .intro-hook {
+      background: var(--bg-surface);
+      border: 0.5px solid var(--border-em);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 10px 10px 0;
+      padding: 1.5rem 1.75rem; margin-bottom: 1.75rem;
+      font-size: 15px; line-height: 1.7;
+      color: var(--text-secondary); font-style: italic;
+      animation: fadeUp 0.6s 0.15s ease both;
+    }
+    .intro-hook strong { color: var(--gold-light); font-style: normal; font-weight: 500; }
+
+    .intro-body {
+      font-size: 15.5px; color: var(--text-secondary);
+      margin-bottom: 2rem; animation: fadeUp 0.6s 0.2s ease both;
+    }
+    .intro-body p { margin-bottom: 1rem; }
+    .intro-body p:last-child { margin-bottom: 0; }
+
+    /* ── DIVIDER ── */
+    .divider { border: none; border-top: 0.5px solid var(--border); margin: 2.75rem 0; }
+
+    /* ── SECTIONS ── */
+    .section-block { margin-bottom: 2.75rem; animation: fadeUp 0.55s ease both; }
+    .section-eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 1rem; }
+    .section-num { font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 700; color: var(--text-muted); letter-spacing: 0.08em; }
+    .section-tag {
+      font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase; padding: 3px 10px; border-radius: 3px;
+    }
+    .tag-risk   { color: var(--red-text); background: var(--red-bg); border: 1px solid var(--red-border); }
+    .tag-hub    { color: var(--gold); background: var(--gold-bg); border: 1px solid var(--gold-border); }
+    .tag-data   { color: var(--blue-text); background: var(--blue-bg); border: 1px solid var(--blue-border); }
+
+    h2.section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.2rem, 3vw, 1.5rem);
+      font-weight: 800; color: var(--text-primary);
+      line-height: 1.25; margin-bottom: 1rem; letter-spacing: -0.015em;
+    }
+    .section-intro { font-size: 15px; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.72; }
+
+    /* ── RISK SCENARIOS ── */
+    .risk-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.875rem; margin: 1.25rem 0 1.75rem;
+    }
+    .risk-card {
+      background: var(--red-bg); border: 0.5px solid var(--red-border);
+      border-radius: 12px; padding: 1.1rem 1.25rem;
+    }
+    .risk-card-title {
+      font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 700;
+      color: var(--red-text); margin-bottom: 0.5rem; line-height: 1.3;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .risk-card-title::before {
+      content: ''; display: inline-block; width: 6px; height: 6px;
+      border-radius: 50%; background: var(--red-label); flex-shrink: 0;
+    }
+    .risk-card-body { font-size: 13px; color: var(--red-text); opacity: 0.8; line-height: 1.6; }
+
+    /* ── OWNERSHIP VS RENTING ── */
+    .vs-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin: 1.5rem 0; border-radius: 14px; overflow: hidden; border: 0.5px solid var(--border); }
+    @media (max-width: 540px) { .vs-wrap { grid-template-columns: 1fr; } }
+
+    .vs-col { padding: 1.4rem 1.5rem; }
+    .vs-col-rent { background: var(--bg-card); border-right: 0.5px solid var(--border); }
+    .vs-col-own  { background: var(--navy-dark); }
+
+    @media (max-width: 540px) {
+      .vs-col-rent { border-right: none; border-bottom: 0.5px solid var(--border); }
+    }
+
+    .vs-col-header {
+      display: flex; align-items: center; gap: 8px;
+      margin-bottom: 1rem; padding-bottom: 0.875rem;
+      border-bottom: 0.5px solid var(--border);
+    }
+    .vs-col-icon { font-size: 1.1rem; line-height: 1; }
+    .vs-col-title {
+      font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .title-rent { color: var(--red-text); }
+    .title-own  { color: var(--green-text); }
+
+    .vs-list { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .vs-list li {
+      font-size: 13.5px; line-height: 1.6; color: var(--text-secondary);
+      display: flex; align-items: flex-start; gap: 8px;
+    }
+    .vs-list li .dot { width: 5px; height: 5px; border-radius: 50%; margin-top: 8px; flex-shrink: 0; }
+    .dot-rent { background: var(--red-label); }
+    .dot-own  { background: var(--green-label); }
+    .vs-list li strong { font-weight: 500; color: var(--text-primary); }
+
+    .vs-verdict {
+      background: var(--gold-bg); border: 0.5px solid var(--gold-border);
+      border-radius: 0 0 14px 14px; border-top: none;
+      padding: 1rem 1.5rem;
+      font-size: 14px; color: var(--text-secondary); line-height: 1.65;
+      font-style: italic;
+    }
+    .vs-verdict strong { color: var(--gold); font-style: normal; font-weight: 500; }
+
+    /* ── HUB FEATURES ── */
+    .hub-features { display: flex; flex-direction: column; gap: 0.875rem; margin: 1.25rem 0; }
+    .hub-feature {
+      display: flex; align-items: flex-start; gap: 1rem;
+      background: var(--bg-card); border: 0.5px solid var(--border);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 12px 12px 0; padding: 1.1rem 1.25rem;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .hub-feature:hover { background: var(--bg-card-hover); border-color: var(--border-em); border-left-color: var(--gold); }
+
+    .hub-feature-icon {
+      font-size: 1.3rem; flex-shrink: 0; line-height: 1;
+      margin-top: 2px;
+    }
+    .hub-feature-content { flex: 1; }
+    .hub-feature-title {
+      font-family: 'Syne', sans-serif; font-size: 13.5px; font-weight: 700;
+      color: var(--text-primary); margin-bottom: 4px; line-height: 1.3;
+    }
+    .hub-feature-desc { font-size: 13.5px; color: var(--text-secondary); line-height: 1.6; }
+
+    .hub-cta-note {
+      background: var(--navy-dark); border: 0.5px solid rgba(35,75,114,0.5);
+      border-radius: 10px; padding: 1.1rem 1.4rem;
+      font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.65;
+      margin-top: 1rem;
+    }
+    .hub-cta-note strong { color: var(--gold-light); font-weight: 500; }
+
+    /* ── DATA SECTION ── */
+    .data-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.875rem; margin: 1.25rem 0; }
+    @media (max-width: 540px) { .data-grid { grid-template-columns: 1fr; } }
+
+    .data-card {
+      background: var(--bg-card); border: 0.5px solid var(--border);
+      border-radius: 12px; padding: 1.25rem 1.3rem;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .data-card:hover { border-color: var(--border-em); background: var(--bg-card-hover); }
+
+    .data-card-label {
+      font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      margin-bottom: 0.75rem; padding-bottom: 0.65rem;
+      border-bottom: 0.5px solid var(--border);
+    }
+    .label-first  { color: var(--green-label); }
+    .label-third  { color: var(--red-label); }
+
+    .data-card-title {
+      font-family: 'Syne', sans-serif; font-size: 13.5px; font-weight: 700;
+      color: var(--text-primary); margin-bottom: 0.5rem; line-height: 1.3;
+    }
+    .data-card-body { font-size: 13px; color: var(--text-secondary); line-height: 1.65; }
+
+    /* ── INTEGRATION CHAIN ── */
+    .integration-chain {
+      display: flex; flex-wrap: wrap; align-items: center;
+      gap: 0; margin: 1.5rem 0;
+      background: var(--bg-card); border: 0.5px solid var(--border);
+      border-radius: 12px; overflow: hidden;
+    }
+    .chain-node {
+      flex: 1; min-width: 100px;
+      padding: 1rem 1.1rem; text-align: center;
+      border-right: 0.5px solid var(--border);
+      position: relative;
+    }
+    .chain-node:last-child { border-right: none; }
+    .chain-node-icon { font-size: 1.3rem; margin-bottom: 6px; line-height: 1; }
+    .chain-node-label {
+      font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 3px;
+    }
+    .chain-node-sub { font-size: 12px; color: var(--text-secondary); line-height: 1.4; }
+    .chain-node.hub-node { background: rgba(35,75,114,0.2); border-color: rgba(35,75,114,0.5); }
+    .chain-node.hub-node .chain-node-label { color: var(--gold); }
+
+    .chain-arrow {
+      width: 28px; text-align: center;
+      font-size: 14px; color: var(--text-muted);
+      flex-shrink: 0; padding: 0 4px;
+    }
+    @media (max-width: 560px) {
+      .integration-chain { flex-direction: column; }
+      .chain-node { border-right: none; border-bottom: 0.5px solid var(--border); }
+      .chain-node:last-child { border-bottom: none; }
+      .chain-arrow { transform: rotate(90deg); width: 100%; padding: 4px 0; }
+    }
+
+    /* ── HIGHLIGHT BOX ── */
+    .highlight-box {
+      background: var(--gold-bg); border: 0.5px solid var(--gold-border);
+      border-radius: 12px; padding: 1.5rem 1.75rem; margin: 2.5rem 0;
+      font-size: 15px; line-height: 1.75; color: var(--text-secondary);
+    }
+    .highlight-box strong {
+      display: block; font-family: 'Syne', sans-serif;
+      font-size: 0.95rem; font-weight: 700; color: var(--gold); margin-bottom: 0.5rem;
+    }
+
+    /* ── CTA ── */
+    .cta-block {
+      background: var(--navy-dark);
+      border: 0.5px solid rgba(35,75,114,0.55);
+      border-radius: 16px; padding: 2.25rem 2.25rem 2.5rem;
+      position: relative; overflow: hidden; margin-top: 2rem;
+    }
+    .cta-block::before {
+      content: ''; position: absolute; top: -60px; right: -60px;
+      width: 260px; height: 260px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(212,168,67,0.14) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .cta-block::after {
+      content: ''; position: absolute; bottom: -70px; left: -40px;
+      width: 200px; height: 200px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(35,75,114,0.5) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .cta-block h2 {
+      font-family: 'Syne', sans-serif; font-size: 1.4rem; font-weight: 800;
+      color: #fff; margin-bottom: 0.75rem; line-height: 1.3;
+      position: relative; z-index: 1;
+    }
+    .cta-block p {
+      font-size: 15px; color: rgba(255,255,255,0.62); line-height: 1.7;
+      margin-bottom: 1.5rem; max-width: 520px;
+      position: relative; z-index: 1;
+    }
+    .cta-block p strong { color: var(--gold-light); font-weight: 500; }
+    .cta-btn {
+      display: inline-block; background: var(--gold); color: #0D1117;
+      font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 800;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      text-decoration: none; padding: 13px 28px; border-radius: 6px;
+      transition: background 0.15s, transform 0.1s; position: relative; z-index: 1;
+    }
+    .cta-btn:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+    /* ── SEO TAGS ── */
+    .seo-section { margin-top: 3rem; padding-top: 1.5rem; border-top: 0.5px solid var(--border); }
+    .seo-label { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.75rem; }
+    .seo-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .seo-tag {
+      font-size: 12px; color: var(--text-muted); background: var(--bg-surface);
+      border: 0.5px solid var(--border-em); border-radius: 4px; padding: 4px 10px;
+      text-decoration: none; transition: border-color 0.15s, color 0.15s;
+    }
+    .seo-tag:hover { border-color: rgba(212,168,67,0.3); color: var(--gold); }
+
+    /* ── FOOTER ── */
+    footer { text-align: center; padding: 2rem 1.5rem; border-top: 0.5px solid var(--border); font-size: 13px; color: var(--text-muted); }
+    footer a { color: var(--gold); text-decoration: none; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .section-block:nth-child(1) { animation-delay: 0.05s; }
+    .section-block:nth-child(2) { animation-delay: 0.1s; }
+    .section-block:nth-child(3) { animation-delay: 0.15s; }
+
+    @media (max-width: 640px) {
+      .page-wrap { padding: 2rem 1.25rem 4rem; }
+      .cta-block { padding: 1.75rem 1.5rem 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="https://aiwant.ro" class="nav-logo">AIWANT</a>
+    <a href="https://aiwant.ro/contact" class="nav-cta">Consultanță Gratuită →</a>
+  </nav>
+
+  <main class="page-wrap">
+
+    <span class="article-badge">Infrastructură Digitală · Strategie</span>
+
+    <h1>Ești proprietar sau <em>chiriaș</em> în lumea digitală?</h1>
+
+    <div class="article-meta">
+      <span>de <strong>Vlad Venditti</strong> · aiwant.ro</span>
+      <span class="meta-sep">·</span>
+      <span>Timp de citire: ~7 min</span>
+      <span class="meta-sep">·</span>
+      <span>Proprietate digitală business</span>
+    </div>
+
+    <blockquote class="intro-hook">
+      Multe companii moderne există doar pe Facebook, Instagram sau LinkedIn. Par că au prezență digitală, dar de fapt <strong>închiriază spațiu pe terenul altcuiva</strong> — și plătesc chiria cu atenția, datele și dependența față de regulile unui terț pe care nu îl controlează nimeni.
+    </blockquote>
+
+    <div class="intro-body">
+      <p>Ce se întâmplă dacă algoritmul se schimbă peste noapte și reach-ul tău organic cade cu 80%? Dacă contul este suspendat din greșeală — și echipa de suport a platformei nu răspunde în 3 săptămâni? Dacă platforma decide să îți limiteze accesul la datele clienților tăi?</p>
+      <p>Acest articol explică de ce un website propriu nu este o cheltuială de marketing, ci o <strong>investiție în infrastructură critică și control operațional</strong> — fundația pe care construiești automatizarea, datele și creșterea businessului tău.</p>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- SECTION 1: OWNERSHIP vs RENTING -->
+    <div class="section-block">
+      <div class="section-eyebrow">
+        <span class="section-num">Secțiunea 01</span>
+        <span class="section-tag tag-risk">Proprietate vs. Chirie</span>
+      </div>
+
+      <h2 class="section-title">Cele 3 riscuri reale ale existenței doar pe Social Media</h2>
+
+      <p class="section-intro">Înainte să vorbim despre ce câștigi prin proprietate digitală, trebuie să înțelegi ce riști concret în fiecare zi în care businessul tău trăiește exclusiv pe platformele altora.</p>
+
+      <div class="risk-grid">
+        <div class="risk-card">
+          <div class="risk-card-title">Schimbarea algoritmului</div>
+          <div class="risk-card-body">Facebook, Instagram și LinkedIn modifică algoritmii de reach organic de mai multe ori pe an. O schimbare poate reduce vizibilitatea cu 60–80% fără nicio notificare prealabilă.</div>
+        </div>
+        <div class="risk-card">
+          <div class="risk-card-title">Suspendarea contului</div>
+          <div class="risk-card-body">Conturi cu ani de activitate și mii de urmăritori au fost suspendate din eroare. Recuperarea poate dura luni — timp în care businessul tău digital dispare complet.</div>
+        </div>
+        <div class="risk-card">
+          <div class="risk-card-title">Pierderea datelor clienților</div>
+          <div class="risk-card-body">Followerii tăi nu sunt ai tăi. Nu ai accesul la adresele lor de email, la comportamentul de achiziție sau la istoricul interacțiunilor. Platforma deține acele date, nu tu.</div>
+        </div>
+      </div>
+
+      <h2 class="section-title" style="margin-top: 2rem;">Social Media vs. Website propriu — față în față</h2>
+      <p class="section-intro" style="margin-bottom: 1rem;">Diferența fundamentală nu este despre estetică sau trafic. Este despre cine controlează regulile, datele și viitorul prezenței tale digitale.</p>
+
+      <div class="vs-wrap">
+        <div class="vs-col vs-col-rent">
+          <div class="vs-col-header">
+            <span class="vs-col-icon">🏚️</span>
+            <span class="vs-col-title title-rent">Social Media = Chirie</span>
+          </div>
+          <ul class="vs-list">
+            <li><span class="dot dot-rent"></span><div>Regulile le stabilește <strong>platforma</strong>, nu tu</div></li>
+            <li><span class="dot dot-rent"></span><div>Nu deții lista de followeri — sunt datele platformei</div></li>
+            <li><span class="dot dot-rent"></span><div>Reach organic depinde de <strong>algoritm</strong>, nu de munca ta</div></li>
+            <li><span class="dot dot-rent"></span><div>Integrarea cu sisteme externe este limitată sau inexistentă</div></li>
+            <li><span class="dot dot-rent"></span><div>Contul poate dispărea oricând, din orice motiv</div></li>
+          </ul>
+        </div>
+        <div class="vs-col vs-col-own">
+          <div class="vs-col-header">
+            <span class="vs-col-icon">🏛️</span>
+            <span class="vs-col-title title-own">Website propriu = Proprietate</span>
+          </div>
+          <ul class="vs-list">
+            <li><span class="dot dot-own"></span><div>Tu stabilești <strong>UX-ul, regulile și fluxul</strong> de navigare</div></li>
+            <li><span class="dot dot-own"></span><div>Deții datele clienților: email, comportament, preferințe</div></li>
+            <li><span class="dot dot-own"></span><div>Vizibilitatea este construită prin <strong>SEO stabil</strong>, nu algoritm</div></li>
+            <li><span class="dot dot-own"></span><div>Integrezi orice sistem: CRM, ERP, booking, facturare</div></li>
+            <li><span class="dot dot-own"></span><div>Platforma ta nu dispare niciodată fără decizia ta</div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="vs-verdict">
+        <strong>Concluzia secțiunii:</strong> Un business solid are nevoie de o „acasă" digitală pe care nimeni nu o poate dărâma peste capul lui. Social media este excelentă ca amplificator — dar niciodată ca fundație.
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- SECTION 2: HUB FOR AUTOMATION -->
+    <div class="section-block">
+      <div class="section-eyebrow">
+        <span class="section-num">Secțiunea 02</span>
+        <span class="section-tag tag-hub">Hub de Automatizare</span>
+      </div>
+
+      <h2 class="section-title">Site-ul ca platformă de automatizare — nu doar vitrină</h2>
+
+      <p class="section-intro">Platforma ta socială nu poate integra un CRM complex, un configurator de produse sau un dashboard de date în timp real. Un website propriu, construit corect, devine <strong>centrul de comandă al întregului tău ecosistem digital.</strong></p>
+
+      <div class="hub-features">
+        <div class="hub-feature">
+          <span class="hub-feature-icon">📋</span>
+          <div class="hub-feature-content">
+            <div class="hub-feature-title">Formulare inteligente conectate la CRM</div>
+            <div class="hub-feature-desc">Fiecare lead completat pe site ajunge automat în CRM-ul tău, cu scor de calificare, tag-uri automate și notificare pentru echipa de vânzări — fără nicio intervenție manuală.</div>
+          </div>
+        </div>
+        <div class="hub-feature">
+          <span class="hub-feature-icon">🧮</span>
+          <div class="hub-feature-content">
+            <div class="hub-feature-title">Calculatoare interactive de ROI sau preț</div>
+            <div class="hub-feature-desc">Instrumente care educă clientul și colectează lead-uri calificate simultan. Un calculator de preț custom pe site convertește de 3–5× mai bine decât un formular de contact clasic.</div>
+          </div>
+        </div>
+        <div class="hub-feature">
+          <span class="hub-feature-icon">🔐</span>
+          <div class="hub-feature-content">
+            <div class="hub-feature-title">Portale securizate pentru clienți</div>
+            <div class="hub-feature-desc">Zone autentificate unde clienții tăi pot vedea progresul proiectelor, descărca documente, aproba propuneri sau face plăți — eliminând zeci de e-mailuri și apeluri săptămânal.</div>
+          </div>
+        </div>
+        <div class="hub-feature">
+          <span class="hub-feature-icon">📡</span>
+          <div class="hub-feature-content">
+            <div class="hub-feature-title">Integrări API cu ecosistemul tău</div>
+            <div class="hub-feature-desc">Site-ul tău custom poate vorbi cu orice sistem extern: ERP, platforme de email marketing, sisteme de gestiune stocuri, procesatoare de plăți. Datele curg automat, fără copiere manuală.</div>
+          </div>
+        </div>
+        <div class="hub-feature">
+          <span class="hub-feature-icon">📊</span>
+          <div class="hub-feature-content">
+            <div class="hub-feature-title">Analytics și date în timp real</div>
+            <div class="hub-feature-desc">Spre deosebire de paginile de social media, pe platforma ta proprie ai acces la fiecare click, fiecare drum de navigare, fiecare punct de abandon — și poți acționa pe baza acestor date.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hub-cta-note">
+        <strong>Ideea principală Aiwant:</strong> Site-ul tău este „materia primă" pe care tehnologia și automatizarea o transformă în profit. Un site de prezentare este un cost. O platformă web custom este un activ care lucrează pentru tine 24/7.
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- SECTION 3: DATA & SCALABILITY -->
+    <div class="section-block">
+      <div class="section-eyebrow">
+        <span class="section-num">Secțiunea 03</span>
+        <span class="section-tag tag-data">Date & Scalabilitate</span>
+      </div>
+
+      <h2 class="section-title">Controlul datelor și scalabilitatea — avantajul pe care nu îl poți construi pe terenul altcuiva</h2>
+
+      <p class="section-intro">Trăim în zorii erei post-cookie. Platformele third-party restricționează tot mai agresiv accesul la datele de comportament ale utilizatorilor. Singura sursă de date care va rămâne intactă este cea colectată pe platforma ta proprie.</p>
+
+      <div class="data-grid">
+        <div class="data-card">
+          <div class="data-card-label label-first">First-party data</div>
+          <div class="data-card-title">Date colectate direct, deținute de tine</div>
+          <div class="data-card-body">Email-uri, comportament de navigare, preferințe de produs, istoricul achizițiilor — colectate cu consimțământ pe platforma ta. Nimeni nu ți le poate lua și nu se supun restricțiilor cookie de la terți.</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-label label-third">Third-party data</div>
+          <div class="data-card-title">Date împrumutate, pe termen limitat</div>
+          <div class="data-card-body">Datele de targeting de pe Facebook sau Google se reduc constant prin legislație (GDPR), politici de browser și decizii corporate. Businessul bazat pe ele construiește pe nisip.</div>
+        </div>
+      </div>
+
+      <p class="section-intro" style="margin-top: 1.5rem; margin-bottom: 1.25rem;">Un ecosistem digital funcțional nu este o colecție de aplicații separate. Este un lanț integrat în care fiecare componentă comunică cu celelalte — iar hub-ul central este platforma ta web.</p>
+
+      <div class="integration-chain">
+        <div class="chain-node">
+          <div class="chain-node-icon">📧</div>
+          <div class="chain-node-label">Email Marketing</div>
+          <div class="chain-node-sub">Mailchimp, SendGrid</div>
+        </div>
+        <div class="chain-arrow">→</div>
+        <div class="chain-node hub-node">
+          <div class="chain-node-icon">🌐</div>
+          <div class="chain-node-label">Platforma ta web</div>
+          <div class="chain-node-sub">Hub central</div>
+        </div>
+        <div class="chain-arrow">→</div>
+        <div class="chain-node">
+          <div class="chain-node-icon">🏭</div>
+          <div class="chain-node-label">ERP / Stocuri</div>
+          <div class="chain-node-sub">Gestiune internă</div>
+        </div>
+        <div class="chain-arrow">→</div>
+        <div class="chain-node">
+          <div class="chain-node-icon">💳</div>
+          <div class="chain-node-label">Plăți & Facturare</div>
+          <div class="chain-node-sub">Stripe, Netopia</div>
+        </div>
+      </div>
+
+      <p class="section-intro" style="margin-top: 1.25rem;">Fără o platformă web controlată, aceste conexiuni sunt imposibile sau extrem de costisitoare. Cu ea, fiecare sistem alimentează celelalte cu date în timp real — și tu ai o imagine completă, nu un puzzle de aplicații disparate.</p>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="highlight-box">
+      <strong>Concluzie</strong>
+      Nu te mulțumi cu o prezență digitală fragilă construită pe terenul altcuiva. Fiecare zi petrecută exclusiv pe social media este o zi în care nu îți construiești un activ propriu, nu colectezi date care îți aparțin și nu creezi infrastructura pe care să pui straturi de automatizare și AI. Proprietatea digitală nu este o opțiune de lux — este fundația oricărui business care vrea să crească controlat și sustenabil.
+    </div>
+
+    <div class="cta-block">
+      <h2>Ai nevoie de mai mult decât o simplă pagină web?</h2>
+      <p>Contactează Aiwant pentru a transforma site-ul tău dintr-o simplă vitrină <strong>într-un motor de business automatizat</strong>. Construim platforme custom care funcționează pentru tine, nu doar pentru a fi văzute.</p>
+      <a href="https://aiwant.ro/contact" class="cta-btn">Discută cu Aiwant →</a>
+    </div>
+
+    <div class="seo-section">
+      <p class="seo-label">Tag-uri</p>
+      <div class="seo-tags">
+        <a href="#" class="seo-tag">proprietate digitală business</a>
+        <a href="#" class="seo-tag">infrastructură digitală companie</a>
+        <a href="#" class="seo-tag">controlul datelor client</a>
+        <a href="#" class="seo-tag">integrare software și website</a>
+        <a href="#" class="seo-tag">platformă web pentru business</a>
+        <a href="#" class="seo-tag">first-party data</a>
+        <a href="#" class="seo-tag">aiwant.ro</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 <a href="https://aiwant.ro">aiwant.ro</a> · SC Vendor Comp SRL · Constanța, România</p>
+  </footer>
+
+</body>
+</html>

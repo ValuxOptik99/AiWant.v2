@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5 Task-uri care fură profitul tău | Automatizare Business | Aiwant.ro</title>
+  <meta name="description" content="Descoperi care sunt cele 5 taskuri repetitive care îți consumă profitul invizibil și cum o platformă custom de la Aiwant le elimină prin automatizare." />
+  <meta name="keywords" content="automatizare procese business, reducerea costurilor operaționale, taskuri repetitive, eficiență în companie, dezvoltare software custom" />
+  <meta property="og:title" content="5 Task-uri Repetitive care îți Fură Profitul | Aiwant.ro" />
+  <meta property="og:description" content="Costul de oportunitate al muncii manuale este invizibil — până îl calculezi. Descoperă cum să elimini cei mai mari consumatori de timp din businessul tău." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://aiwant.ro/blog/taskuri-repetitive-automatizare" />
+  <link rel="canonical" href="https://aiwant.ro/blog/taskuri-repetitive-automatizare" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #D4A843;
+      --gold-light: #F0C96A;
+      --gold-dim: #9E7A2A;
+      --gold-bg: rgba(212,168,67,0.07);
+      --navy: #234B72;
+      --navy-dark: #152D45;
+      --navy-mid: #1A3A58;
+      --navy-light: #3A6A9E;
+      --bg: #0D1117;
+      --bg-surface: #131A23;
+      --bg-card: #18222F;
+      --bg-card-hover: #1E2C3D;
+      --text-primary: #F0EDE8;
+      --text-secondary: #A8B4C0;
+      --text-muted: #6B7A88;
+      --border: rgba(255,255,255,0.07);
+      --border-em: rgba(255,255,255,0.12);
+      --red-bg: rgba(226,75,74,0.08);
+      --red-border: rgba(226,75,74,0.4);
+      --red-text: #F09595;
+      --red-label: #E24B4A;
+      --blue-bg: rgba(58,106,158,0.1);
+      --blue-border: rgba(58,106,158,0.45);
+      --blue-text: #85B7EB;
+      --blue-label: #378ADD;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-primary);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(13,17,23,0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 0.5px solid var(--border);
+      padding: 0 2rem;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+
+    .nav-cta {
+      font-family: 'Syne', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--navy-dark);
+      background: var(--gold);
+      border: none;
+      border-radius: 4px;
+      padding: 7px 16px;
+      text-decoration: none;
+      transition: background 0.15s, transform 0.1s;
+    }
+
+    .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    /* ── LAYOUT ── */
+    .page-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+
+    /* ── HEADER ── */
+    .article-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Syne', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(212,168,67,0.3);
+      border-radius: 3px;
+      padding: 4px 12px;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.5s ease both;
+    }
+
+    .article-badge::before {
+      content: '';
+      display: inline-block;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.9rem, 5vw, 2.9rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      color: var(--text-primary);
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.55s 0.05s ease both;
+    }
+
+    h1 em {
+      font-style: normal;
+      color: var(--gold);
+    }
+
+    .article-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem 1.25rem;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 0.5px solid var(--border);
+      animation: fadeUp 0.55s 0.1s ease both;
+    }
+
+    .article-meta strong { color: var(--text-secondary); font-weight: 500; }
+    .meta-sep { color: var(--border-em); }
+
+    /* ── INTRO ── */
+    .intro-quote {
+      background: var(--bg-surface);
+      border: 0.5px solid var(--border-em);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 10px 10px 0;
+      padding: 1.5rem 1.75rem;
+      margin-bottom: 2rem;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      font-style: italic;
+      animation: fadeUp 0.6s 0.15s ease both;
+    }
+
+    .intro-quote strong {
+      color: var(--gold-light);
+      font-style: normal;
+      font-weight: 500;
+    }
+
+    .intro-body {
+      font-size: 15.5px;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+
+    .intro-body p { margin-bottom: 1rem; }
+    .intro-body p:last-child { margin-bottom: 0; }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 0.5px solid var(--border);
+      margin: 2.5rem 0;
+    }
+
+    /* ── SECTION TITLE ── */
+    .section-heading {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1.75rem;
+    }
+
+    /* ── TASK CARDS ── */
+    .task-card {
+      background: var(--bg-card);
+      border: 0.5px solid var(--border);
+      border-radius: 14px;
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .task-card:hover {
+      border-color: var(--border-em);
+      background: var(--bg-card-hover);
+    }
+
+    .task-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.25rem 1.5rem;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .task-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(212,168,67,0.1);
+      border: 1px solid rgba(212,168,67,0.25);
+      border-radius: 4px;
+      padding: 4px 10px;
+      white-space: nowrap;
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    .task-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.35;
+    }
+
+    .task-body { padding: 1.25rem 1.5rem; }
+
+    .task-desc {
+      font-size: 14.5px;
+      color: var(--text-secondary);
+      margin-bottom: 1.1rem;
+      line-height: 1.7;
+    }
+
+    .task-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.875rem;
+    }
+
+    @media (max-width: 560px) {
+      .task-row { grid-template-columns: 1fr; }
+    }
+
+    .pill {
+      border-radius: 8px;
+      padding: 0.875rem 1rem;
+      font-size: 13.5px;
+      line-height: 1.6;
+    }
+
+    .pill-label {
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .pill-risk {
+      background: var(--red-bg);
+      border: 0.5px solid var(--red-border);
+      color: var(--red-text);
+    }
+
+    .pill-risk .pill-label { color: var(--red-label); }
+
+    .pill-tech {
+      background: var(--blue-bg);
+      border: 0.5px solid var(--blue-border);
+      color: var(--blue-text);
+    }
+
+    .pill-tech .pill-label { color: var(--blue-label); }
+
+    /* ── HIGHLIGHT BOX ── */
+    .highlight-box {
+      background: var(--gold-bg);
+      border: 0.5px solid rgba(212,168,67,0.2);
+      border-radius: 12px;
+      padding: 1.5rem 1.75rem;
+      margin: 2.5rem 0;
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--text-secondary);
+    }
+
+    .highlight-box strong {
+      display: block;
+      font-family: 'Syne', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    /* ── CTA ── */
+    .cta-block {
+      background: var(--navy-dark);
+      border: 0.5px solid rgba(35,75,114,0.6);
+      border-radius: 16px;
+      padding: 2.25rem 2.25rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+      margin-top: 2rem;
+    }
+
+    .cta-block::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 240px; height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212,168,67,0.15) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .cta-block::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -40px;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(35,75,114,0.4) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .cta-block h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-block p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      max-width: 500px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-block p strong {
+      color: var(--gold-light);
+      font-weight: 500;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: #0D1117;
+      font-family: 'Syne', sans-serif;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 13px 28px;
+      border-radius: 6px;
+      transition: background 0.15s, transform 0.1s;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-btn:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+    }
+
+    /* ── SEO TAGS ── */
+    .seo-section {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 0.5px solid var(--border);
+    }
+
+    .seo-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .seo-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .seo-tag {
+      font-size: 12px;
+      color: var(--text-muted);
+      background: var(--bg-surface);
+      border: 0.5px solid var(--border-em);
+      border-radius: 4px;
+      padding: 4px 10px;
+      text-decoration: none;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .seo-tag:hover {
+      border-color: rgba(212,168,67,0.3);
+      color: var(--gold);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      border-top: 0.5px solid var(--border);
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    footer a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .task-card {
+      animation: fadeUp 0.5s ease both;
+    }
+
+    .task-card:nth-child(1) { animation-delay: 0.05s; }
+    .task-card:nth-child(2) { animation-delay: 0.1s; }
+    .task-card:nth-child(3) { animation-delay: 0.15s; }
+    .task-card:nth-child(4) { animation-delay: 0.2s; }
+    .task-card:nth-child(5) { animation-delay: 0.25s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .page-wrap { padding: 2rem 1.25rem 4rem; }
+      .cta-block { padding: 1.75rem 1.5rem 2rem; }
+      .task-header { flex-direction: column; gap: 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="https://aiwant.ro" class="nav-logo">AIWANT</a>
+    <a href="https://aiwant.ro/contact" class="nav-cta">Audit Gratuit →</a>
+  </nav>
+
+  <main class="page-wrap">
+
+    <span class="article-badge">Automatizare · Business</span>
+
+    <h1>5 Task-uri Repetitive care îți „fură" <em>Profitul</em> și Cum să le Elimini prin Automatizare</h1>
+
+    <div class="article-meta">
+      <span>de <strong>Vlad Venditti</strong> · aiwant.ro</span>
+      <span class="meta-sep">·</span>
+      <span>Timp de citire: ~6 min</span>
+      <span class="meta-sep">·</span>
+      <span>Automatizare procese business</span>
+    </div>
+
+    <blockquote class="intro-quote">
+      Imaginează-ți o zi obișnuită: un manager deschide trei tabele Excel, copiază cifre dintr-un e-mail în altul, trimite manual confirmări de întâlniri și caută un contract dintr-un dosar creat acum doi ani. <strong>Aceasta nu este o poveste rară — este rutina zilnică a mii de companii din România.</strong>
+    </blockquote>
+
+    <div class="intro-body">
+      <p>Problema nu este oboseala în sine. Problema reală este <strong>costul de oportunitate</strong>: fiecare oră petrecută pe un task de 0 lei valoare adăugată este o oră în care nu ai construit o strategie, nu ai vorbit cu un client nou, nu ai crescut businessul.</p>
+      <p>În acest articol identificăm cele mai comune 5 activități care îți consumă resursele invizibil — și îți arătăm cum o platformă custom, construită specific pentru nevoile tale, poate face munca în locul lor.</p>
+    </div>
+
+    <hr class="divider" />
+
+    <p class="section-heading">Cele 5 task-uri care îți mănâncă profitul</p>
+
+    <!-- TASK 1 -->
+    <article class="task-card">
+      <div class="task-header">
+        <span class="task-num">Task 01</span>
+        <span class="task-title">Introducerea manuală a datelor (Data Entry)</span>
+      </div>
+      <div class="task-body">
+        <p class="task-desc">Copiezi informații din facturi, e-mailuri sau formulare în baze de date ori Excel? Fiecare ciclu durează minute. Înmulțit cu zeci de intrări pe zi, vorbim despre ore pierdute săptămânal — ore plătite din profitul tău.</p>
+        <div class="task-row">
+          <div class="pill pill-risk">
+            <span class="pill-label">Riscul</span>
+            O singură cifră greșită introdusă manual poate genera erori în rapoarte, facturi incorecte sau decizii financiare bazate pe date false. Eroarea umană în data entry depășește 1% la volume mari — suficient să coste scump.
+          </div>
+          <div class="pill pill-tech">
+            <span class="pill-label">Soluția tech</span>
+            Un sistem cu OCR (recunoaștere optică a caracterelor) extrage automat datele din documente și le introduce direct într-o bază de date centralizată. Zero copy-paste, zero erori de tastare.
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- TASK 2 -->
+    <article class="task-card">
+      <div class="task-header">
+        <span class="task-num">Task 02</span>
+        <span class="task-title">Gestionarea și raportarea vânzărilor / stocurilor</span>
+      </div>
+      <div class="task-body">
+        <p class="task-desc">Verifici manual stocurile sau agregezi vânzările zilnice din mai multe surse pentru raportul de final de lună? Procesul poate dura ore, iar datele sunt deja depășite în momentul în care le citești.</p>
+        <div class="task-row">
+          <div class="pill pill-risk">
+            <span class="pill-label">Riscul</span>
+            Deciziile de business luate pe date vechi de 24–48 de ore pot însemna stoc epuizat, comenzi ratate sau capitalizare greșită a unui trend de vânzări în creștere.
+          </div>
+          <div class="pill pill-tech">
+            <span class="pill-label">Soluția tech</span>
+            Un dashboard custom conectat prin API la toate sursele tale — ERP, platforme eCommerce, POS — cu grafice live și alerte automate când un KPI iese din parametri.
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- TASK 3 -->
+    <article class="task-card">
+      <div class="task-header">
+        <span class="task-num">Task 03</span>
+        <span class="task-title">Programarea și confirmarea întâlnirilor / comenzilor</span>
+      </div>
+      <div class="task-body">
+        <p class="task-desc">Trimiți manual e-mailuri de confirmare, setezi întâlniri pe calendare diferite sau procesezi comenzi primite prin WhatsApp și e-mail? Fiecare pas manual introduce întârzieri și riscul de a pierde clienți în flux.</p>
+        <div class="task-row">
+          <div class="pill pill-risk">
+            <span class="pill-label">Riscul</span>
+            Un client care nu primește confirmare în câteva minute percepe lipsă de profesionalism. Dubla programare sau comenzile omise sunt costuri directe și reputaționale greu de recuperat.
+          </div>
+          <div class="pill pill-tech">
+            <span class="pill-label">Soluția tech</span>
+            Un portal de clienți sau un sistem de booking automatizat care trimite notificări instant, actualizează calendarele și procesează comenzile fără nicio intervenție umană.
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- TASK 4 -->
+    <article class="task-card">
+      <div class="task-header">
+        <span class="task-num">Task 04</span>
+        <span class="task-title">Facturarea și urmărirea plăților (Follow-up)</span>
+      </div>
+      <div class="task-body">
+        <p class="task-desc">Verifici manual cine a plătit și trimiți e-mailuri de întârziere? Când ai zeci de clienți activi, acest proces devine o sursă constantă de stres și un risc serios de cash flow.</p>
+        <div class="task-row">
+          <div class="pill pill-risk">
+            <span class="pill-label">Riscul</span>
+            O factură uitată sau urmărită cu întârziere înseamnă cash flow deficitar. La scară, lipsa unui sistem clar de follow-up poate bloca lichiditatea companiei în perioade critice.
+          </div>
+          <div class="pill pill-tech">
+            <span class="pill-label">Soluția tech</span>
+            Integrarea modulului de facturare cu sistemul de management: statusul se schimbă automat în „Plătit" la confirmare, iar reminder-ele sunt trimise la intervalele setate, fără intervenție umană.
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- TASK 5 -->
+    <article class="task-card">
+      <div class="task-header">
+        <span class="task-num">Task 05</span>
+        <span class="task-title">Gestionarea documentelor interne</span>
+      </div>
+      <div class="task-body">
+        <p class="task-desc">Cauți contracte vechi prin foldere de e-mail sau drive-uri neorganizate? Sau, mai rău, nu ești sigur dacă documentul găsit este versiunea actualizată sau una expirată?</p>
+        <div class="task-row">
+          <div class="pill pill-risk">
+            <span class="pill-label">Riscul</span>
+            Utilizarea unui document expirat (contract, procedură internă, ofertă de preț) poate genera erori juridice, financiare sau de conformitate. Timpul de căutare se traduce direct în cost de personal.
+          </div>
+          <div class="pill pill-tech">
+            <span class="pill-label">Soluția tech</span>
+            O platformă internă (Document Management System) cu căutare inteligentă full-text, control de versiuni și permisiuni pe roluri. Documentul corect, mereu la un clic distanță.
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <hr class="divider" />
+
+    <div class="highlight-box">
+      <strong>Concluzie</strong>
+      Automatizarea nu este un lux rezervat corporațiilor. Este instrumentul prin care un business de orice dimensiune poate scala fără să crească proporțional costurile de personal. Fiecare task automatizat eliberează capacitate umană pentru munca ce contează cu adevărat: relații cu clienții, inovație, creștere sustenabilă.
+    </div>
+
+    <div class="cta-block">
+      <h2>Ai recunoscut vreunul din aceste task-uri în compania ta?</h2>
+      <p>Nu lăsa timpul să se scurgă prin degetele tale. <strong>Contactează Aiwant pentru un audit gratuit de procese</strong> și descoperă exact unde pierzi eficiență — și cum o platformă custom construită pentru tine poate schimba asta.</p>
+      <a href="https://aiwant.ro/contact" class="cta-btn">Solicită auditul gratuit →</a>
+    </div>
+
+    <div class="seo-section">
+      <p class="seo-label">Tag-uri</p>
+      <div class="seo-tags">
+        <a href="#" class="seo-tag">automatizare procese business</a>
+        <a href="#" class="seo-tag">reducerea costurilor operaționale</a>
+        <a href="#" class="seo-tag">taskuri repetitive</a>
+        <a href="#" class="seo-tag">eficiență în companie</a>
+        <a href="#" class="seo-tag">dezvoltare software custom</a>
+        <a href="#" class="seo-tag">platformă web personalizată</a>
+        <a href="#" class="seo-tag">aiwant.ro</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 <a href="https://aiwant.ro">aiwant.ro</a> · SC Vendor Comp SRL · Constanța, România</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cât te costă să NU automatizezi? Calculul ascuns al ineficienței | Aiwant.ro</title>
+  <meta name="description" content="Descoperă costurile invizibile ale proceselor manuale și cum să calculezi ROI-ul unui proiect de automatizare. Exemplu concret cu cifre reale." />
+  <meta name="keywords" content="calcul ROI automatizare, cost erori umane business, eficienta operativa companii, economii prin software custom, reducerea costurilor operaționale" />
+  <meta property="og:title" content="Cât te costă să NU automatizezi? Calculul ascuns al ineficienței | Aiwant.ro" />
+  <meta property="og:description" content="Procesele manuale par gratuite pentru că plătești deja salariul. Dar sunt cea mai scumpă metodă de operare. Află cum să calculezi punctul de rentabilitate al automatizării." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://aiwant.ro/blog/roi-automatizare-procese" />
+  <link rel="canonical" href="https://aiwant.ro/blog/roi-automatizare-procese" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #D4A843;
+      --gold-light: #F0C96A;
+      --gold-dim: #9E7A2A;
+      --gold-bg: rgba(212,168,67,0.07);
+      --gold-border: rgba(212,168,67,0.22);
+      --navy: #234B72;
+      --navy-dark: #152D45;
+      --navy-light: #3A6A9E;
+      --bg: #0D1117;
+      --bg-surface: #131A23;
+      --bg-card: #18222F;
+      --bg-card-hover: #1E2C3D;
+      --text-primary: #F0EDE8;
+      --text-secondary: #A8B4C0;
+      --text-muted: #6B7A88;
+      --border: rgba(255,255,255,0.07);
+      --border-em: rgba(255,255,255,0.12);
+      --green-bg: rgba(29,158,117,0.08);
+      --green-border: rgba(29,158,117,0.3);
+      --green-text: #5DCAA5;
+      --green-label: #1D9E75;
+      --red-bg: rgba(226,75,74,0.08);
+      --red-border: rgba(226,75,74,0.3);
+      --red-text: #F09595;
+      --red-label: #E24B4A;
+      --amber-bg: rgba(186,117,23,0.09);
+      --amber-border: rgba(239,159,39,0.3);
+      --amber-text: #FAC775;
+      --amber-label: #EF9F27;
+      --blue-bg: rgba(55,138,221,0.08);
+      --blue-border: rgba(55,138,221,0.28);
+      --blue-text: #85B7EB;
+      --blue-label: #378ADD;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-primary);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(13,17,23,0.9);
+      backdrop-filter: blur(14px);
+      border-bottom: 0.5px solid var(--border);
+      padding: 0 2rem; height: 56px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'Syne', sans-serif; font-weight: 800;
+      font-size: 1.05rem; color: var(--gold);
+      text-decoration: none; letter-spacing: 0.04em;
+    }
+    .nav-cta {
+      font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 700;
+      letter-spacing: 0.06em; color: #0D1117; background: var(--gold);
+      border-radius: 4px; padding: 7px 16px; text-decoration: none;
+      transition: background 0.15s, transform 0.1s;
+    }
+    .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    /* ── LAYOUT ── */
+    .page-wrap { max-width: 780px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+
+    /* ── HEADER ── */
+    .article-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gold); border: 1px solid rgba(212,168,67,0.3);
+      border-radius: 3px; padding: 4px 12px; margin-bottom: 1.5rem;
+      animation: fadeUp 0.5s ease both;
+    }
+    .article-badge::before {
+      content: ''; display: inline-block;
+      width: 6px; height: 6px; border-radius: 50%; background: var(--gold);
+    }
+
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.85rem, 5vw, 2.85rem);
+      font-weight: 800; line-height: 1.15;
+      letter-spacing: -0.025em; color: var(--text-primary);
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.55s 0.05s ease both;
+    }
+    h1 em { font-style: normal; color: var(--gold); }
+
+    .article-meta {
+      display: flex; flex-wrap: wrap; align-items: center;
+      gap: 0.5rem 1.25rem; font-size: 13px; color: var(--text-muted);
+      margin-bottom: 2.5rem; padding-bottom: 2rem;
+      border-bottom: 0.5px solid var(--border);
+      animation: fadeUp 0.55s 0.1s ease both;
+    }
+    .article-meta strong { color: var(--text-secondary); font-weight: 500; }
+    .meta-sep { color: var(--border-em); }
+
+    /* ── INTRO ── */
+    .intro-hook {
+      background: var(--bg-surface);
+      border: 0.5px solid var(--border-em);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 10px 10px 0;
+      padding: 1.5rem 1.75rem; margin-bottom: 1.75rem;
+      font-size: 15px; line-height: 1.7;
+      color: var(--text-secondary); font-style: italic;
+      animation: fadeUp 0.6s 0.15s ease both;
+    }
+    .intro-hook strong { color: var(--gold-light); font-style: normal; font-weight: 500; }
+
+    .intro-body { font-size: 15.5px; color: var(--text-secondary); margin-bottom: 2rem; animation: fadeUp 0.6s 0.2s ease both; }
+    .intro-body p { margin-bottom: 1rem; }
+    .intro-body p:last-child { margin-bottom: 0; }
+
+    /* ── DIVIDER ── */
+    .divider { border: none; border-top: 0.5px solid var(--border); margin: 2.75rem 0; }
+
+    /* ── SECTION ── */
+    .section-block { margin-bottom: 2.75rem; animation: fadeUp 0.55s ease both; }
+
+    .section-eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 1rem; }
+    .section-num { font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 700; color: var(--text-muted); letter-spacing: 0.08em; }
+
+    .section-tag {
+      font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 3px 10px; border-radius: 3px;
+    }
+    .tag-cost { color: var(--red-text); background: var(--red-bg); border: 1px solid var(--red-border); }
+    .tag-roi  { color: var(--green-text); background: var(--green-bg); border: 1px solid var(--green-border); }
+    .tag-qual { color: var(--blue-text); background: var(--blue-bg); border: 1px solid var(--blue-border); }
+
+    h2.section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.2rem, 3vw, 1.5rem);
+      font-weight: 800; color: var(--text-primary);
+      line-height: 1.25; margin-bottom: 1rem; letter-spacing: -0.015em;
+    }
+
+    .section-intro { font-size: 15px; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.72; }
+
+    /* ── ICEBERG ── */
+    .iceberg-wrap {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0.875rem;
+      margin-bottom: 0.5rem;
+    }
+    @media (max-width: 560px) { .iceberg-wrap { grid-template-columns: 1fr; } }
+
+    .iceberg-half {
+      border-radius: 12px; padding: 1.25rem 1.4rem;
+      border: 0.5px solid var(--border);
+    }
+    .iceberg-visible { background: var(--bg-surface); }
+    .iceberg-hidden  { background: var(--navy-dark); border-color: rgba(35,75,114,0.5); }
+
+    .iceberg-label {
+      font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      margin-bottom: 0.85rem; padding-bottom: 0.75rem;
+      border-bottom: 0.5px solid var(--border);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .label-visible { color: var(--amber-label); }
+    .label-hidden  { color: var(--gold-light); }
+
+    .iceberg-icon { font-size: 14px; }
+
+    .iceberg-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .iceberg-list li {
+      font-size: 13.5px; color: var(--text-secondary);
+      display: flex; align-items: flex-start; gap: 8px; line-height: 1.55;
+    }
+    .iceberg-list li span.dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      margin-top: 7px; flex-shrink: 0; display: inline-block;
+    }
+    .dot-visible { background: var(--amber-label); }
+    .dot-hidden  { background: var(--gold); }
+
+    .iceberg-list li strong { display: block; font-weight: 500; color: var(--text-primary); font-size: 13px; }
+
+    /* ── FORMULA STEPS ── */
+    .formula-steps { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem; }
+
+    .formula-step {
+      display: flex; align-items: flex-start; gap: 1rem;
+      background: var(--bg-card); border: 0.5px solid var(--border);
+      border-radius: 10px; padding: 1rem 1.25rem;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .formula-step:hover { border-color: var(--border-em); background: var(--bg-card-hover); }
+
+    .step-num {
+      font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 800;
+      color: var(--gold); background: var(--gold-bg);
+      border: 1px solid var(--gold-border);
+      border-radius: 4px; padding: 3px 9px;
+      flex-shrink: 0; margin-top: 2px;
+    }
+    .step-content { font-size: 14.5px; color: var(--text-secondary); line-height: 1.65; }
+    .step-content strong { display: block; font-family: 'Syne', sans-serif; font-size: 13.5px; font-weight: 700; color: var(--text-primary); margin-bottom: 3px; }
+
+    /* ── CASE STUDY ── */
+    .case-study {
+      background: var(--bg-surface);
+      border: 0.5px solid var(--border-em);
+      border-radius: 14px; overflow: hidden;
+      margin-top: 1.75rem;
+    }
+    .case-header {
+      background: var(--bg-card); border-bottom: 0.5px solid var(--border);
+      padding: 0.9rem 1.4rem;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .case-header-label {
+      font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold);
+    }
+    .case-header-sub { font-size: 13px; color: var(--text-muted); }
+
+    .case-body { padding: 1.25rem 1.4rem; }
+
+    .case-row {
+      display: grid; grid-template-columns: auto 1fr 1fr 1fr;
+      gap: 0; border-radius: 8px; overflow: hidden;
+      border: 0.5px solid var(--border); margin-bottom: 1rem;
+    }
+    @media (max-width: 560px) {
+      .case-row { grid-template-columns: 1fr 1fr; }
+      .case-row .cell-label { display: none; }
+    }
+
+    .case-row-header {
+      display: grid; grid-template-columns: auto 1fr 1fr 1fr;
+      background: var(--bg-card);
+      border-bottom: 0.5px solid var(--border-em);
+      border-radius: 8px 8px 0 0;
+      font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    @media (max-width: 560px) {
+      .case-row-header { grid-template-columns: 1fr 1fr; }
+      .case-row-header .cell-label { display: none; }
+    }
+
+    .cell {
+      padding: 0.75rem 1rem;
+      font-size: 13.5px; line-height: 1.5;
+      border-right: 0.5px solid var(--border);
+    }
+    .cell:last-child { border-right: none; }
+    .cell-label { color: var(--text-muted); font-size: 12px; white-space: nowrap; }
+
+    .cell-before { color: var(--red-text); font-weight: 500; }
+    .cell-after  { color: var(--green-text); font-weight: 500; }
+    .cell-diff   { color: var(--gold); font-weight: 600; }
+
+    .case-header-cell { color: var(--text-muted); }
+    .case-header-cell.h-before { color: var(--red-text); }
+    .case-header-cell.h-after  { color: var(--green-text); }
+    .case-header-cell.h-diff   { color: var(--gold); }
+
+    .case-conclusion {
+      background: var(--green-bg); border: 0.5px solid var(--green-border);
+      border-radius: 8px; padding: 1rem 1.25rem;
+      font-size: 14px; color: var(--green-text); line-height: 1.65;
+    }
+    .case-conclusion strong { font-weight: 600; color: var(--green-text); }
+
+    /* ── QUALITATIVE ROI ── */
+    .qual-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 0.875rem; margin-top: 1rem;
+    }
+
+    .qual-card {
+      background: var(--bg-card);
+      border: 0.5px solid var(--border);
+      border-radius: 12px; padding: 1.25rem 1.3rem;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .qual-card:hover { border-color: var(--border-em); background: var(--bg-card-hover); }
+
+    .qual-card-icon {
+      font-size: 1.5rem; margin-bottom: 0.75rem; line-height: 1;
+    }
+    .qual-card-title {
+      font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700;
+      color: var(--text-primary); margin-bottom: 0.5rem; line-height: 1.3;
+    }
+    .qual-card-body { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+
+    /* ── HIGHLIGHT BOX ── */
+    .highlight-box {
+      background: var(--gold-bg); border: 0.5px solid var(--gold-border);
+      border-radius: 12px; padding: 1.5rem 1.75rem; margin: 2.5rem 0;
+      font-size: 15px; line-height: 1.75; color: var(--text-secondary);
+    }
+    .highlight-box strong {
+      display: block; font-family: 'Syne', sans-serif;
+      font-size: 0.95rem; font-weight: 700; color: var(--gold); margin-bottom: 0.5rem;
+    }
+
+    /* ── CALCULATOR TEASER ── */
+    .calculator-teaser {
+      background: var(--bg-card);
+      border: 0.5px solid var(--gold-border);
+      border-radius: 14px; padding: 1.5rem 1.75rem;
+      margin: 2rem 0;
+    }
+    .calc-label {
+      font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1rem;
+    }
+    .calc-rows { display: flex; flex-direction: column; gap: 0.75rem; }
+    .calc-row {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem; font-size: 14px; color: var(--text-secondary);
+      padding-bottom: 0.75rem; border-bottom: 0.5px solid var(--border);
+      flex-wrap: wrap;
+    }
+    .calc-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .calc-row-label { flex: 1; min-width: 160px; }
+    .calc-inputs { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+    .calc-input {
+      background: var(--bg-surface); border: 0.5px solid var(--border-em);
+      border-radius: 6px; padding: 5px 10px; font-size: 13px;
+      color: var(--text-primary); font-family: 'DM Sans', sans-serif;
+      width: 90px; text-align: right;
+    }
+    .calc-unit { font-size: 12px; color: var(--text-muted); }
+    .calc-result {
+      margin-top: 1rem; padding-top: 1rem; border-top: 0.5px solid var(--border-em);
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .calc-result-label { font-size: 14px; color: var(--text-secondary); }
+    .calc-result-value {
+      font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 800;
+      color: var(--green-text);
+    }
+    .calc-note { font-size: 12px; color: var(--text-muted); margin-top: 0.5rem; }
+    .calc-btn {
+      display: block; width: 100%; margin-top: 1.25rem;
+      background: transparent; border: 0.5px solid var(--gold-border);
+      border-radius: 6px; padding: 10px;
+      font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold);
+      cursor: pointer; transition: background 0.15s;
+    }
+    .calc-btn:hover { background: var(--gold-bg); }
+
+    /* ── CTA ── */
+    .cta-block {
+      background: var(--navy-dark);
+      border: 0.5px solid rgba(35,75,114,0.55);
+      border-radius: 16px; padding: 2.25rem 2.25rem 2.5rem;
+      position: relative; overflow: hidden; margin-top: 2rem;
+    }
+    .cta-block::before {
+      content: ''; position: absolute; top: -60px; right: -60px;
+      width: 260px; height: 260px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(212,168,67,0.14) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .cta-block::after {
+      content: ''; position: absolute; bottom: -70px; left: -40px;
+      width: 200px; height: 200px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(35,75,114,0.5) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .cta-block h2 {
+      font-family: 'Syne', sans-serif; font-size: 1.4rem; font-weight: 800;
+      color: #fff; margin-bottom: 0.75rem; line-height: 1.3; position: relative; z-index: 1;
+    }
+    .cta-block p {
+      font-size: 15px; color: rgba(255,255,255,0.62); line-height: 1.7;
+      margin-bottom: 1.5rem; max-width: 520px; position: relative; z-index: 1;
+    }
+    .cta-block p strong { color: var(--gold-light); font-weight: 500; }
+    .cta-btn {
+      display: inline-block; background: var(--gold); color: #0D1117;
+      font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 800;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      text-decoration: none; padding: 13px 28px; border-radius: 6px;
+      transition: background 0.15s, transform 0.1s; position: relative; z-index: 1;
+    }
+    .cta-btn:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+    /* ── SEO TAGS ── */
+    .seo-section { margin-top: 3rem; padding-top: 1.5rem; border-top: 0.5px solid var(--border); }
+    .seo-label { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.75rem; }
+    .seo-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .seo-tag {
+      font-size: 12px; color: var(--text-muted); background: var(--bg-surface);
+      border: 0.5px solid var(--border-em); border-radius: 4px; padding: 4px 10px;
+      text-decoration: none; transition: border-color 0.15s, color 0.15s;
+    }
+    .seo-tag:hover { border-color: rgba(212,168,67,0.3); color: var(--gold); }
+
+    /* ── FOOTER ── */
+    footer { text-align: center; padding: 2rem 1.5rem; border-top: 0.5px solid var(--border); font-size: 13px; color: var(--text-muted); }
+    footer a { color: var(--gold); text-decoration: none; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .section-block:nth-child(1) { animation-delay: 0.05s; }
+    .section-block:nth-child(2) { animation-delay: 0.1s; }
+    .section-block:nth-child(3) { animation-delay: 0.15s; }
+
+    @media (max-width: 640px) {
+      .page-wrap { padding: 2rem 1.25rem 4rem; }
+      .cta-block { padding: 1.75rem 1.5rem 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="https://aiwant.ro" class="nav-logo">AIWANT</a>
+    <a href="https://aiwant.ro/contact" class="nav-cta">Audit Gratuit →</a>
+  </nav>
+
+  <main class="page-wrap">
+
+    <span class="article-badge">ROI · Eficiență Operațională</span>
+
+    <h1>Cât te costă, de fapt, să <em>NU</em> automatizezi? Calculul ascuns al ineficienței.</h1>
+
+    <div class="article-meta">
+      <span>de <strong>Vlad Venditti</strong> · aiwant.ro</span>
+      <span class="meta-sep">·</span>
+      <span>Timp de citire: ~8 min</span>
+      <span class="meta-sep">·</span>
+      <span>Calcul ROI automatizare</span>
+    </div>
+
+    <blockquote class="intro-hook">
+      Mulți manageri văd software-ul și automatizarea ca pe o cheltuială de capital. Dar există un cost mult mai mare, pe care nu îl vezi în niciun raport: <strong>costul ascuns al „status quo-ului".</strong> Să faci același lucru manual în fiecare zi pare „gratuit" — pentru că plătești deja salariul angajatului. În realitate, este cea mai scumpă metodă de operare.
+    </blockquote>
+
+    <div class="intro-body">
+      <p>În acest articol descifram împreună cum să calculezi dacă un proiect de automatizare se plătește singur, în cât timp ajungi la punctul de rentabilitate și — la fel de important — ce valoare adăugată vine dincolo de economiile directe în bani.</p>
+      <p>Nu ai nevoie de un departament de analiză financiară. Ai nevoie de trei cifre și de onestitate față de cum funcționează procesele tale acum.</p>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- SECTION 1: ICEBERG -->
+    <div class="section-block">
+      <div class="section-eyebrow">
+        <span class="section-num">Secțiunea 01</span>
+        <span class="section-tag tag-cost">Costurile ascunse</span>
+      </div>
+
+      <h2 class="section-title">Teoria Aisbergului — Costul Vizibil vs. Costul Invizibil</h2>
+
+      <p class="section-intro">Când te gândești la costul unui proces manual, vezi vârful aisbergului. Salariul angajatului, licența unui software — acestea apar în buget. Dar masa uriașă sub apă este invizibilă, și este de obicei de câteva ori mai mare.</p>
+
+      <div class="iceberg-wrap">
+        <div class="iceberg-half iceberg-visible">
+          <div class="iceberg-label label-visible">
+            <span class="iceberg-icon">▲</span>
+            Deasupra apei — vizibil
+          </div>
+          <ul class="iceberg-list">
+            <li>
+              <span class="dot dot-visible"></span>
+              <div><strong>Salariul angajatului</strong> care execută task-ul manual în fiecare zi</div>
+            </li>
+            <li>
+              <span class="dot dot-visible"></span>
+              <div><strong>Costul licențelor</strong> software existente — tools parțial utilizate</div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="iceberg-half iceberg-hidden">
+          <div class="iceberg-label label-hidden">
+            <span class="iceberg-icon">▼</span>
+            Sub apă — invizibil
+          </div>
+          <ul class="iceberg-list">
+            <li>
+              <span class="dot dot-hidden"></span>
+              <div>
+                <strong>Eroarea umană</strong>
+                O cifră greșită într-o factură sau contract generează costuri de recuperare, penalități și, cel mai grav, pierderea încrederii clientului.
+              </div>
+            </li>
+            <li>
+              <span class="dot dot-hidden"></span>
+              <div>
+                <strong>Costul oportunității</strong>
+                Dacă expertul tău de vânzări petrece 2 ore/zi introducând date în CRM, câte apeluri de vânzare nu a mai făcut? Câtă pipeline nu a generat?
+              </div>
+            </li>
+            <li>
+              <span class="dot dot-hidden"></span>
+              <div>
+                <strong>Context switching</strong>
+                Trecerea repetată între task-uri administrative și muncă strategică nu este „gratuită" — studiile arată că refocalizarea după o întrerupere durează 23 de minute.
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- SECTION 2: ROI FORMULA -->
+    <div class="section-block">
+      <div class="section-eyebrow">
+        <span class="section-num">Secțiunea 02</span>
+        <span class="section-tag tag-roi">Formula ROI</span>
+      </div>
+
+      <h2 class="section-title">Cum calculezi ROI-ul unei automatizări în 3 pași simpli</h2>
+
+      <p class="section-intro">Nu ai nevoie de un PhD în matematică. Ai nevoie de trei cifre pe care le știi deja și de 10 minute de onestitate față de realitatea proceselor tale.</p>
+
+      <div class="formula-steps">
+        <div class="formula-step">
+          <span class="step-num">Pas 01</span>
+          <div class="step-content">
+            <strong>Identifică procesul concret</strong>
+            Alege un singur flux de lucru repetitiv: procesarea comenzilor, introducerea datelor din facturi, trimiterea confirmărilor, raportarea lunară. Fii specific — nu „administrație", ci „procesarea comenzilor primite pe WhatsApp".
+          </div>
+        </div>
+        <div class="formula-step">
+          <span class="step-num">Pas 02</span>
+          <div class="step-content">
+            <strong>Calculează costul actual: ore × cost orar</strong>
+            Numărul de ore pe săptămână alocate procesului, înmulțit cu costul orar al angajatului (salariu brut ÷ ore lucrate/lună). Adaugă 30% pentru beneficii și overhead. Aceasta este pierderea ta săptămânală reală.
+          </div>
+        </div>
+        <div class="formula-step">
+          <span class="step-num">Pas 03</span>
+          <div class="step-content">
+            <strong>Estimează reducerea după automatizare</strong>
+            O soluție custom bine implementată reduce un proces repetitiv cu 80–95%. Calculează costul rezidual al supravegherii umane (validare, excepții) și compară cu investiția inițială în platformă.
+          </div>
+        </div>
+      </div>
+
+      <!-- CALCULATOR INTERACTIV -->
+      <div class="calculator-teaser">
+        <div class="calc-label">Calculator rapid ROI</div>
+        <div class="calc-rows">
+          <div class="calc-row">
+            <span class="calc-row-label">Ore/săptămână alocate procesului</span>
+            <div class="calc-inputs">
+              <input class="calc-input" type="number" id="ore" value="10" min="1" max="80" oninput="calcROI()" />
+              <span class="calc-unit">ore</span>
+            </div>
+          </div>
+          <div class="calc-row">
+            <span class="calc-row-label">Cost orar angajat (brut + overhead)</span>
+            <div class="calc-inputs">
+              <input class="calc-input" type="number" id="cost" value="45" min="10" max="300" oninput="calcROI()" />
+              <span class="calc-unit">RON/h</span>
+            </div>
+          </div>
+          <div class="calc-row">
+            <span class="calc-row-label">Reducere estimată prin automatizare</span>
+            <div class="calc-inputs">
+              <input class="calc-input" type="number" id="reducere" value="85" min="50" max="99" oninput="calcROI()" />
+              <span class="calc-unit">%</span>
+            </div>
+          </div>
+        </div>
+        <div class="calc-result">
+          <div>
+            <div class="calc-result-label">Economie lunară estimată</div>
+            <div class="calc-result-value" id="rezultat">1.530 RON</div>
+            <div class="calc-note">≈ <span id="rezultat-eur">306 EUR</span> / lună · <span id="rezultat-an">18.360 RON</span> / an</div>
+          </div>
+        </div>
+        <button class="calc-btn" onclick="window.location.href='https://aiwant.ro/contact'">
+          Calculează potențialul tău exact împreună cu Aiwant →
+        </button>
+      </div>
+
+      <!-- CASE STUDY -->
+      <div class="case-study">
+        <div class="case-header">
+          <span class="case-header-label">Mini Case Study</span>
+          <span class="case-header-sub">Procesarea comenzilor — exemplu real</span>
+        </div>
+        <div class="case-body">
+          <div class="case-row-header">
+            <div class="cell cell-label case-header-cell">Indicator</div>
+            <div class="cell case-header-cell h-before">Înainte</div>
+            <div class="cell case-header-cell h-after">După automatizare</div>
+            <div class="cell case-header-cell h-diff">Diferența</div>
+          </div>
+          <div class="case-row">
+            <div class="cell cell-label">Timp/săptămână</div>
+            <div class="cell cell-before">10 ore</div>
+            <div class="cell cell-after">30 minute</div>
+            <div class="cell cell-diff">−9,5 ore</div>
+          </div>
+          <div class="case-row">
+            <div class="cell cell-label">Cost săptămânal</div>
+            <div class="cell cell-before">450 RON</div>
+            <div class="cell cell-after">22,5 RON</div>
+            <div class="cell cell-diff">−427,5 RON</div>
+          </div>
+          <div class="case-row">
+            <div class="cell cell-label">Cost lunar</div>
+            <div class="cell cell-before">1.800 RON</div>
+            <div class="cell cell-after">90 RON</div>
+            <div class="cell cell-diff">−1.710 RON</div>
+          </div>
+          <div class="case-row">
+            <div class="cell cell-label">Cost anual</div>
+            <div class="cell cell-before">21.600 RON</div>
+            <div class="cell cell-after">1.080 RON</div>
+            <div class="cell cell-diff">−20.520 RON</div>
+          </div>
+
+          <div class="case-conclusion">
+            <strong>Punctul de rentabilitate:</strong> O platformă custom de procesare comenzi cu investiție de 15.000 RON se amortizează în mai puțin de 9 luni și generează economii nete de peste 20.000 RON/an începând cu anul 2 — fără să pui la socoteală erorile eliminate și viteza crescută.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- SECTION 3: QUALITATIVE ROI -->
+    <div class="section-block">
+      <div class="section-eyebrow">
+        <span class="section-num">Secțiunea 03</span>
+        <span class="section-tag tag-qual">Valoare Adăugată</span>
+      </div>
+
+      <h2 class="section-title">Dincolo de bani — ROI-ul Calitativ al Automatizării</h2>
+
+      <p class="section-intro">Banii economisiți sunt importanți. Dar automatizarea aduce și ceva ce nu apare în nicio foaie de calcul: capacitatea de a scala fără stres, fără angajări masive și fără degradarea calității.</p>
+
+      <div class="qual-grid">
+        <div class="qual-card">
+          <div class="qual-card-icon">📈</div>
+          <div class="qual-card-title">Scalabilitate fără angajări masive</div>
+          <div class="qual-card-body">Poți crește volumul de la 100 la 1.000 de comenzi fără să dublezi echipa administrativă. Software-ul scalează, oamenii se concentrează pe creștere.</div>
+        </div>
+        <div class="qual-card">
+          <div class="qual-card-icon">🎯</div>
+          <div class="qual-card-title">Standardizarea calității</div>
+          <div class="qual-card-body">Software-ul nu obosește, nu uită și nu face greșeli de tastare la sfârșitul zilei. Fiecare proces se execută la fel de corect la a 1.000-a comandă ca la prima.</div>
+        </div>
+        <div class="qual-card">
+          <div class="qual-card-icon">📊</div>
+          <div class="qual-card-title">Decizii bazate pe date reale</div>
+          <div class="qual-card-body">Automatizarea îți oferă date în timp real pe care un proces manual nu le poate genera niciodată la aceeași viteză. Decizii mai bune, mai rapide, mai profitabile.</div>
+        </div>
+        <div class="qual-card">
+          <div class="qual-card-icon">🏆</div>
+          <div class="qual-card-title">Avantaj competitiv durabil</div>
+          <div class="qual-card-body">Procesele automatizate devin parte din ADN-ul operațional al companiei — greu de copiat, ușor de îmbunătățit iterativ odată cu creșterea businessului.</div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="highlight-box">
+      <strong>Concluzie</strong>
+      Automatizarea nu este un lux pentru companiile mari. Este o necesitate pentru orice business care vrea să rămână competitiv și profitabil. Dacă pierzi timp pe task-uri repetitive, pierzi bani — bani pe care nu îi vezi în nicio linie de buget, dar pe care îi simți în lipsa de creștere și în epuizarea echipei tale.
+    </div>
+
+    <div class="cta-block">
+      <h2>Nu lăsa profitul să se scurgă prin procesele tale neautomatizate.</h2>
+      <p>Solicită un <strong>Audit de Eficiență la Aiwant</strong>: analizăm fluxurile tale actuale, calculăm potențialul real de economisire și îți propunem arhitectura digitală care transformă taskurile repetitive în profit direct.</p>
+      <a href="https://aiwant.ro/contact" class="cta-btn">Solicită Auditul de Eficiență →</a>
+    </div>
+
+    <div class="seo-section">
+      <p class="seo-label">Tag-uri</p>
+      <div class="seo-tags">
+        <a href="#" class="seo-tag">calcul ROI automatizare</a>
+        <a href="#" class="seo-tag">cost erori umane business</a>
+        <a href="#" class="seo-tag">eficienta operativa companii</a>
+        <a href="#" class="seo-tag">economii prin software custom</a>
+        <a href="#" class="seo-tag">reducerea costurilor operationale</a>
+        <a href="#" class="seo-tag">platforma web personalizata</a>
+        <a href="#" class="seo-tag">aiwant.ro</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 <a href="https://aiwant.ro">aiwant.ro</a> · SC Vendor Comp SRL · Constanța, România</p>
+  </footer>
+
+  <script>
+    function calcROI() {
+      const ore = parseFloat(document.getElementById('ore').value) || 0;
+      const cost = parseFloat(document.getElementById('cost').value) || 0;
+      const reducere = parseFloat(document.getElementById('reducere').value) || 0;
+
+      const costuriBrute = ore * 4.33 * cost;
+      const economie = costuriBrute * (reducere / 100);
+      const economieAn = economie * 12;
+      const economieEur = Math.round(economie / 5);
+
+      document.getElementById('rezultat').textContent =
+        Math.round(economie).toLocaleString('ro-RO') + ' RON';
+      document.getElementById('rezultat-eur').textContent =
+        economieEur.toLocaleString('ro-RO') + ' EUR';
+      document.getElementById('rezultat-an').textContent =
+        Math.round(economieAn).toLocaleString('ro-RO') + ' RON';
+    }
+
+    calcROI();
+  </script>
+
+</body>
+</html>

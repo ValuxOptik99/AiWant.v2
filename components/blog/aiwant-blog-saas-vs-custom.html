@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Software SaaS vs. Platformă Custom | Care scalează business-ul? | Aiwant.ro</title>
+  <meta name="description" content="SaaS sau software custom? Descoperă când un abonament lunar devine o barieră în calea creșterii și când o platformă personalizată este investiția care îți scalează business-ul." />
+  <meta name="keywords" content="software custom vs saas, dezvoltare software personalizat, costuri implementare software, scalabilitatea business-ului, soluții digitale pentru companii" />
+  <meta property="og:title" content="Software SaaS vs. Platformă Custom: Care îți Scalează Business-ul? | Aiwant.ro" />
+  <meta property="og:description" content="Managerii sunt bombardați cu mii de aplicații SaaS ieftine, dar se lovesc de un zid când procesele devin prea complexe. Află când e momentul să treci la custom." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://aiwant.ro/blog/saas-vs-software-custom" />
+  <link rel="canonical" href="https://aiwant.ro/blog/saas-vs-software-custom" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #D4A843;
+      --gold-light: #F0C96A;
+      --gold-dim: #9E7A2A;
+      --gold-bg: rgba(212,168,67,0.07);
+      --navy: #234B72;
+      --navy-dark: #152D45;
+      --navy-light: #3A6A9E;
+      --bg: #0D1117;
+      --bg-surface: #131A23;
+      --bg-card: #18222F;
+      --bg-card-hover: #1E2C3D;
+      --text-primary: #F0EDE8;
+      --text-secondary: #A8B4C0;
+      --text-muted: #6B7A88;
+      --border: rgba(255,255,255,0.07);
+      --border-em: rgba(255,255,255,0.12);
+      --green-bg: rgba(29,158,117,0.08);
+      --green-border: rgba(29,158,117,0.35);
+      --green-text: #5DCAA5;
+      --green-label: #1D9E75;
+      --red-bg: rgba(226,75,74,0.08);
+      --red-border: rgba(226,75,74,0.35);
+      --red-text: #F09595;
+      --red-label: #E24B4A;
+      --amber-bg: rgba(186,117,23,0.09);
+      --amber-border: rgba(239,159,39,0.35);
+      --amber-text: #FAC775;
+      --amber-label: #EF9F27;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-primary);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(13,17,23,0.9);
+      backdrop-filter: blur(14px);
+      border-bottom: 0.5px solid var(--border);
+      padding: 0 2rem;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+
+    .nav-cta {
+      font-family: 'Syne', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: #0D1117;
+      background: var(--gold);
+      border-radius: 4px;
+      padding: 7px 16px;
+      text-decoration: none;
+      transition: background 0.15s, transform 0.1s;
+    }
+
+    .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    /* ── LAYOUT ── */
+    .page-wrap {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+
+    /* ── HEADER ── */
+    .article-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Syne', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(212,168,67,0.3);
+      border-radius: 3px;
+      padding: 4px 12px;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.5s ease both;
+    }
+
+    .article-badge::before {
+      content: '';
+      display: inline-block;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.85rem, 5vw, 2.85rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      color: var(--text-primary);
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.55s 0.05s ease both;
+    }
+
+    h1 em {
+      font-style: normal;
+      color: var(--gold);
+    }
+
+    .article-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem 1.25rem;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 0.5px solid var(--border);
+      animation: fadeUp 0.55s 0.1s ease both;
+    }
+
+    .article-meta strong { color: var(--text-secondary); font-weight: 500; }
+    .meta-sep { color: var(--border-em); }
+
+    /* ── INTRO HOOK ── */
+    .intro-hook {
+      background: var(--bg-surface);
+      border: 0.5px solid var(--border-em);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 10px 10px 0;
+      padding: 1.5rem 1.75rem;
+      margin-bottom: 1.75rem;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      font-style: italic;
+      animation: fadeUp 0.6s 0.15s ease both;
+    }
+
+    .intro-hook strong {
+      color: var(--gold-light);
+      font-style: normal;
+      font-weight: 500;
+    }
+
+    .intro-body {
+      font-size: 15.5px;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+
+    .intro-body p { margin-bottom: 1rem; }
+    .intro-body p:last-child { margin-bottom: 0; }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 0.5px solid var(--border);
+      margin: 2.75rem 0;
+    }
+
+    /* ── SECTION BLOCKS ── */
+    .section-block {
+      margin-bottom: 2.75rem;
+      animation: fadeUp 0.55s ease both;
+    }
+
+    .section-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 1rem;
+    }
+
+    .section-tag {
+      font-family: 'Syne', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 3px;
+    }
+
+    .tag-saas {
+      color: var(--amber-text);
+      background: var(--amber-bg);
+      border: 1px solid var(--amber-border);
+    }
+
+    .tag-custom {
+      color: var(--green-text);
+      background: var(--green-bg);
+      border: 1px solid var(--green-border);
+    }
+
+    .tag-alert {
+      color: var(--red-text);
+      background: var(--red-bg);
+      border: 1px solid var(--red-border);
+    }
+
+    .section-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+    }
+
+    h2.section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.25rem, 3vw, 1.55rem);
+      font-weight: 800;
+      color: var(--text-primary);
+      line-height: 1.25;
+      margin-bottom: 1rem;
+      letter-spacing: -0.015em;
+    }
+
+    .section-intro {
+      font-size: 15px;
+      color: var(--text-secondary);
+      margin-bottom: 1.25rem;
+      line-height: 1.72;
+    }
+
+    /* ── PRO / CON GRIDS ── */
+    .procon-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.875rem;
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 560px) {
+      .procon-grid { grid-template-columns: 1fr; }
+    }
+
+    .procon-col {
+      background: var(--bg-card);
+      border: 0.5px solid var(--border);
+      border-radius: 12px;
+      padding: 1.1rem 1.25rem;
+    }
+
+    .procon-col-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 0.85rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .procon-icon {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      flex-shrink: 0;
+    }
+
+    .icon-pro { background: var(--green-bg); border: 1px solid var(--green-border); color: var(--green-text); }
+    .icon-con { background: var(--red-bg); border: 1px solid var(--red-border); color: var(--red-text); }
+
+    .procon-col-label {
+      font-family: 'Syne', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .label-pro { color: var(--green-label); }
+    .label-con { color: var(--red-label); }
+
+    .procon-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .procon-list li {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: flex-start;
+      gap: 7px;
+    }
+
+    .procon-list li::before {
+      content: '';
+      display: inline-block;
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      margin-top: 7px;
+      flex-shrink: 0;
+    }
+
+    .procon-col.pro .procon-list li::before { background: var(--green-label); }
+    .procon-col.con .procon-list li::before { background: var(--red-label); }
+
+    /* ── ANALOGY BOX ── */
+    .analogy-box {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      background: var(--bg-surface);
+      border: 0.5px solid var(--border-em);
+      border-radius: 10px;
+      padding: 1.1rem 1.4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .analogy-icon {
+      font-size: 2rem;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+
+    .analogy-text {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .analogy-text strong {
+      display: block;
+      font-family: 'Syne', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 2px;
+    }
+
+    /* ── COMPARISON TABLE ── */
+    .compare-wrap {
+      background: var(--bg-card);
+      border: 0.5px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 1.5rem 0 2rem;
+    }
+
+    .compare-header {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr;
+      background: var(--bg-surface);
+      border-bottom: 0.5px solid var(--border-em);
+    }
+
+    .compare-header div {
+      padding: 0.75rem 1rem;
+      font-family: 'Syne', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .compare-header .col-saas { color: var(--amber-text); }
+    .compare-header .col-custom { color: var(--green-text); }
+
+    .compare-row {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr;
+      border-bottom: 0.5px solid var(--border);
+      transition: background 0.15s;
+    }
+
+    .compare-row:last-child { border-bottom: none; }
+    .compare-row:hover { background: var(--bg-card-hover); }
+
+    .compare-row div {
+      padding: 0.8rem 1rem;
+      font-size: 13.5px;
+      line-height: 1.5;
+      color: var(--text-secondary);
+      border-right: 0.5px solid var(--border);
+      display: flex;
+      align-items: center;
+    }
+
+    .compare-row div:last-child { border-right: none; }
+    .compare-row .row-label { color: var(--text-primary); font-weight: 500; font-size: 13px; }
+
+    .val-pos { color: var(--green-text); font-weight: 500; }
+    .val-neg { color: var(--red-text); }
+    .val-mid { color: var(--amber-text); }
+
+    /* ── TIPPING POINT ── */
+    .tipping-intro {
+      font-size: 15px;
+      color: var(--text-secondary);
+      margin-bottom: 1.25rem;
+      line-height: 1.72;
+    }
+
+    .signal-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.875rem;
+      margin-top: 0.5rem;
+    }
+
+    .signal-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      background: var(--bg-card);
+      border: 0.5px solid var(--border);
+      border-left: 3px solid var(--red-label);
+      border-radius: 0 10px 10px 0;
+      padding: 1rem 1.25rem;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .signal-item:hover {
+      border-color: var(--red-border);
+      border-left-color: var(--red-label);
+      background: var(--bg-card-hover);
+    }
+
+    .signal-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--red-label);
+      background: var(--red-bg);
+      border: 1px solid var(--red-border);
+      border-radius: 4px;
+      padding: 3px 9px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .signal-text {
+      font-size: 14.5px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    .signal-text strong {
+      display: block;
+      font-family: 'Syne', sans-serif;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 3px;
+    }
+
+    /* ── HIGHLIGHT BOX ── */
+    .highlight-box {
+      background: var(--gold-bg);
+      border: 0.5px solid rgba(212,168,67,0.2);
+      border-radius: 12px;
+      padding: 1.5rem 1.75rem;
+      margin: 2.5rem 0;
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--text-secondary);
+    }
+
+    .highlight-box strong {
+      display: block;
+      font-family: 'Syne', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    /* ── CTA ── */
+    .cta-block {
+      background: var(--navy-dark);
+      border: 0.5px solid rgba(35,75,114,0.55);
+      border-radius: 16px;
+      padding: 2.25rem 2.25rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+      margin-top: 2rem;
+    }
+
+    .cta-block::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 260px; height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212,168,67,0.14) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .cta-block::after {
+      content: '';
+      position: absolute;
+      bottom: -70px; left: -40px;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(35,75,114,0.5) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .cta-block h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-block p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.62);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      max-width: 520px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-block p strong { color: var(--gold-light); font-weight: 500; }
+
+    .cta-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: #0D1117;
+      font-family: 'Syne', sans-serif;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 13px 28px;
+      border-radius: 6px;
+      transition: background 0.15s, transform 0.1s;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-btn:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+    /* ── SEO TAGS ── */
+    .seo-section {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 0.5px solid var(--border);
+    }
+
+    .seo-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .seo-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .seo-tag {
+      font-size: 12px;
+      color: var(--text-muted);
+      background: var(--bg-surface);
+      border: 0.5px solid var(--border-em);
+      border-radius: 4px;
+      padding: 4px 10px;
+      text-decoration: none;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .seo-tag:hover { border-color: rgba(212,168,67,0.3); color: var(--gold); }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      border-top: 0.5px solid var(--border);
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    footer a { color: var(--gold); text-decoration: none; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-block:nth-child(1) { animation-delay: 0.05s; }
+    .section-block:nth-child(2) { animation-delay: 0.1s; }
+    .section-block:nth-child(3) { animation-delay: 0.15s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .page-wrap { padding: 2rem 1.25rem 4rem; }
+      .cta-block { padding: 1.75rem 1.5rem 2rem; }
+      .compare-header, .compare-row {
+        grid-template-columns: 1.2fr 1fr 1fr;
+      }
+      .analogy-box { flex-direction: column; gap: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="https://aiwant.ro" class="nav-logo">AIWANT</a>
+    <a href="https://aiwant.ro/contact" class="nav-cta">Consultanță Gratuită →</a>
+  </nav>
+
+  <main class="page-wrap">
+
+    <span class="article-badge">Strategie Digitală · Software</span>
+
+    <h1>Software SaaS vs. Platformă Custom: Care este alegerea care îți va <em>scala</em> business-ul?</h1>
+
+    <div class="article-meta">
+      <span>de <strong>Vlad Venditti</strong> · aiwant.ro</span>
+      <span class="meta-sep">·</span>
+      <span>Timp de citire: ~7 min</span>
+      <span class="meta-sep">·</span>
+      <span>Soluții digitale pentru companii</span>
+    </div>
+
+    <blockquote class="intro-hook">
+      Nicio companie nu poate crește astăzi fără un stack tehnologic solid. Dar managerii sunt bombardați cu mii de aplicații SaaS ieftine — și se lovesc de un <strong>zid invizibil</strong> în momentul în care procesele lor devin prea complexe pentru uneltele standard.
+    </blockquote>
+
+    <div class="intro-body">
+      <p>Întrebarea nu este „SaaS sau custom?". Întrebarea corectă este: <strong>la ce stadiu de creștere se află businessul tău și ce tip de software îl va duce mai departe?</strong></p>
+      <p>Acest articol te ajută să înțelegi exact când un abonament lunar este o economie inteligentă — și când devine o barieră în calea scalării reale.</p>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- SECTION 1: SaaS -->
+    <div class="section-block">
+      <div class="section-eyebrow">
+        <span class="section-num">Secțiunea 01</span>
+        <span class="section-tag tag-saas">SaaS</span>
+      </div>
+
+      <h2 class="section-title">Soluțiile SaaS — „Călătoria cu Trenul"</h2>
+
+      <div class="analogy-box">
+        <span class="analogy-icon">🚂</span>
+        <div class="analogy-text">
+          <strong>Analogia</strong>
+          Urci în tren: ruta, orarul și opririle sunt fixate. Ajungi repede dacă destinația ta coincide cu ruta. Dacă nu — cobori acolo unde îți permite trenul.
+        </div>
+      </div>
+
+      <p class="section-intro">Soluțiile SaaS (Software as a Service) sunt aplicații gata construite, accesibile prin abonament lunar. Salesforce, Trello, Monday, Notion — le cunoști. Sunt rapide de implementat, costă puțin la start și nu ai nevoie de o echipă tehnică internă.</p>
+
+      <div class="procon-grid">
+        <div class="procon-col pro">
+          <div class="procon-col-header">
+            <span class="procon-icon icon-pro">+</span>
+            <span class="procon-col-label label-pro">Avantaje</span>
+          </div>
+          <ul class="procon-list">
+            <li>Cost inițial mic — plătești lunar, fără investiție în infrastructură</li>
+            <li>Implementare instantanee — funcțional în ore, nu luni</li>
+            <li>Mentenanță și update-uri incluse în abonament</li>
+            <li>Echipe de suport dedicate și documentație extinsă</li>
+          </ul>
+        </div>
+        <div class="procon-col con">
+          <div class="procon-col-header">
+            <span class="procon-icon icon-con">−</span>
+            <span class="procon-col-label label-con">Dezavantaje</span>
+          </div>
+          <ul class="procon-list">
+            <li>Rigiditate — tu te adaptezi software-ului, nu invers</li>
+            <li>Dependență — prețul sau funcționalitățile pot fi schimbate oricând de furnizor</li>
+            <li>Fragmentare — datele tale trăiesc în 10 aplicații care nu comunică</li>
+            <li>Costuri cumulate — 5 abonamente depășesc rapid costul unei soluții custom</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- SECTION 2: Custom -->
+    <div class="section-block">
+      <div class="section-eyebrow">
+        <span class="section-num">Secțiunea 02</span>
+        <span class="section-tag tag-custom">Custom</span>
+      </div>
+
+      <h2 class="section-title">Software-ul Custom — „Construirea unei mașini de curse"</h2>
+
+      <div class="analogy-box">
+        <span class="analogy-icon">🏎️</span>
+        <div class="analogy-text">
+          <strong>Analogia</strong>
+          Construiești vehiculul exact pe specificațiile tale: motor, greutate, aerodinamică — totul optimizat pentru pista ta. Investiție mai mare la start, performanță fără compromis pe termen lung.
+        </div>
+      </div>
+
+      <p class="section-intro">O platformă custom este dezvoltată de la zero, exclusiv pe fluxurile și procesele tale de lucru. Nu există funcționalități inutile, nu există limitări impuse de un furnizor terț. Fiecare modul rezolvă o problemă reală din businessul tău.</p>
+
+      <div class="procon-grid">
+        <div class="procon-col pro">
+          <div class="procon-col-header">
+            <span class="procon-icon icon-pro">+</span>
+            <span class="procon-col-label label-pro">Avantaje</span>
+          </div>
+          <ul class="procon-list">
+            <li>Eficiență maximă — doar funcționalitățile de care ai nevoie, fără zgomot digital</li>
+            <li>Scalabilitate — crește odată cu businessul, fără a schimba platforma</li>
+            <li>Integrabilitate — se conectează cu tot ce ai deja (ERP, POS, API-uri externe)</li>
+            <li>Avantaj competitiv — procesele tale unice devin automatizate și greu de copiat</li>
+          </ul>
+        </div>
+        <div class="procon-col con">
+          <div class="procon-col-header">
+            <span class="procon-icon icon-con">−</span>
+            <span class="procon-col-label label-con">Dezavantaje</span>
+          </div>
+          <ul class="procon-list">
+            <li>Investiție inițială mai mare față de un abonament SaaS</li>
+            <li>Timp de dezvoltare — câteva săptămâni sau luni, nu ore</li>
+            <li>Necesită un partener de dezvoltare de încredere, cu experiență</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- COMPARISON TABLE -->
+    <div class="section-block">
+      <div class="section-eyebrow">
+        <span class="section-num">Comparație directă</span>
+      </div>
+      <h2 class="section-title">SaaS vs. Custom — față în față</h2>
+
+      <div class="compare-wrap">
+        <div class="compare-header">
+          <div>Criteriu</div>
+          <div class="col-saas">SaaS</div>
+          <div class="col-custom">Custom</div>
+        </div>
+        <div class="compare-row">
+          <div class="row-label">Cost inițial</div>
+          <div class="val-pos">Mic (abonament)</div>
+          <div class="val-mid">Investiție o singură dată</div>
+        </div>
+        <div class="compare-row">
+          <div class="row-label">Cost pe termen lung</div>
+          <div class="val-neg">Crește cu abonamentele</div>
+          <div class="val-pos">Predictibil și controlat</div>
+        </div>
+        <div class="compare-row">
+          <div class="row-label">Timp de implementare</div>
+          <div class="val-pos">Ore / Zile</div>
+          <div class="val-mid">Săptămâni / Luni</div>
+        </div>
+        <div class="compare-row">
+          <div class="row-label">Personalizare</div>
+          <div class="val-neg">Limitată la configurări</div>
+          <div class="val-pos">Nelimitată</div>
+        </div>
+        <div class="compare-row">
+          <div class="row-label">Scalabilitate</div>
+          <div class="val-neg">Dependentă de furnizor</div>
+          <div class="val-pos">Controlată intern</div>
+        </div>
+        <div class="compare-row">
+          <div class="row-label">Integrare cu alte sisteme</div>
+          <div class="val-mid">API limitat / extra cost</div>
+          <div class="val-pos">Nativă și completă</div>
+        </div>
+        <div class="compare-row">
+          <div class="row-label">Proprietatea datelor</div>
+          <div class="val-neg">La furnizor</div>
+          <div class="val-pos">100% la tine</div>
+        </div>
+        <div class="compare-row">
+          <div class="row-label">Avantaj competitiv</div>
+          <div class="val-neg">Același tool ca toți concurenții</div>
+          <div class="val-pos">Unic pentru businessul tău</div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- SECTION 3: TIPPING POINT -->
+    <div class="section-block">
+      <div class="section-eyebrow">
+        <span class="section-num">Secțiunea 03</span>
+        <span class="section-tag tag-alert">Punct de inflexiune</span>
+      </div>
+
+      <h2 class="section-title">Când să treci la Custom? Cele 3 semnale de alarmă</h2>
+
+      <p class="tipping-intro">Acesta este momentul decisiv. SaaS-ul a funcționat bine la start — dar există trei semnale clare care îți spun că ai depășit limita uneltelor standard și că fiecare zi de întârziere te costă eficiență și bani.</p>
+
+      <div class="signal-list">
+        <div class="signal-item">
+          <span class="signal-num">01</span>
+          <div class="signal-text">
+            <strong>Plătești prea multe abonamente care nu „vorbesc" între ele</strong>
+            Ai un CRM, un tool de project management, o platformă de facturare și un sistem de stocuri — toate separate. Angajații copiază manual date între ele. Asta nu este eficiență, este un task repetitiv costisitor ascuns în infrastructura ta digitală.
+          </div>
+        </div>
+        <div class="signal-item">
+          <span class="signal-num">02</span>
+          <div class="signal-text">
+            <strong>Angajații folosesc Excel-uri externe pentru a acoperi lipsurile</strong>
+            Dacă echipa ta a creat fișiere Excel sau Google Sheets pentru a „completa" ce nu face software-ul existent — acesta este cel mai clar semnal. Ai plătit pentru un SaaS care nu rezolvă problema reală.
+          </div>
+        </div>
+        <div class="signal-item">
+          <span class="signal-num">03</span>
+          <div class="signal-text">
+            <strong>Procesele tale unice sunt limitate de ce permite aplicația standard</strong>
+            Ceea ce te diferențiază pe piață — fluxul tău de lucru, modul în care gestionezi clienții, procesul de producție sau livrare — nu poate fi replicat în niciun SaaS de pe piață. Asta înseamnă că software-ul îți limitează avantajul competitiv.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="highlight-box">
+      <strong>Concluzie</strong>
+      SaaS este excelent pentru start și pentru nevoi standardizate. Software-ul Custom este motorul scalării reale — atunci când procesele tale au depășit ce oferă o soluție generică. Nu este o decizie de tip „ori una, ori alta", ci o decizie de moment: când crești suficient de mult pentru ca rigiditatea să coste mai mult decât investiția într-o platformă construită pe tine.
+    </div>
+
+    <div class="cta-block">
+      <h2>Nu lăsa o soluție generică să îți limiteze potențialul de creștere.</h2>
+      <p>Contactează echipa Aiwant pentru o <strong>sesiune de consultanță gratuită</strong>: analizăm procesele tale actuale și îți propunem arhitectura digitală care transformă taskurile repetitive în profit real.</p>
+      <a href="https://aiwant.ro/contact" class="cta-btn">Solicită consultanța gratuită →</a>
+    </div>
+
+    <div class="seo-section">
+      <p class="seo-label">Tag-uri</p>
+      <div class="seo-tags">
+        <a href="#" class="seo-tag">software custom vs saas</a>
+        <a href="#" class="seo-tag">dezvoltare software personalizat</a>
+        <a href="#" class="seo-tag">costuri implementare software</a>
+        <a href="#" class="seo-tag">scalabilitatea business-ului</a>
+        <a href="#" class="seo-tag">soluții digitale pentru companii</a>
+        <a href="#" class="seo-tag">platformă web personalizată</a>
+        <a href="#" class="seo-tag">aiwant.ro</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 <a href="https://aiwant.ro">aiwant.ro</a> · SC Vendor Comp SRL · Constanța, România</p>
+  </footer>
+
+</body>
+</html>
