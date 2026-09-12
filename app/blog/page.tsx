@@ -10,8 +10,12 @@ export const metadata: Metadata = {
     "Articole practice despre automatizare, AI, digitalizare și strategii de creștere pentru afaceri din România.",
   alternates: { canonical: "/blog" },
   openGraph: {
-    title: "Blog — AiWANT",
-    description: "Resurse și insights despre digitalizare și automatizare pentru antreprenori.",
+    title: "Blog — Automatizare, AI & Business Digital | AiWANT",
+    description:
+      "Articole practice despre automatizare, AI, digitalizare și strategii de creștere pentru afaceri din România.",
+    url: "/blog",
+    siteName: "AiWANT",
+    locale: "ro_RO",
     type: "website",
   },
 };

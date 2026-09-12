@@ -37,8 +37,11 @@ export async function generateMetadata({
     description: post.description,
     alternates: { canonical: `/blog/${post.slug}` },
     openGraph: {
-      title: post.title,
+      title: `${post.title} | AiWANT`,
       description: post.description,
+      url: `/blog/${post.slug}`,
+      siteName: "AiWANT",
+      locale: "ro_RO",
       images: post.imageUrl ? [{ url: post.imageUrl, width: 1200, height: 630 }] : [],
       type: "article",
       publishedTime: post.createdAt.toISOString(),

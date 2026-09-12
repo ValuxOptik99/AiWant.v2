@@ -10,6 +10,15 @@ export const metadata: Metadata = {
   description:
     "Proiecte livrate de AiWANT: platforme digitale, automatizări și infrastructură business pentru firme din România. Studii de caz cu rezultate concrete.",
   alternates: { canonical: "/portofoliu" },
+  openGraph: {
+    title: "Portofoliu — Proiecte Web & Automatizări | AiWANT",
+    description:
+      "Proiecte livrate de AiWANT: platforme digitale, automatizări și infrastructură business pentru firme din România. Studii de caz cu rezultate concrete.",
+    url: "/portofoliu",
+    siteName: "AiWANT",
+    locale: "ro_RO",
+    type: "website",
+  },
 };
 
 export default function PortofoliuPage() {

@@ -30,7 +30,6 @@ export const metadata: Metadata = {
     title: "Automatizare Procese & Aplicații Web pentru Firme | AiWANT",
     description:
       "Automatizăm procese repetitive și construim aplicații web custom pentru firme din România. Partener strategic în digitalizare — cod sursă predat integral.",
-    url: "/",
     siteName: "AiWANT",
     locale: "ro_RO",
     type: "website",
