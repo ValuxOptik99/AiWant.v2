@@ -36,10 +36,19 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     }),
   ],
   callbacks: {
-    jwt({ token, user, trigger, session }) {
+    async jwt({ token, user, trigger, session }) {
       if (user) {
         token.id = user.id;
         token.role = (user as { role: UserRole }).role;
+      } else if (token.role === "PENDING") {
+        // Re-check pending accounts on every request so an admin approval (or
+        // rejection, which deletes the row) takes effect without re-login.
+        const dbUser = await prisma.user.findUnique({
+          where: { id: token.id as string },
+          select: { role: true },
+        });
+        if (!dbUser) return null;
+        token.role = dbUser.role;
       }
       if (trigger === "update" && session?.name) {
         token.name = session.name;
