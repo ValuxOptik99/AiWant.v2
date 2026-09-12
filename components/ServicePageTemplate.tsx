@@ -198,7 +198,7 @@ function HeroSection({ service }: { service: ServiceData }) {
             lineHeight: 1.1,
           }}
         >
-          {service.title}
+          {service.h1 ?? service.title}
         </motion.h1>
 
         {/* Subtitle */}
@@ -675,6 +675,17 @@ function PricingSection({ service }: { service: ServiceData }) {
             <div className="text-lg mb-6" style={{ color: "var(--color-text-muted)" }}>
               {service.pricingFromRON}
             </div>
+
+            {(service.slug === "site-prezentare" || service.slug === "magazine-online") && (
+              <Link
+                href="/configurator"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold mb-6 transition-opacity duration-200 hover:opacity-80"
+                style={{ color: "var(--color-gold)" }}
+              >
+                Vrei o estimare exactă? Configurează-ți proiectul în 2 minute
+                <ArrowRight size={14} />
+              </Link>
+            )}
 
             {service.pricingExtra && service.pricingExtra.length > 0 && (
               <div className="space-y-3 text-left">

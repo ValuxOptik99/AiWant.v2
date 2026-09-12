@@ -29,6 +29,11 @@ export type ServiceData = {
   slug: string;
   icon: string;
   title: string;
+  // Keyword-led H1 for the hero heading only. Falls back to `title` — the
+  // breadcrumb, "De ce ai nevoie de..." / "Cum lucrăm la..." headings and the
+  // footer (lib/service-links.ts) keep using `title` so they don't read badly
+  // with a full search-phrase H1.
+  h1?: string;
   subtitle: string;
   seoTitle: string;
   seoDescription: string;
@@ -51,11 +56,12 @@ export const SERVICES_DATA: ServiceData[] = [
     slug: "site-prezentare",
     icon: "Globe",
     title: "Site-uri de Prezentare",
+    h1: "Creare site de prezentare pentru firme",
     subtitle:
       "Prima impresie contează. Un site de prezentare profesional este cartea ta de vizită digitală — disponibilă 24/7, pe orice dispozitiv, în toată lumea.",
-    seoTitle: "Site-uri de Prezentare Profesionale",
+    seoTitle: "Creare Site de Prezentare — Preț și Ofertă",
     seoDescription:
-      "Site-uri de prezentare moderne, responsive, optimizate SEO. Construit cu Next.js pentru viteză maximă. Design personalizat, fără template-uri generice.",
+      "Creezi un site de prezentare profesional pentru firma ta, de la 249 EUR, livrat în 2-3 săptămâni. Design modern, SEO de bază, cod sursă predat integral.",
     problems: [
       "Nu ai un site sau ai unul vechi, neatractiv, care nu inspiră încredere",
       "Site-ul tău actual nu se vede bine pe telefon",
@@ -199,6 +205,11 @@ export const SERVICES_DATA: ServiceData[] = [
         answer:
           "Absolut. Site-ul este construit modular și poate fi extins oricând.",
       },
+      {
+        question: "Cât costă un site de prezentare?",
+        answer:
+          "De la 249 EUR (~1.245 RON), în funcție de numărul de pagini și funcționalitățile alese. Poți primi o estimare exactă în 2 minute din configuratorul de proiect, fără niciun angajament.",
+      },
     ],
   },
 
@@ -207,11 +218,12 @@ export const SERVICES_DATA: ServiceData[] = [
     slug: "aplicatii-web",
     icon: "LayoutDashboard",
     title: "Aplicații Web Custom",
+    h1: "Aplicații web personalizate",
     subtitle:
       "Când afacerea ta are nevoie de mai mult decât un site simplu — dashboard-uri, sisteme de booking, CRM-uri sau orice aplicație construită exact pe nevoile tale.",
-    seoTitle: "Aplicații Web Custom: Dashboard, CRM, Booking",
+    seoTitle: "Aplicații Web Personalizate: CRM, Programări",
     seoDescription:
-      "Aplicații web custom: dashboard-uri, CRM-uri, sisteme de booking. Next.js, PostgreSQL, TypeScript. Construite exact pe nevoile afacerii tale.",
+      "Construim aplicații web pe măsura afacerii tale — dashboard, CRM, sisteme de programări — de la 800 EUR. Cod sursă predat integral la final.",
     problems: [
       "Folosești foi Excel sau procese manuale pentru a-ți gestiona activitatea",
       "Software-ul existent nu se potrivește fluxului tău de lucru",
@@ -377,11 +389,12 @@ export const SERVICES_DATA: ServiceData[] = [
     slug: "magazine-online",
     icon: "ShoppingCart",
     title: "Magazine Online",
+    h1: "Creare magazin online la cheie",
     subtitle:
       "Un magazin online profesional care vinde non-stop. De la catalogul de produse la procesarea plăților — totul integrat și ușor de administrat.",
-    seoTitle: "Magazine Online Profesionale",
+    seoTitle: "Creare Magazin Online la Cheie — Preț",
     seoDescription:
-      "Magazine online cu catalog produse, integrare plăți (Stripe, Netopia), gestionare comenzi și stocuri. Design personalizat, fără comisioane pe vânzări.",
+      "Magazin online complet — catalog, plăți integrate, panou de administrare simplu — de la 800 EUR. Livrare în 7-9 săptămâni, fără comisioane pe vânzări.",
     problems: [
       "Vinzi doar fizic sau pe marketplace-uri și depinzi de comisioanele lor",
       "Ai un magazin online dar e lent, greu de administrat sau arată neprofesional",
@@ -525,6 +538,11 @@ export const SERVICES_DATA: ServiceData[] = [
         answer:
           "Platforma suportă mii de produse fără probleme de performanță.",
       },
+      {
+        question: "Cât costă un magazin online la cheie?",
+        answer:
+          "De la 800 EUR (~4.000 RON), în funcție de numărul de produse, integrări și funcționalități alese. Livrarea completă durează 7-9 săptămâni, fără comisioane pe vânzările ulterioare.",
+      },
     ],
   },
 
@@ -533,11 +551,12 @@ export const SERVICES_DATA: ServiceData[] = [
     slug: "ai-automatizari",
     icon: "Bot",
     title: "Soluții AI & Automatizări",
+    h1: "Automatizare procese pentru firme",
     subtitle:
       "Elimină munca repetitivă din afacerea ta. Automatizăm procesele, integrăm sisteme și implementăm inteligență artificială acolo unde contează.",
-    seoTitle: "Soluții AI & Automatizări cu n8n",
+    seoTitle: "Automatizare Procese pentru Firme cu n8n",
     seoDescription:
-      "Automatizări n8n, chatboți AI, integrări API, procesare automată documente. Workflow-uri care rulează 24/7, fără intervenție manuală.",
+      "Automatizăm procesele repetitive ale firmei tale cu n8n: facturare, integrări API, procesare documente, de la 100 EUR. Workflow-uri care rulează 24/7.",
     problems: [
       "Echipa ta pierde ore pe sarcini repetitive care ar putea fi automatizate",
       "Datele sunt în sisteme separate care nu comunică între ele",
