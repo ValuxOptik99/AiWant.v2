@@ -29,6 +29,7 @@ const defaultDueDate = () => new Date(Date.now() + 15 * 24 * 60 * 60 * 1000).toI
 export default function DocumentUploadForm({ projectId }: { projectId: string }) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [file, setFile] = useState<File | null>(null);
   const [form, setForm] = useState({
     name: "",
@@ -47,6 +48,7 @@ export default function DocumentUploadForm({ projectId }: { projectId: string })
     e.preventDefault();
     if (!file) return;
     setLoading(true);
+    setError(null);
 
     const data = new FormData();
     data.append("file", file);
@@ -61,11 +63,20 @@ export default function DocumentUploadForm({ projectId }: { projectId: string })
       data.append("invoiceStatus", form.invoiceStatus);
     }
 
-    await fetch("/api/admin/documents/upload", { method: "POST", body: data });
-    setLoading(false);
-    setFile(null);
-    setForm({ name: "", type: "CONTRACT", description: "", invoiceNumber: "", invoiceAmount: "", invoiceDueDate: defaultDueDate(), invoiceStatus: "PENDING" });
-    router.refresh();
+    try {
+      const res = await fetch("/api/admin/documents/upload", { method: "POST", body: data });
+      if (!res.ok) {
+        setError("Încărcarea a eșuat. Încearcă din nou.");
+        return;
+      }
+      setFile(null);
+      setForm({ name: "", type: "CONTRACT", description: "", invoiceNumber: "", invoiceAmount: "", invoiceDueDate: defaultDueDate(), invoiceStatus: "PENDING" });
+      router.refresh();
+    } catch {
+      setError("Încărcarea a eșuat. Încearcă din nou.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -132,6 +143,8 @@ export default function DocumentUploadForm({ projectId }: { projectId: string })
         <label className={labelClass}>Descriere</label>
         <textarea className={inputClass} style={inputStyle} rows={2} value={form.description} onChange={(e) => set("description", e.target.value)} />
       </div>
+
+      {error && <p className="text-xs text-center" style={{ color: "#EF4444" }}>{error}</p>}
 
       <button
         type="submit" disabled={loading || !file}
