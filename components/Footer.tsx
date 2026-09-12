@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { scrollToSection } from "@/lib/utils";
-import { SERVICES_DATA } from "@/lib/services-data";
+import { SERVICE_LINKS } from "@/lib/service-links";
 
 const QUICK_LINKS = [
   { label: "Servicii", href: "#servicii" },
@@ -12,7 +12,7 @@ const QUICK_LINKS = [
   { label: "Contact", href: "#contact" },
 ];
 
-const SERVICE_LINKS = SERVICES_DATA.map((service) => ({
+const FOOTER_SERVICE_LINKS = SERVICE_LINKS.map((service) => ({
   label: service.title,
   href: `/servicii/${service.slug}`,
 }));
@@ -176,7 +176,7 @@ export default function Footer() {
               Servicii
             </h4>
             <ul className="space-y-2">
-              {SERVICE_LINKS.map((link) => (
+              {FOOTER_SERVICE_LINKS.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
