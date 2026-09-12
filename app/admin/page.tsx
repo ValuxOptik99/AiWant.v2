@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
-import { Users, FolderKanban, Clock, Receipt, CheckCircle, XCircle, AlertTriangle } from "lucide-react";
+import { Users, FolderKanban, Clock, Receipt, AlertTriangle } from "lucide-react";
+import ApprovalActions from "@/components/admin/ApprovalActions";
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 
@@ -95,22 +96,7 @@ export default async function AdminDashboard() {
                     {new Date(u.createdAt).toLocaleDateString("ro-RO")}
                   </p>
                 </div>
-                <div className="flex items-center gap-2">
-                  <form action={`/api/admin/approve`} method="POST">
-                    <input type="hidden" name="userId" value={u.id} />
-                    <input type="hidden" name="action" value="approve" />
-                    <button type="submit" className="flex items-center gap-1.5 text-xs font-semibold px-3 py-2 rounded-lg" style={{ background: "rgba(16,185,129,0.1)", color: "#10B981" }}>
-                      <CheckCircle size={12} /> Aprobă
-                    </button>
-                  </form>
-                  <form action={`/api/admin/approve`} method="POST">
-                    <input type="hidden" name="userId" value={u.id} />
-                    <input type="hidden" name="action" value="reject" />
-                    <button type="submit" className="flex items-center gap-1.5 text-xs font-semibold px-3 py-2 rounded-lg" style={{ background: "rgba(239,68,68,0.1)", color: "#EF4444" }}>
-                      <XCircle size={12} /> Respinge
-                    </button>
-                  </form>
-                </div>
+                <ApprovalActions userId={u.id} />
               </div>
             ))}
           </div>
