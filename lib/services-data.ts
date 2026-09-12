@@ -161,11 +161,11 @@ export const SERVICES_DATA: ServiceData[] = [
         image: "/images/avocatnegumaria.jpeg",
       },
     ],
-    pricingFrom: "de la 250 EUR",
-    pricingFromRON: "~1.250 RON",
+    pricingFrom: "de la 249 EUR",
+    pricingFromRON: "~1.245 RON",
     pricingExtra: [
-      { label: "Site complet 5-10 pagini", price: "de la 350 EUR (~1.750 RON)" },
-      { label: "Landing page simplu", price: "de la 250 EUR (~1.250 RON)" },
+      { label: "Site complet 5-10 pagini", price: "de la 249 EUR (~1.245 RON)" },
+      { label: "Landing page simplu", price: "de la 249 EUR (~1.245 RON)" },
     ],
     pricingFactors: [
       "Număr de pagini",

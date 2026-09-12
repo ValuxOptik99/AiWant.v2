@@ -187,8 +187,8 @@ export const PRICING = [
   {
     icon: "Globe",
     title: "Site Prezentare",
-    price: "de la 250 EUR",
-    subtitle: "(~1.250 RON)",
+    price: "de la 249 EUR",
+    subtitle: "(~1.245 RON)",
     monthlyFrom: "sau de la ~21 EUR/lună",
     featured: false,
     features: [

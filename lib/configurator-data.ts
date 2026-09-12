@@ -27,7 +27,7 @@ export const CONFIG_SERVICES: ConfigService[] = [
     icon: "Globe",
     title: "Site de Prezentare",
     desc: "Cartea ta de vizită digitală",
-    basePrice: 350,
+    basePrice: 249,
     baseWeeks: 3,
     onboardingGoal: "site-nou",
   },
