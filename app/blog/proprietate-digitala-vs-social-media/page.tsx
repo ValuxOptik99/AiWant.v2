@@ -334,7 +334,15 @@ export default function ProprietateDigitalaPage() {
               clienților tăi?
             </p>
             <p>
-              Acest articol explică de ce un website propriu nu este o cheltuială de marketing, ci o{" "}
+              Acest articol explică de ce{" "}
+              <Link
+                href="/servicii/site-prezentare"
+                className="underline underline-offset-2 transition-opacity hover:opacity-80"
+                style={{ color: "var(--color-gold)" }}
+              >
+                un website propriu
+              </Link>{" "}
+              nu este o cheltuială de marketing, ci o{" "}
               <strong style={{ color: "white" }}>
                 investiție în infrastructură critică și control operațional
               </strong>{" "}
@@ -491,7 +499,16 @@ export default function ProprietateDigitalaPage() {
               <strong style={{ color: "white" }}>
                 Proprietatea digitală nu este o opțiune de lux — este fundația oricărui business
                 care vrea să crească controlat și sustenabil.
-              </strong>
+              </strong>{" "}
+              Vrei să știi cât costă propriul tău hub digital? Primești o estimare în{" "}
+              <Link
+                href="/configurator"
+                className="underline underline-offset-2 transition-opacity hover:opacity-80"
+                style={{ color: "var(--color-gold)" }}
+              >
+                configuratorul de proiect
+              </Link>
+              , în 2 minute.
             </p>
           </div>
 

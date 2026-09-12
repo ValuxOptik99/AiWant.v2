@@ -371,7 +371,15 @@ export default function SaasVsCustomPage() {
             />
 
             <p className="text-sm leading-relaxed" style={{ color: "rgba(170,190,210,0.85)" }}>
-              O platformă custom este dezvoltată de la zero, exclusiv pe fluxurile și procesele tale
+              O{" "}
+              <Link
+                href="/servicii/aplicatii-web"
+                className="underline underline-offset-2 transition-opacity hover:opacity-80"
+                style={{ color: "var(--color-gold)" }}
+              >
+                aplicație web personalizată
+              </Link>{" "}
+              este dezvoltată de la zero, exclusiv pe fluxurile și procesele tale
               de lucru. Nu există funcționalități inutile, nu există limitări impuse de un furnizor
               terț. Fiecare modul rezolvă o problemă reală din businessul tău.
             </p>
@@ -442,7 +450,16 @@ export default function SaasVsCustomPage() {
               <strong style={{ color: "white" }}>
                 când crești suficient de mult pentru ca rigiditatea să coste mai mult decât
                 investiția într-o platformă construită pe tine.
-              </strong>
+              </strong>{" "}
+              Vrei o estimare de cost pentru aplicația ta? O primești în{" "}
+              <Link
+                href="/configurator"
+                className="underline underline-offset-2 transition-opacity hover:opacity-80"
+                style={{ color: "var(--color-gold)" }}
+              >
+                configuratorul de proiect
+              </Link>
+              , în 2 minute.
             </p>
           </div>
 

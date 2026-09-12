@@ -314,7 +314,14 @@ export default function RoiAutomatizarePage() {
           {/* Intro */}
           <div className="space-y-4 text-base leading-relaxed" style={{ color: "rgba(180,200,220,0.85)" }}>
             <p>
-              În acest articol descifrăm împreună cum să calculezi dacă un proiect de automatizare
+              În acest articol descifrăm împreună cum să calculezi dacă{" "}
+              <Link
+                href="/servicii/ai-automatizari"
+                className="underline underline-offset-2 transition-opacity hover:opacity-80"
+                style={{ color: "var(--color-gold)" }}
+              >
+                un proiect de automatizare a proceselor
+              </Link>{" "}
               se plătește singur, în cât timp ajungi la punctul de rentabilitate și — la fel de
               important —{" "}
               <strong style={{ color: "white" }}>
@@ -432,7 +439,16 @@ export default function RoiAutomatizarePage() {
               <strong style={{ color: "white" }}>
                 bani pe care nu îi vezi în nicio linie de buget, dar pe care îi simți în lipsa de
                 creștere și în epuizarea echipei tale.
-              </strong>
+              </strong>{" "}
+              Vrei o estimare rapidă de cost? O primești în{" "}
+              <Link
+                href="/configurator"
+                className="underline underline-offset-2 transition-opacity hover:opacity-80"
+                style={{ color: "var(--color-gold)" }}
+              >
+                configuratorul de proiect
+              </Link>
+              , în 2 minute.
             </p>
           </div>
 

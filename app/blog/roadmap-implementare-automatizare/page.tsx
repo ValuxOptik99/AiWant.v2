@@ -413,7 +413,15 @@ export default function RoadmapAutomatizarePage() {
               la primul sprint.
             </p>
             <p>
-              Acesta este roadmap-ul pe care îl folosim la AiWANT cu fiecare client —{" "}
+              Acesta este roadmap-ul pe care îl folosim la AiWANT cu fiecare client de{" "}
+              <Link
+                href="/servicii/ai-automatizari"
+                className="underline underline-offset-2 transition-opacity hover:opacity-80"
+                style={{ color: "var(--color-gold)" }}
+              >
+                automatizare de procese
+              </Link>{" "}
+              —{" "}
               <strong style={{ color: "white" }}>
                 de la primul audit de procese până la scalarea completă a ecosistemului digital.
               </strong>
@@ -565,7 +573,16 @@ export default function RoadmapAutomatizarePage() {
               extinzi metodic.{" "}
               <strong style={{ color: "white" }}>
                 Roadmap-ul există. Lipsește doar decizia de a-l urma.
-              </strong>
+              </strong>{" "}
+              Vrei un punct de plecare? Primești o estimare de cost și durată în{" "}
+              <Link
+                href="/configurator"
+                className="underline underline-offset-2 transition-opacity hover:opacity-80"
+                style={{ color: "var(--color-gold)" }}
+              >
+                configuratorul de proiect
+              </Link>
+              , în 2 minute.
             </p>
           </div>
 

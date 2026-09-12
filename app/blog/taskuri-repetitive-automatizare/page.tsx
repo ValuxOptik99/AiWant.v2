@@ -264,8 +264,15 @@ export default function TaskuriRepetitivePage() {
             </p>
             <p>
               În acest articol identificăm cele mai comune 5 activități care îți consumă
-              resursele invizibil — și îți arătăm cum o platformă custom, construită specific
-              pentru nevoile tale, poate face munca în locul lor.
+              resursele invizibil — și îți arătăm cum{" "}
+              <Link
+                href="/servicii/ai-automatizari"
+                className="underline underline-offset-2 transition-opacity hover:opacity-80"
+                style={{ color: "var(--color-gold)" }}
+              >
+                automatizarea proceselor construită pe nevoile afacerii tale
+              </Link>{" "}
+              poate face munca în locul lor.
             </p>
           </div>
 
@@ -311,7 +318,17 @@ export default function TaskuriRepetitivePage() {
               contează cu adevărat:{" "}
               <strong style={{ color: "white" }}>
                 relații cu clienții, inovație, creștere sustenabilă.
-              </strong>
+              </strong>{" "}
+              Vrei să știi cât ar costa automatizarea proceselor din compania ta? Primești o
+              estimare în{" "}
+              <Link
+                href="/configurator"
+                className="underline underline-offset-2 transition-opacity hover:opacity-80"
+                style={{ color: "var(--color-gold)" }}
+              >
+                configuratorul de proiect
+              </Link>
+              , în doar 2 minute.
             </p>
           </div>
 
