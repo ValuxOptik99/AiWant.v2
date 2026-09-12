@@ -21,15 +21,15 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Automatizare Procese & Aplicații Web pentru Firme | AiWANT",
+    default: "Creare Site-uri și Automatizări pentru Firme | AiWANT",
     template: "%s | AiWANT",
   },
   description:
-    "Automatizăm procese repetitive și construim aplicații web custom pentru firme din România. Partener strategic în digitalizare — cod sursă predat integral.",
+    "Creăm site-uri de prezentare și magazine online pentru firme din România, cu automatizări incluse — formulare, facturare, programări. Cod sursă predat integral.",
   openGraph: {
-    title: "Automatizare Procese & Aplicații Web pentru Firme | AiWANT",
+    title: "Creare Site-uri și Automatizări pentru Firme | AiWANT",
     description:
-      "Automatizăm procese repetitive și construim aplicații web custom pentru firme din România. Partener strategic în digitalizare — cod sursă predat integral.",
+      "Creăm site-uri de prezentare și magazine online pentru firme din România, cu automatizări incluse — formulare, facturare, programări. Cod sursă predat integral.",
     siteName: "AiWANT",
     locale: "ro_RO",
     type: "website",

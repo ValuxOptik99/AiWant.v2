@@ -18,9 +18,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Automatizare Procese & Aplicații Web pentru Firme | AiWANT",
+    title: "Creare Site-uri și Automatizări pentru Firme | AiWANT",
     description:
-      "Automatizăm procese repetitive și construim aplicații web custom pentru firme din România. Partener strategic în digitalizare — cod sursă predat integral.",
+      "Creăm site-uri de prezentare și magazine online pentru firme din România, cu automatizări incluse — formulare, facturare, programări. Cod sursă predat integral.",
     url: "/",
     siteName: "AiWANT",
     locale: "ro_RO",

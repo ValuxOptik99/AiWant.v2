@@ -296,20 +296,19 @@ export default function Hero() {
               className="text-4xl sm:text-5xl lg:text-[3.75rem] font-black leading-[1.1] tracking-tight"
               style={{ color: "var(--color-text-on-dark)", fontFamily: "var(--font-display)" }}
             >
-              Automatizează Procesele.{" "}
-              Optimizează Costurile.{" "}
-              <span style={{ color: "var(--color-gold)" }}>Scalează Profitabil.</span>
+              Creare Site-uri. Magazine Online.{" "}
+              <span style={{ color: "var(--color-gold)" }}>Automatizări pentru Firme.</span>
             </motion.h1>
 
-            {/* Sub-headline — hits the profit nerve */}
+            {/* Sub-headline — automation is the differentiator, not the hook */}
             <motion.p
               {...fadeUp(0.35)}
               className="text-lg leading-relaxed max-w-xl"
               style={{ color: "var(--color-text-muted)" }}
             >
-              Procesele manuale îți erodează marjele de profit în fiecare zi.
-              Construim infrastructura digitală care transformă haosul operațional
-              în creștere predictibilă și scalabilă.
+              Construim site-ul de prezentare sau magazinul online al firmei tale
+              și automatizăm ce se întâmplă în spate — formulare conectate la CRM,
+              facturare, programări. Cod sursă predat integral, fără intermediari.
             </motion.p>
 
             {/* CTAs */}
