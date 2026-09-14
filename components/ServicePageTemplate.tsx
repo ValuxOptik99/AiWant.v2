@@ -45,10 +45,20 @@ import {
   Phone,
   MessageSquare,
   ImageIcon,
+  MapPin,
   type LucideIcon,
 } from "lucide-react";
 import { ServiceData, getOtherServices } from "@/lib/services-data";
+import { getAllLocalPages, type LocalServiceKey } from "@/lib/local-seo-data";
 import ServiceNavbar from "@/components/ServiceNavbar";
+
+// Maps a national service slug to its local-page equivalent (only 3 of the 6
+// services have city pages — site-prezentare, magazine-online, ai-automatizari).
+const NATIONWIDE_SERVICE_KEY: Partial<Record<string, LocalServiceKey>> = {
+  "site-prezentare": "site",
+  "magazine-online": "magazin",
+  "ai-automatizari": "automatizari",
+};
 
 // ── Icon map ─────────────────────────────────────────────────────────────────
 const ICON_MAP: Record<string, LucideIcon> = {
@@ -909,6 +919,64 @@ function FinalCTASection({ service }: { service: ServiceData }) {
   );
 }
 
+// ── Section: Nationwide availability (links out to the local city pages) ──────
+function NationwideSection({ service }: { service: ServiceData }) {
+  const localKey = NATIONWIDE_SERVICE_KEY[service.slug];
+  if (!localKey) return null;
+
+  const cityLinks = getAllLocalPages()
+    .filter((page) => page.service.key === localKey)
+    .slice(0, 8)
+    .map((page) => ({ href: `/${page.slug}`, label: page.city.name }));
+
+  return (
+    <section className="py-16 lg:py-20" style={{ background: "var(--color-midnight)" }}>
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <Reveal>
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <MapPin size={18} style={{ color: "var(--color-gold)" }} />
+            <h2
+              className="text-2xl sm:text-3xl font-bold"
+              style={{ color: "var(--color-text-on-dark)", fontFamily: "var(--font-display)" }}
+            >
+              Disponibil în toată țara
+            </h2>
+          </div>
+          <p className="text-base mb-8 max-w-2xl mx-auto" style={{ color: "var(--color-text-muted)" }}>
+            Lucrăm integral la distanță, cu apeluri video și livrare pe etape — prețul și
+            termenul nu se schimbă în funcție de oraș.
+          </p>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <div className="flex flex-wrap items-center justify-center gap-2.5 mb-6">
+            {cityLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200"
+                style={{
+                  background: "rgba(255,255,255,0.04)",
+                  border: "1px solid rgba(255,255,255,0.08)",
+                  color: "var(--color-text-on-dark)",
+                }}
+              >
+                {service.title} {link.label}
+              </Link>
+            ))}
+          </div>
+          <Link
+            href="/orase"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold transition-opacity hover:opacity-80"
+            style={{ color: "var(--color-gold)" }}
+          >
+            Vezi toate orașele <ArrowRight size={14} />
+          </Link>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
 // ── Section: Other Services ───────────────────────────────────────────────────
 function OtherServicesSection({ currentSlug }: { currentSlug: string }) {
   const others = getOtherServices(currentSlug);
@@ -990,6 +1058,7 @@ export default function ServicePageTemplate({ service }: { service: ServiceData 
         <FAQSection service={service} />
         <FinalCTASection service={service} />
         <OtherServicesSection currentSlug={service.slug} />
+        <NationwideSection service={service} />
       </main>
     </>
   );

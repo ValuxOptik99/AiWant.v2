@@ -59,9 +59,9 @@ export const SERVICES_DATA: ServiceData[] = [
     h1: "Creare site de prezentare pentru firme",
     subtitle:
       "Prima impresie contează. Un site de prezentare profesional este cartea ta de vizită digitală — disponibilă 24/7, pe orice dispozitiv, în toată lumea.",
-    seoTitle: "Creare Site de Prezentare — Preț și Ofertă",
+    seoTitle: "Creare Site de Prezentare — Preț de la 249 EUR",
     seoDescription:
-      "Creezi un site de prezentare profesional pentru firma ta, de la 249 EUR, livrat în 2-3 săptămâni. Design modern, SEO de bază, cod sursă predat integral.",
+      "Creare site de prezentare pentru firma ta, de la 249 EUR, livrat în 2-3 zile. Realizare site web personalizat, optimizat SEO, cod sursă predat integral.",
     problems: [
       "Nu ai un site sau ai unul vechi, neatractiv, care nu inspiră încredere",
       "Site-ul tău actual nu se vede bine pe telefon",
@@ -170,7 +170,7 @@ export const SERVICES_DATA: ServiceData[] = [
     pricingFrom: "de la 249 EUR",
     pricingFromRON: "~1.245 RON",
     pricingExtra: [
-      { label: "Site complet 5-10 pagini", price: "de la 249 EUR (~1.245 RON)" },
+      { label: "Site complet 5-10 pagini", price: "de la 499 EUR (~2.495 RON)" },
       { label: "Landing page simplu", price: "de la 249 EUR (~1.245 RON)" },
     ],
     pricingFactors: [
@@ -183,7 +183,7 @@ export const SERVICES_DATA: ServiceData[] = [
       {
         question: "Cât durează realizarea unui site de prezentare?",
         answer:
-          "În medie 2-3 săptămâni de la momentul în care avem toate informațiile și conținutul de la tine.",
+          "2-3 zile lucrătoare pentru varianta cu 1-4 pagini, 4-5 zile pentru varianta completă de 5-10 pagini — din momentul în care avem toate informațiile și conținutul de la tine.",
       },
       {
         question: "Pot să-mi administrez singur site-ul după?",
@@ -218,12 +218,12 @@ export const SERVICES_DATA: ServiceData[] = [
     slug: "aplicatii-web",
     icon: "LayoutDashboard",
     title: "Aplicații Web Custom",
-    h1: "Aplicații web personalizate",
+    h1: "Aplicații web custom pentru firme",
     subtitle:
       "Când afacerea ta are nevoie de mai mult decât un site simplu — dashboard-uri, sisteme de booking, CRM-uri sau orice aplicație construită exact pe nevoile tale.",
-    seoTitle: "Aplicații Web Personalizate: CRM, Programări",
+    seoTitle: "Aplicații Web Custom — Dezvoltare la Comandă",
     seoDescription:
-      "Construim aplicații web pe măsura afacerii tale — dashboard, CRM, sisteme de programări — de la 800 EUR. Cod sursă predat integral la final.",
+      "Aplicații web custom: CRM, dashboard, sisteme de rezervări — dezvoltare software la comandă, de la 800 EUR. Aplicație web personalizată, cod sursă predat.",
     problems: [
       "Folosești foi Excel sau procese manuale pentru a-ți gestiona activitatea",
       "Software-ul existent nu se potrivește fluxului tău de lucru",
@@ -392,9 +392,9 @@ export const SERVICES_DATA: ServiceData[] = [
     h1: "Creare magazin online la cheie",
     subtitle:
       "Un magazin online profesional care vinde non-stop. De la catalogul de produse la procesarea plăților — totul integrat și ușor de administrat.",
-    seoTitle: "Creare Magazin Online la Cheie — Preț",
+    seoTitle: "Creare Magazin Online — Preț de la 800 EUR",
     seoDescription:
-      "Magazin online complet — catalog, plăți integrate, panou de administrare simplu — de la 800 EUR. Livrare în 7-9 săptămâni, fără comisioane pe vânzări.",
+      "Creare magazin online — platformă e-commerce cu plăți și curierat integrate, de la 800 EUR, livrare în 2-4 săptămâni. Site de vânzări online, fără comisioane.",
     problems: [
       "Vinzi doar fizic sau pe marketplace-uri și depinzi de comisioanele lor",
       "Ai un magazin online dar e lent, greu de administrat sau arată neprofesional",
@@ -541,7 +541,7 @@ export const SERVICES_DATA: ServiceData[] = [
       {
         question: "Cât costă un magazin online la cheie?",
         answer:
-          "De la 800 EUR (~4.000 RON), în funcție de numărul de produse, integrări și funcționalități alese. Livrarea completă durează 7-9 săptămâni, fără comisioane pe vânzările ulterioare.",
+          "De la 800 EUR (~4.000 RON), în funcție de numărul de produse, integrări și funcționalități alese. Livrarea completă durează 2-4 săptămâni, fără comisioane pe vânzările ulterioare.",
       },
     ],
   },
@@ -551,12 +551,12 @@ export const SERVICES_DATA: ServiceData[] = [
     slug: "ai-automatizari",
     icon: "Bot",
     title: "Soluții AI & Automatizări",
-    h1: "Automatizare procese pentru firme",
+    h1: "Automatizări pentru firme cu n8n",
     subtitle:
       "Elimină munca repetitivă din afacerea ta. Automatizăm procesele, integrăm sisteme și implementăm inteligență artificială acolo unde contează.",
-    seoTitle: "Automatizare Procese pentru Firme cu n8n",
+    seoTitle: "Automatizări pentru Firme — Audit Gratuit",
     seoDescription:
-      "Automatizăm procesele repetitive ale firmei tale cu n8n: facturare, integrări API, procesare documente, de la 100 EUR. Workflow-uri care rulează 24/7.",
+      "Automatizări pentru firme: automatizare procese business cu n8n, integrări API și digitalizare, de la 100 EUR. Audit gratuit, implementare în 1-3 săptămâni.",
     problems: [
       "Echipa ta pierde ore pe sarcini repetitive care ar putea fi automatizate",
       "Datele sunt în sisteme separate care nu comunică între ele",
@@ -723,11 +723,12 @@ export const SERVICES_DATA: ServiceData[] = [
     slug: "design-uiux",
     icon: "Palette",
     title: "Design UI/UX",
+    h1: "Design UI/UX pentru aplicații și site-uri",
     subtitle:
       "Un design bun nu e doar frumos — e intuitiv, rapid și face utilizatorul să revină. Creăm interfețe pe care oamenii le înțeleg din prima.",
-    seoTitle: "Design UI/UX Profesional",
+    seoTitle: "Design UI/UX — Prototip Figma și Redesign",
     seoDescription:
-      "Design UI/UX: wireframes, prototipuri interactive, design system complet. Interfețe testate pentru uzabilitate și optimizate pentru conversii.",
+      "Design UI/UX pentru aplicații și site-uri: wireframes, prototip interactiv în Figma și redesign complet. Interfețe testate pentru conversii, de la 200 EUR.",
     problems: [
       "Site-ul tău arată datat sau neprofesional comparativ cu competiția",
       "Utilizatorii nu găsesc ce caută și abandonează repede",
@@ -881,11 +882,12 @@ export const SERVICES_DATA: ServiceData[] = [
     slug: "social-media",
     icon: "Megaphone",
     title: "Social Media & Marketing",
+    h1: "Administrare social media pentru firme",
     subtitle:
       "Nu e suficient să ai un site bun dacă nimeni nu știe de tine. Construim prezența ta online și aducem clienți prin conținut strategic.",
-    seoTitle: "Social Media & Marketing Digital",
+    seoTitle: "Administrare Social Media — Management Pagini",
     seoDescription:
-      "Management social media, strategie de conținut, creștere organică. Instagram, TikTok, Facebook, LinkedIn. Rapoarte lunare cu metrici clare.",
+      "Administrare social media și management pagini pentru firma ta: strategie, conținut, creștere organică. Marketing online pentru firme, de la 250 EUR pe lună.",
     problems: [
       "Ai conturi de social media dar postezi rar și fără strategie",
       "Nu știi ce să postezi și când, și consumă prea mult timp",
