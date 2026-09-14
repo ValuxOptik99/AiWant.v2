@@ -24,54 +24,58 @@ import {
 
 // ── Titluri ───────────────────────────────────────────────────────────────────
 
-// Titlurile și descrierile NU includ industria sau județul — numele orașelor
-// variază de la 4 caractere (Iași) la 21 (Drobeta-Turnu Severin), iar
-// industria cea mai lungă are 31 de caractere; combinate, riscă să scoată
-// titlul/descrierea din limitele impuse (metaTitle ≤ 62, metaDescription
-// 120–165 — verificate de scripts/check-local-seo.ts). Industria și județul
-// rămân prezente în intro, în blocurile pe industrie și în FAQ.
+// Bugetul de lungime: Google taie titlul pe la ~60 de caractere, iar cel mai
+// lung nume de oraș din CITIES este „Drobeta-Turnu Severin" (21 caractere).
+// Deci partea fixă a oricărei variante trebuie să stea sub 41 de caractere.
+// scripts/check-local-seo.ts verifică asta pe toate cele 135 de pagini.
 const TITLE_VARIANTS: Record<LocalServiceKey, ((city: string) => string)[]> = {
   site: [
     (c) => `Creare Site Web ${c} — de la 249 EUR`,
-    (c) => `Realizare Site de Prezentare ${c}`,
-    (c) => `Site Web ${c} — Firmă Web Design`,
+    (c) => `Realizare Site Web ${c} — Preț și Ofertă`,
+    (c) => `Site de Prezentare ${c} — de la 249 EUR`,
   ],
   magazin: [
     (c) => `Magazin Online ${c} — de la 800 EUR`,
-    (c) => `Creare Magazin Online ${c}`,
-    (c) => `Vânzări Online ${c} — Magazin Complet`,
+    (c) => `Creare Magazin Online ${c} — Preț și Termen`,
+    (c) => `Site de Vânzări Online ${c} — de la 800 EUR`,
   ],
   automatizari: [
     (c) => `Automatizări Firme ${c} — Audit Gratuit`,
-    (c) => `Automatizare Procese ${c} — n8n, AI`,
-    (c) => `Digitalizare Firme ${c} — de la 100 EUR`,
+    (c) => `Automatizare Procese Business ${c} — n8n și AI`,
+    (c) => `Automatizări Firme ${c} — Preț și Ofertă`,
   ],
 };
 
-const DESCRIPTION_VARIANTS: Record<LocalServiceKey, ((city: string) => string)[]> = {
+const DESCRIPTION_VARIANTS: Record<
+  LocalServiceKey,
+  ((city: City, industry: string) => string)[]
+> = {
+  // Varianta 0 conține și industria (variabilă lungă); variantele 1 și 2 doar
+  // orașul. Altfel intervalul de lungime cerut de Google nu poate fi respectat
+  // și pentru Deva (4 caractere) și pentru Drobeta-Turnu Severin (21).
   site: [
-    (c) =>
-      `Creare site de prezentare pentru firma ta din ${c}, de la 249 EUR, livrat în 2-3 zile. Design modern, SEO local, cod sursă predat integral.`,
-    (c) =>
-      `Site web profesional pentru firma ta din ${c}: rapid, responsive, optimizat pentru căutările locale. De la 249 EUR, gata în 2-3 zile.`,
-    (c) =>
-      `Realizare site de prezentare în ${c} — de la 249 EUR, gata în 2-3 zile. SEO local inclus, formular de contact, hosting și SSL incluse.`,
+    (city, industry) =>
+      `Site de prezentare pentru firme din ${city.name}: design modern, SEO local, formular de contact. De la 249 EUR. Inclusiv pentru ${industry}.`,
+    (city) =>
+      `Creăm site-uri de prezentare pentru firme din ${city.name}. Design personalizat, optimizare SEO, hosting și SSL incluse. De la 249 EUR, livrat în 2–3 zile.`,
+    (city) =>
+      `Realizare site de prezentare în ${city.name} — de la 249 EUR, gata în 2–3 zile. SEO local, formular de contact, cod sursă predat integral după livrare.`,
   ],
   magazin: [
-    (c) =>
-      `Creare magazin online pentru firma ta din ${c}, de la 800 EUR. Plăți online, curierat și facturare automată, panou de administrare.`,
-    (c) =>
-      `Magazin online complet pentru afacerea ta din ${c}: catalog, coș, plăți, stocuri. De la 800 EUR, cod sursă predat integral.`,
-    (c) =>
-      `Vinde online din ${c} — magazin e-commerce construit pe măsură, de la 800 EUR, cu integrare completă de plăți și curierat rapid.`,
+    (city, industry) =>
+      `Magazin online pentru firme din ${city.name}: produse, plăți, curierat, facturare automată. De la 800 EUR. Potrivit și pentru ${industry}.`,
+    (city) =>
+      `Creare magazin online în ${city.name} — catalog de produse, coș, plăți online și panou de administrare. De la 800 EUR, cu cod sursă predat integral.`,
+    (city) =>
+      `Vinde online din ${city.name}: magazin e-commerce construit pe măsură, cu integrare de plăți și curierat. De la 800 EUR, fără comision pe vânzările tale.`,
   ],
   automatizari: [
-    (c) =>
-      `Automatizăm procesele repetitive din firma ta din ${c}: facturare, documente, programări. Audit gratuit al proceselor, de la 100 EUR.`,
-    (c) =>
-      `Automatizare procese de business în ${c} — integrări API, fluxuri n8n și asistenți AI. Audit gratuit al proceselor de lucru.`,
-    (c) =>
-      `Digitalizare și automatizări pentru firme din ${c}. Scoatem munca repetitivă din Excel și email, cu audit gratuit inclus. De la 100 EUR.`,
+    (city, industry) =>
+      `Automatizăm procesele repetitive din firmele din ${city.name}: facturare, documente, rapoarte. Audit gratuit, de la 100 EUR. Inclusiv ${industry}.`,
+    (city) =>
+      `Automatizare procese de business în ${city.name} — integrări API, fluxuri n8n și asistenți AI care elimină munca manuală. Audit gratuit, de la 100 EUR.`,
+    (city) =>
+      `Digitalizare și automatizări pentru firme din ${city.name}. Scoatem munca repetitivă din Excel și din email. Audit gratuit, implementare de la 100 EUR.`,
   ],
 };
 
@@ -80,7 +84,7 @@ const DESCRIPTION_VARIANTS: Record<LocalServiceKey, ((city: string) => string)[]
 const INTRO_LEADS: Record<LocalServiceKey, ((city: City) => string)[]> = {
   site: [
     (city) =>
-      `Construim site-uri de prezentare pentru firme din ${city.name} și din restul ${countyPhrase(city)}. ${city.localNote}`,
+      `Construim site-uri de prezentare pentru firme din ${city.name} și din restul ${countyGenitive(city)}. ${city.localNote}`,
     (city) =>
       `${city.localNote} Într-un asemenea context, un site propriu nu e o cheltuială de imagine, ci canalul prin care te găsesc clienții care încă nu te cunosc.`,
     (city) =>
@@ -88,7 +92,7 @@ const INTRO_LEADS: Record<LocalServiceKey, ((city: City) => string)[]> = {
   ],
   magazin: [
     (city) =>
-      `Construim magazine online pentru afaceri din ${city.name} și din ${countyPhrase(city)}. ${city.localNote}`,
+      `Construim magazine online pentru afaceri din ${city.name} și din ${countyPlain(city)}. ${city.localNote}`,
     (city) =>
       `${city.localNote} Un magazin online propriu înseamnă că vinzi fără comisionul marketplace-urilor și că păstrezi datele clienților tăi.`,
     (city) =>
@@ -96,7 +100,7 @@ const INTRO_LEADS: Record<LocalServiceKey, ((city: City) => string)[]> = {
   ],
   automatizari: [
     (city) =>
-      `Automatizăm procesele repetitive din firmele din ${city.name} și din ${countyPhrase(city)}. ${city.localNote}`,
+      `Automatizăm procesele repetitive din firmele din ${city.name} și din ${countyPlain(city)}. ${city.localNote}`,
     (city) =>
       `${city.localNote} În aproape fiecare dintre aceste firme există trei–patru procese care se fac manual zilnic și care pot rula singure.`,
     (city) =>
@@ -104,9 +108,27 @@ const INTRO_LEADS: Record<LocalServiceKey, ((city: City) => string)[]> = {
   ],
 };
 
-function countyPhrase(city: City): string {
+// Două forme, pentru că româna cere cazuri diferite:
+//   "din restul JUDEȚULUI Constanța"  (genitiv, după „restul")
+//   "din JUDEȚUL Constanța"           (nominativ/acuzativ)
+function countyGenitive(city: City): string {
+  if (city.county === "București") return "zonei metropolitane";
+  return `județului ${city.county}`;
+}
+
+function countyPlain(city: City): string {
   if (city.county === "București") return "zona metropolitană";
   return `județul ${city.county}`;
+}
+
+/**
+ * "Constanța și din județ" — evită „Constanța și Constanța" la orașele care
+ * poartă numele județului (Constanța, Arad, Bacău, Brașov, Galați, Iași...).
+ */
+function cityAndCounty(city: City): string {
+  if (city.county === "București") return "București și Ilfov";
+  if (city.name === city.county) return `${city.name} și din județ`;
+  return `${city.name} și județul ${city.county}`;
 }
 
 // ── Model de pagină ───────────────────────────────────────────────────────────
@@ -156,8 +178,10 @@ export function buildLocalPageCopy(page: LocalPage): LocalPageCopy {
   const key = service.key;
   const v3 = variantIndex(slug, 3);
 
+  const primaryIndustry = INDUSTRIES[city.industries[0]].label;
+
   const metaTitle = TITLE_VARIANTS[key][v3](city.name);
-  const metaDescription = DESCRIPTION_VARIANTS[key][v3](city.name);
+  const metaDescription = DESCRIPTION_VARIANTS[key][v3](city, primaryIndustry);
   const intro = INTRO_LEADS[key][v3](city);
 
   const industryBlocks = city.industries.slice(0, 4).map((industryKey) => {
@@ -259,7 +283,9 @@ function buildFaq(city: City, service: LocalService): LocalFaq[] {
     return [
       {
         question: `Cât costă un site de prezentare în ${city.name}?`,
-        answer: `Un site de prezentare pornește de la 249 EUR (aproximativ 1.245 RON) pentru varianta cu 1–4 pagini, și de la 499 EUR pentru varianta de 5–10 pagini. Prețul este același indiferent de oraș — nu percepem un tarif diferit pentru ${city.name} față de Constanța. În preț intră designul, implementarea, optimizarea SEO de bază, SSL și predarea codului sursă.`,
+        answer: `Un site de prezentare pornește de la 249 EUR (aproximativ 1.245 RON) pentru varianta cu 1–4 pagini, și de la 499 EUR pentru varianta de 5–10 pagini. Prețul este același indiferent de oraș${
+          isHome ? "" : ` — nu percepem un tarif diferit pentru ${city.name} față de Constanța`
+        }. În preț intră designul, implementarea, optimizarea SEO de bază, SSL și predarea codului sursă.`,
       },
       ...common,
       {
