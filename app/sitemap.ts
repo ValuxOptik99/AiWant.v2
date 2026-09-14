@@ -2,12 +2,13 @@ import type { MetadataRoute } from "next";
 import { prisma } from "@/lib/prisma";
 import { SITE_URL } from "@/lib/constants";
 import { SERVICES_DATA } from "@/lib/services-data";
+import { getAllLocalPages } from "@/lib/local-seo-data";
 
 export const revalidate = 3600;
 
 // Manually maintained — static pages don't have a real per-page "last modified"
 // source, and calling new Date() on every request would lie to Google.
-const STATIC_LAST_MODIFIED = new Date("2026-09-11");
+const STATIC_LAST_MODIFIED = new Date("2026-09-14");
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticEntries: MetadataRoute.Sitemap = [
@@ -15,13 +16,39 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${SITE_URL}/portofoliu`, lastModified: STATIC_LAST_MODIFIED, changeFrequency: "monthly", priority: 0.8 },
     { url: `${SITE_URL}/blog`, lastModified: STATIC_LAST_MODIFIED, changeFrequency: "weekly", priority: 0.7 },
     { url: `${SITE_URL}/configurator`, lastModified: STATIC_LAST_MODIFIED, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${SITE_URL}/orase`, lastModified: STATIC_LAST_MODIFIED, changeFrequency: "monthly", priority: 0.7 },
   ];
+
+  // Pagini cu intenție comercială (preț / comparație) — trafic cu conversie
+  // mare și concurență mai mică decât termenii generici.
+  // ATENȚIE: adaugă un path aici DOAR după ce pagina există efectiv.
+  // Un URL în sitemap care returnează 404 strică încrederea în tot sitemap-ul.
+  const commercialEntries: MetadataRoute.Sitemap = [
+    "/cat-costa-un-site",
+    "/pret-magazin-online",
+    "/wordpress-vs-site-custom",
+    "/agentie-web-vs-freelancer",
+  ].map((path) => ({
+    url: `${SITE_URL}${path}`,
+    lastModified: STATIC_LAST_MODIFIED,
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
 
   const serviceEntries: MetadataRoute.Sitemap = SERVICES_DATA.map((service) => ({
     url: `${SITE_URL}/servicii/${service.slug}`,
     lastModified: STATIC_LAST_MODIFIED,
     changeFrequency: "monthly",
     priority: 0.9,
+  }));
+
+  // Paginile pe oraș. Prioritate 0.6: sub paginile naționale de serviciu, dar
+  // în sitemap de la început — altfel indexarea lor durează luni.
+  const localEntries: MetadataRoute.Sitemap = getAllLocalPages().map((page) => ({
+    url: `${SITE_URL}/${page.slug}`,
+    lastModified: STATIC_LAST_MODIFIED,
+    changeFrequency: "monthly",
+    priority: 0.6,
   }));
 
   let blogEntries: MetadataRoute.Sitemap = [];
@@ -43,5 +70,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     console.error("sitemap: failed to load blog posts", error);
   }
 
-  return [...staticEntries, ...serviceEntries, ...blogEntries];
+  return [
+    ...staticEntries,
+    ...serviceEntries,
+    ...commercialEntries,
+    ...blogEntries,
+    ...localEntries,
+  ];
 }
