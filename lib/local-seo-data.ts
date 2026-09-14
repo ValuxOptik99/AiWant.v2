@@ -922,8 +922,8 @@ export const LOCAL_SERVICES: Record<LocalServiceKey, LocalService> = {
     h1Lead: "Magazin online",
     parentSlug: "magazine-online",
     icon: "ShoppingCart",
-    priceFrom: "800 EUR",
-    priceFromRON: "~4.000 RON",
+    priceFrom: "699 EUR",
+    priceFromRON: "~3.495 RON",
     delivery: "2–4 săptămâni",
     secondaryKeywords: [
       "creare magazin online",

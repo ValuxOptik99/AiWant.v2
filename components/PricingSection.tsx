@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Check, Globe, LayoutDashboard, ShoppingCart, Bot, ArrowRight, CalendarClock, type LucideIcon } from "lucide-react";
+import { Check, Globe, LayoutDashboard, ShoppingCart, Bot, Layers, ArrowRight, CalendarClock, type LucideIcon } from "lucide-react";
 import Link from "next/link";
 import { PRICING } from "@/lib/constants";
 import { scrollToSection } from "@/lib/utils";
@@ -13,6 +13,7 @@ const ICON_MAP: Record<string, LucideIcon> = {
   LayoutDashboard,
   ShoppingCart,
   Bot,
+  Layers,
 };
 
 function PricingCard({
@@ -153,7 +154,7 @@ export default function PricingSection() {
           </p>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-5 gap-6">
           {PRICING.map((tier, i) => (
             <PricingCard key={tier.title} tier={tier} index={i} />
           ))}

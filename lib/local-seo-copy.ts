@@ -35,9 +35,9 @@ const TITLE_VARIANTS: Record<LocalServiceKey, ((city: string) => string)[]> = {
     (c) => `Site de Prezentare ${c} — de la 249 EUR`,
   ],
   magazin: [
-    (c) => `Magazin Online ${c} — de la 800 EUR`,
+    (c) => `Magazin Online ${c} — de la 699 EUR`,
     (c) => `Creare Magazin Online ${c} — Preț și Termen`,
-    (c) => `Site de Vânzări Online ${c} — de la 800 EUR`,
+    (c) => `Site de Vânzări Online ${c} — de la 699 EUR`,
   ],
   automatizari: [
     (c) => `Automatizări Firme ${c} — Audit Gratuit`,
@@ -63,11 +63,11 @@ const DESCRIPTION_VARIANTS: Record<
   ],
   magazin: [
     (city, industry) =>
-      `Magazin online pentru firme din ${city.name}: produse, plăți, curierat, facturare automată. De la 800 EUR. Potrivit și pentru ${industry}.`,
+      `Magazin online pentru firme din ${city.name}: produse, plăți, curierat, facturare automată. De la 699 EUR. Potrivit și pentru ${industry}.`,
     (city) =>
-      `Creare magazin online în ${city.name} — catalog de produse, coș, plăți online și panou de administrare. De la 800 EUR, cu cod sursă predat integral.`,
+      `Creare magazin online în ${city.name} — catalog de produse, coș, plăți online și panou de administrare. De la 699 EUR, cu cod sursă predat integral.`,
     (city) =>
-      `Vinde online din ${city.name}: magazin e-commerce construit pe măsură, cu integrare de plăți și curierat. De la 800 EUR, fără comision pe vânzările tale.`,
+      `Vinde online din ${city.name}: magazin e-commerce construit pe măsură, cu integrare de plăți și curierat. De la 699 EUR, fără comision pe vânzările tale.`,
   ],
   automatizari: [
     (city, industry) =>
@@ -163,7 +163,7 @@ export type LocalPageCopy = {
 
 const SERVICE_BLURB: Record<LocalServiceKey, string> = {
   site: "Site de prezentare, de la 249 EUR",
-  magazin: "Magazin online complet, de la 800 EUR",
+  magazin: "Magazin online complet, de la 699 EUR",
   automatizari: "Automatizări și integrări, de la 100 EUR",
 };
 
@@ -283,7 +283,7 @@ function buildFaq(city: City, service: LocalService): LocalFaq[] {
     return [
       {
         question: `Cât costă un site de prezentare în ${city.name}?`,
-        answer: `Un site de prezentare pornește de la 249 EUR (aproximativ 1.245 RON) pentru varianta cu 1–4 pagini, și de la 499 EUR pentru varianta de 5–10 pagini. Prețul este același indiferent de oraș${
+        answer: `Un site de prezentare pornește de la 249 EUR (aproximativ 1.245 RON) pentru varianta cu 1–4 pagini, și de la 399 EUR pentru varianta de 5–10 pagini. Prețul este același indiferent de oraș${
           isHome ? "" : ` — nu percepem un tarif diferit pentru ${city.name} față de Constanța`
         }. În preț intră designul, implementarea, optimizarea SEO de bază, SSL și predarea codului sursă.`,
       },
@@ -303,7 +303,7 @@ function buildFaq(city: City, service: LocalService): LocalFaq[] {
     return [
       {
         question: `Cât costă un magazin online în ${city.name}?`,
-        answer: `Un magazin online complet pornește de la 800 EUR (aproximativ 4.000 RON). Prețul final depinde de numărul de produse, de câte variante are fiecare produs, de integrările cerute (plăți, curierat, facturare, ERP) și de cât de complexe sunt regulile de livrare. Îți dăm o ofertă fixă înainte să începem, nu un tarif orar.`,
+        answer: `Un magazin online complet pornește de la 699 EUR (aproximativ 3.495 RON). Prețul final depinde de numărul de produse, de câte variante are fiecare produs, de integrările cerute (plăți, curierat, facturare, ERP) și de cât de complexe sunt regulile de livrare. Îți dăm o ofertă fixă înainte să începem, nu un tarif orar.`,
       },
       ...common,
       {

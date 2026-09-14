@@ -34,7 +34,7 @@ const FAQ = [
   {
     question: "Cât costă, de fapt, un magazin online la cheie?",
     answer:
-      "Pentru un magazin construit pe măsură, cu catalog, plăți, curierat și facturare integrate, prețul pornește realist de la 800 EUR. Costul final depinde de numărul de produse, de câte variante are fiecare (mărime, culoare) și de câte sisteme externe trebuie conectate. Pe Shopify sau WooCommerce poți porni și mai ieftin lunar, dar plătești constant — abonament, aplicații, uneori comision pe vânzare.",
+      "Pentru un magazin construit pe măsură, cu catalog, plăți, curierat și facturare integrate, prețul pornește realist de la 699 EUR. Costul final depinde de numărul de produse, de câte variante are fiecare (mărime, culoare) și de câte sisteme externe trebuie conectate. Pe Shopify sau WooCommerce poți porni și mai ieftin lunar, dar plătești constant — abonament, aplicații, uneori comision pe vânzare.",
   },
   {
     question: "E mai ieftin să pornesc pe Shopify sau WooCommerce?",
@@ -96,7 +96,7 @@ export default function PretMagazinOnlinePage() {
             ],
             [
               "Magazin custom (AiWANT)",
-              "de la 800 EUR, o singură dată",
+              "de la 699 EUR, o singură dată",
               "0% către noi, doar comisionul procesatorului (≈2–3%)",
               "Tu, integral — cod sursă predat",
             ],

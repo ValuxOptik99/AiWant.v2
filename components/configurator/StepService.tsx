@@ -1,10 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Globe, LayoutDashboard, ShoppingCart, Bot, Check, type LucideIcon } from "lucide-react";
+import { Globe, LayoutDashboard, ShoppingCart, Bot, Layers, Check, type LucideIcon } from "lucide-react";
 import { CONFIG_SERVICES, type ServiceKey } from "@/lib/configurator-data";
 
-const ICON_MAP: Record<string, LucideIcon> = { Globe, LayoutDashboard, ShoppingCart, Bot };
+const ICON_MAP: Record<string, LucideIcon> = { Globe, LayoutDashboard, ShoppingCart, Bot, Layers };
 
 export default function StepService({
   value,

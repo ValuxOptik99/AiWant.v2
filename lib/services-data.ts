@@ -170,7 +170,7 @@ export const SERVICES_DATA: ServiceData[] = [
     pricingFrom: "de la 249 EUR",
     pricingFromRON: "~1.245 RON",
     pricingExtra: [
-      { label: "Site complet 5-10 pagini", price: "de la 499 EUR (~2.495 RON)" },
+      { label: "Website complet (5-10 pagini)", price: "de la 399 EUR (~1.995 RON)" },
       { label: "Landing page simplu", price: "de la 249 EUR (~1.245 RON)" },
     ],
     pricingFactors: [
@@ -208,7 +208,7 @@ export const SERVICES_DATA: ServiceData[] = [
       {
         question: "Cât costă un site de prezentare?",
         answer:
-          "De la 249 EUR (~1.245 RON), în funcție de numărul de pagini și funcționalitățile alese. Poți primi o estimare exactă în 2 minute din configuratorul de proiect, fără niciun angajament.",
+          "De la 249 EUR (~1.245 RON) pentru varianta cu 1-4 pagini și de la 399 EUR pentru pachetul Website Complet, cu 5-10 pagini și blog inclus. Poți primi o estimare exactă în 2 minute din configuratorul de proiect, fără niciun angajament.",
       },
     ],
   },
@@ -223,7 +223,7 @@ export const SERVICES_DATA: ServiceData[] = [
       "Când afacerea ta are nevoie de mai mult decât un site simplu — dashboard-uri, sisteme de booking, CRM-uri sau orice aplicație construită exact pe nevoile tale.",
     seoTitle: "Aplicații Web Custom — Dezvoltare la Comandă",
     seoDescription:
-      "Aplicații web custom: CRM, dashboard, sisteme de rezervări — dezvoltare software la comandă, de la 800 EUR. Aplicație web personalizată, cod sursă predat.",
+      "Aplicații web custom: CRM, dashboard, sisteme de rezervări — dezvoltare software la comandă, de la 799 EUR. Aplicație web personalizată, cod sursă predat.",
     problems: [
       "Folosești foi Excel sau procese manuale pentru a-ți gestiona activitatea",
       "Software-ul existent nu se potrivește fluxului tău de lucru",
@@ -343,11 +343,11 @@ export const SERVICES_DATA: ServiceData[] = [
         tags: ["Python", "HTML Processing", "Data Pipeline"],
       },
     ],
-    pricingFrom: "de la 800 EUR",
-    pricingFromRON: "~4.000 RON",
+    pricingFrom: "de la 799 EUR",
+    pricingFromRON: "~3.995 RON",
     pricingExtra: [
       { label: "CRM / sistem de booking complex", price: "1.500 – 3.000 EUR" },
-      { label: "Dashboard simplu", price: "de la 800 EUR (~4.000 RON)" },
+      { label: "Dashboard simplu", price: "de la 799 EUR (~3.995 RON)" },
     ],
     pricingFactors: [
       "Complexitate funcționalități",
@@ -392,9 +392,9 @@ export const SERVICES_DATA: ServiceData[] = [
     h1: "Creare magazin online la cheie",
     subtitle:
       "Un magazin online profesional care vinde non-stop. De la catalogul de produse la procesarea plăților — totul integrat și ușor de administrat.",
-    seoTitle: "Creare Magazin Online — Preț de la 800 EUR",
+    seoTitle: "Creare Magazin Online — Preț de la 699 EUR",
     seoDescription:
-      "Creare magazin online — platformă e-commerce cu plăți și curierat integrate, de la 800 EUR, livrare în 2-4 săptămâni. Site de vânzări online, fără comisioane.",
+      "Creare magazin online — platformă e-commerce cu plăți și curierat integrate, de la 699 EUR, livrare în 2-4 săptămâni. Site de vânzări online, fără comisioane.",
     problems: [
       "Vinzi doar fizic sau pe marketplace-uri și depinzi de comisioanele lor",
       "Ai un magazin online dar e lent, greu de administrat sau arată neprofesional",
@@ -497,14 +497,14 @@ export const SERVICES_DATA: ServiceData[] = [
     projects: [],
     projectsNote:
       "Avem experiența tehnică completă pentru e-commerce — de la integrare procesatoare de plăți la gestionare stocuri. Tehnologiile sunt aceleași pe care le folosim zilnic în aplicațiile web custom.",
-    pricingFrom: "de la 800 EUR",
-    pricingFromRON: "~4.000 RON",
+    pricingFrom: "de la 699 EUR",
+    pricingFromRON: "~3.495 RON",
     pricingExtra: [
       {
         label: "Magazin avansat (variante, integrări)",
         price: "1.500 – 3.000 EUR",
       },
-      { label: "Magazin basic", price: "de la 800 EUR (~4.000 RON)" },
+      { label: "Magazin basic", price: "de la 699 EUR (~3.495 RON)" },
     ],
     pricingFactors: [
       "Număr de produse",
@@ -541,7 +541,7 @@ export const SERVICES_DATA: ServiceData[] = [
       {
         question: "Cât costă un magazin online la cheie?",
         answer:
-          "De la 800 EUR (~4.000 RON), în funcție de numărul de produse, integrări și funcționalități alese. Livrarea completă durează 2-4 săptămâni, fără comisioane pe vânzările ulterioare.",
+          "De la 699 EUR (~3.495 RON), în funcție de numărul de produse, integrări și funcționalități alese. Livrarea completă durează 2-4 săptămâni, fără comisioane pe vânzările ulterioare.",
       },
     ],
   },

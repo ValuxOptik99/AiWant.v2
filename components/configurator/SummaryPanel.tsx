@@ -98,11 +98,11 @@ export default function SummaryPanel({
             sau de la ~{Math.round(low / 12).toLocaleString("ro-RO")} EUR/lună cu plata în rate (12 luni)
           </p>
         )}
-        {estimate.weeksLow > 0 && (
+        {estimate.durationLabel && (
           <>
             <p className="text-xs font-medium mt-3 mb-1" style={{ color: "var(--color-text-muted)" }}>Durată estimată</p>
             <p className="text-sm font-semibold" style={{ color: "var(--color-text-on-dark)" }}>
-              {estimate.weeksLow}–{estimate.weeksHigh} săptămâni
+              {estimate.durationLabel}
             </p>
           </>
         )}

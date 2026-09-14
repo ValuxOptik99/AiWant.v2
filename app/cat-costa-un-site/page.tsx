@@ -85,9 +85,9 @@ export default function CatCostaUnSitePage() {
           rows={[
             ["Landing page (o pagină)", "150 – 600 EUR", "de la 249 EUR", "2–3 zile"],
             ["Site de prezentare, 1–4 pagini", "250 – 1.200 EUR", "249 EUR", "2–3 zile"],
-            ["Site de prezentare, 5–10 pagini", "500 – 2.500 EUR", "499 EUR", "4–5 zile"],
-            ["Magazin online", "800 – 6.000 EUR", "de la 800 EUR", "2–4 săptămâni"],
-            ["Aplicație web / platformă custom", "1.500 – 15.000+ EUR", "de la 800 EUR", "de la 3 săptămâni"],
+            ["Website complet, 5–10 pagini", "500 – 2.500 EUR", "399 EUR", "4–5 zile"],
+            ["Magazin online", "800 – 6.000 EUR", "de la 699 EUR", "2–4 săptămâni"],
+            ["Aplicație web / platformă custom", "1.500 – 15.000+ EUR", "de la 799 EUR", "de la 3 săptămâni"],
             ["Automatizări și integrări", "100 – 3.000 EUR", "de la 100 EUR", "1–3 săptămâni"],
           ]}
           note="Intervalele de piață sunt orientative și variază în funcție de agenție, oraș și complexitate. Prețurile noastre sunt fixe, stabilite înainte de start."

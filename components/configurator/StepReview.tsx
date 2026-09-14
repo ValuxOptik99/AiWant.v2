@@ -79,7 +79,7 @@ export default function StepReview({
             </p>
 
             <p className="text-xs font-semibold uppercase tracking-wide mb-2 mt-5" style={{ color: "var(--color-text-muted)" }}>Durată estimată</p>
-            <p className="text-sm font-medium" style={{ color: "var(--color-text-on-dark)" }}>{estimate.weeksLow}–{estimate.weeksHigh} săptămâni</p>
+            <p className="text-sm font-medium" style={{ color: "var(--color-text-on-dark)" }}>{estimate.durationLabel}</p>
 
             <p className="text-xs font-semibold uppercase tracking-wide mb-2 mt-5" style={{ color: "var(--color-text-muted)" }}>Preferință timeline</p>
             <p className="text-sm font-medium" style={{ color: "var(--color-text-on-dark)" }}>{timelineLabel}</p>
