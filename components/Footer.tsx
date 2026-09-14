@@ -9,6 +9,7 @@ const QUICK_LINKS = [
   { label: "Servicii", href: "#servicii" },
   { label: "Portofoliu", href: "/portofoliu" },
   { label: "Prețuri", href: "#preturi" },
+  { label: "Orașe", href: "/orase" },
   { label: "Contact", href: "#contact" },
 ];
 

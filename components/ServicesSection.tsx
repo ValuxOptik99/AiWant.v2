@@ -133,6 +133,19 @@ export default function ServicesSection() {
             <ServiceCard key={service.title} service={service} index={i} />
           ))}
         </div>
+
+        <ScrollReveal className="text-center mt-12">
+          <p className="text-sm" style={{ color: "var(--color-text-secondary)" }}>
+            Lucrăm cu firme din toată România —{" "}
+            <Link
+              href="/orase"
+              className="font-semibold underline underline-offset-2"
+              style={{ color: "var(--color-gold-dark)" }}
+            >
+              vezi orașele
+            </Link>
+          </p>
+        </ScrollReveal>
       </div>
     </section>
   );

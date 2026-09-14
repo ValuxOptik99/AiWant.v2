@@ -34,6 +34,7 @@ export default function ServiceNavbar() {
     { label: "Servicii", href: "/#servicii" },
     { label: "Portofoliu", href: "/#portofoliu" },
     { label: "Prețuri", href: "/#preturi" },
+    { label: "Orașe", href: "/orase" },
     { label: "Despre noi", href: "/#despre" },
     { label: "Contact", href: "/#contact" },
   ];
