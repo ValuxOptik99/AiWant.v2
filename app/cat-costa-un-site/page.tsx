@@ -18,7 +18,7 @@ const URL = `${SITE_URL}/cat-costa-un-site`;
 export const metadata: Metadata = {
   title: "Cât Costă un Site de Prezentare în 2026 — Prețuri Reale",
   description:
-    "Cât costă un site web în România: prețuri reale pe tip de proiect, ce urcă factura, ce costuri ascunse apar după livrare și cum compari corect două oferte. De la 249 EUR.",
+    "Cât costă un site web în România: prețuri reale pe tip de proiect, ce urcă factura și ce costuri apar după livrare. Plus cum compari corect două oferte.",
   alternates: { canonical: "/cat-costa-un-site" },
   openGraph: {
     title: "Cât Costă un Site de Prezentare în 2026 | AiWANT",

@@ -11,6 +11,7 @@
  * Ieșire: cod 0 dacă totul trece, 1 dacă a picat ceva (utilizabil în CI).
  */
 
+import { readFileSync } from "node:fs";
 import { buildLocalPageCopy, type LocalPageCopy } from "@/lib/local-seo-copy";
 import { CITIES, getAllLocalPages } from "@/lib/local-seo-data";
 
@@ -189,6 +190,57 @@ check(
   artifacts.length === 0,
   `6. Artefacte gramaticale — 0 pe ${pages.length} pagini (${PATTERNS.length} tipare verificate)`,
   `6. Artefacte gramaticale (${artifacts.length}):\n     ` + artifacts.slice(0, 12).join("\n     ")
+);
+
+
+// ── 7. Paginile editoriale (scrise de mână, nu generate) ─────────────────────
+// Aceleași limite de lungime se aplică și aici. Sunt scrise manual, deci nimeni
+// nu numără caracterele — de asta le numără scriptul. Trei din patru depășeau
+// 165 la prima verificare.
+const EDITORIAL_ROUTES = [
+  "cat-costa-un-site",
+  "pret-magazin-online",
+  "wordpress-vs-site-custom",
+  "agentie-web-vs-freelancer",
+];
+
+const editorialProblems: string[] = [];
+const editorialLengths: number[] = [];
+
+for (const route of EDITORIAL_ROUTES) {
+  let source: string;
+  try {
+    source = readFileSync(`app/${route}/page.tsx`, "utf8");
+  } catch {
+    editorialProblems.push(`${route}: app/${route}/page.tsx nu există`);
+    continue;
+  }
+
+  const title = source.match(/title:\s*\n?\s*"([^"]*)"/)?.[1];
+  const description = source.match(/description:\s*\n?\s*"([^"]*)"/)?.[1];
+
+  if (!title) editorialProblems.push(`${route}: lipsește metadata.title`);
+  else if (title.length > TITLE_MAX)
+    editorialProblems.push(`${route}: titlu ${title.length} car (max ${TITLE_MAX}) — "${title}"`);
+
+  if (!description) editorialProblems.push(`${route}: lipsește metadata.description`);
+  else {
+    editorialLengths.push(description.length);
+    if (description.length < DESC_MIN || description.length > DESC_MAX)
+      editorialProblems.push(`${route}: descriere ${description.length} car (${DESC_MIN}–${DESC_MAX})`);
+  }
+
+  if (!new RegExp(`canonical:\\s*"/${route}"`).test(source))
+    editorialProblems.push(`${route}: canonical lipsă sau diferit de "/${route}"`);
+
+  if (!source.includes("faqJsonLd"))
+    editorialProblems.push(`${route}: fără FAQPage JSON-LD`);
+}
+
+check(
+  editorialProblems.length === 0,
+  `7. Pagini editoriale — ${EDITORIAL_ROUTES.length}/${EDITORIAL_ROUTES.length} cu titlu, descriere (${Math.min(...editorialLengths)}–${Math.max(...editorialLengths)} car), canonical și FAQ JSON-LD`,
+  `7. Probleme pe paginile editoriale (${editorialProblems.length}):\n     ` + editorialProblems.join("\n     ")
 );
 
 // ── Raport ───────────────────────────────────────────────────────────────────

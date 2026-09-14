@@ -17,7 +17,7 @@ const URL = `${SITE_URL}/pret-magazin-online`;
 export const metadata: Metadata = {
   title: "Cât Costă un Magazin Online în 2026 — Prețuri Reale",
   description:
-    "Cât costă un magazin online: Shopify, WooCommerce sau platformă custom, cu costul real pe anul 1 — licență, hosting, pluginuri, comisioane. De la 800 EUR, fără comision pe vânzare.",
+    "Cât costă un magazin online: Shopify, WooCommerce sau platformă custom, cu costul real pe primul an — licență, hosting, pluginuri și comisioane.",
   alternates: { canonical: "/pret-magazin-online" },
   openGraph: {
     title: "Cât Costă un Magazin Online în 2026 | AiWANT",

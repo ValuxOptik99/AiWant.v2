@@ -17,7 +17,7 @@ const URL = `${SITE_URL}/agentie-web-vs-freelancer`;
 export const metadata: Metadata = {
   title: "Agenție Web vs Freelancer — Ce Alegi și Ce Întrebi",
   description:
-    "Agenție sau freelancer pentru site-ul tău: comparație pe preț, viteză, risc de abandon și continuitate, plus întrebările de pus înainte să semnezi, indiferent de variantă.",
+    "Agenție sau freelancer pentru site-ul tău: comparație pe preț, viteză, risc de abandon și continuitate, plus ce întrebi înainte să semnezi.",
   alternates: { canonical: "/agentie-web-vs-freelancer" },
   openGraph: {
     title: "Agenție Web vs Freelancer — Ce Alegi și Ce Întrebi | AiWANT",
